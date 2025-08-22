@@ -16,7 +16,6 @@ This project is a **smart home temperature control system** developed using an *
 - **Temperature Sensor:** LM35  
 - **Display:** 16x2 LCD  
 - **Input:** 4x4 Keypad  
-- **Memory:** EEPROM (internal/external)  
 - **Power Supply:** 5V DC  
 
 ## How It Works
@@ -38,23 +37,7 @@ This project is a **smart home temperature control system** developed using an *
 ## Software & Tools
 
 - **Language:** C (AVR-GCC)  
-- **IDE:** Atmel Studio / Microchip Studio  
-- **Programmer:** USBasp or compatible AVR ISP  
-
-## How to Use
-
-1. Flash the firmware to the ATmega32  
-2. Power up the system (5V DC)  
-3. Enter the password via the keypad (default: `123`)  
-4. If correct, the system will display the temperature  
-5. To change the password, follow the change-password mode (if implemented)  
-
-## Future Enhancements
-
-- Add **fan/heater control based on temperature**  
-- Enable **multiple user passwords or access levels**  
-- Integrate **Bluetooth or Wi-Fi** for remote control  
-- Add **lockout mechanism after multiple wrong attempts**  
+- **IDE:** Eclipse   
 
 ## License
 
