@@ -1,0 +1,50 @@
+23:39:14 **** Build of configuration Debug for project MCU_3 ****
+make all 
+Building file: ../MCAL/DIO.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"MCAL/DIO.d" -MT"MCAL/DIO.o" -c -o "MCAL/DIO.o" "../MCAL/DIO.c"
+Finished building: ../MCAL/DIO.c
+ 
+Building file: ../APP/main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"APP/main.d" -MT"APP/main.o" -c -o "APP/main.o" "../APP/main.c"
+In file included from ../APP/main.c:10:
+d:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../APP/main.c:11: warning: return type of 'main' is not 'int'
+Finished building: ../APP/main.c
+ 
+Building target: MCU_3.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,MCU_3.map -mmcu=atmega16 -o "MCU_3.elf"  ./MCAL/DIO.o  ./APP/main.o   
+Finished building target: MCU_3.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S MCU_3.elf  >"MCU_3.lss"
+Finished building: MCU_3.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex MCU_3.elf  "MCU_3.hex"
+Finished building: MCU_3.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex MCU_3.elf  "MCU_3.eep"
+Finished building: MCU_3.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 MCU_3.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    1690 bytes (10.3% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+23:39:16 Build Finished. 0 errors, 2 warnings. (took 2s.114ms)
+

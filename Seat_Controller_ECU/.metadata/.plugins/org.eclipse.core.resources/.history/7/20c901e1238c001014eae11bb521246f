@@ -1,0 +1,35 @@
+/*
+ * DIO.c
+ *
+ *  Created on: Sep 7, 2025
+ *      Author: Moata
+ */
+#include "DIO.h"
+
+void DIO_INIT(u8 PORT_NAME, u8 PIN_NUM, u8 Mode);
+{
+	switch(PORT_NAME)
+	{
+	case DIO_PORTA:
+		if( Mode == DIO_INPUT)
+		{
+
+		}
+		else if(Mode == DIO_OUTPUT)
+	case DIO_PORTB:
+	case DIO_PORTC:
+	case DIO_PORTD:
+	}
+}
+void DIO_SET_PIN_DIR(u8 PORT_NAME, u8 PIN_NUM, u8 Value)
+{
+
+}
+void DIO_TOG_PIN(u8 PORT_NAME, u8 PIN_NUM)
+{
+
+}
+u8 DIO_READ_PIN(u8 PORT_NAME, u8 PIN_NUM)
+{
+
+}

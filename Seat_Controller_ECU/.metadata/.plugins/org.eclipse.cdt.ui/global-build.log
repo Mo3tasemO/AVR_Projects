@@ -1,0 +1,593 @@
+22:37:31 **** Build of configuration Debug for project MCU_1 ****
+make all 
+Building file: ../MCAL/DIO.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"MCAL/DIO.d" -MT"MCAL/DIO.o" -c -o "MCAL/DIO.o" "../MCAL/DIO.c"
+Finished building: ../MCAL/DIO.c
+ 
+Building file: ../APP/main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"APP/main.d" -MT"APP/main.o" -c -o "APP/main.o" "../APP/main.c"
+Finished building: ../APP/main.c
+ 
+Building target: MCU_1.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,MCU_1.map -mmcu=atmega16 -o "MCU_1.elf"  ./MCAL/DIO.o  ./APP/main.o   
+d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm16.o:(.init9+0x0): undefined reference to `main'
+make: *** [MCU_1.elf] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+22:37:47 **** Incremental Build of configuration Debug for project MCU_1 ****
+make all 
+Building file: ../APP/main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"APP/main.d" -MT"APP/main.o" -c -o "APP/main.o" "../APP/main.c"
+../APP/main.c:7: warning: return type of 'main' is not 'int'
+Finished building: ../APP/main.c
+ 
+Building target: MCU_1.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,MCU_1.map -mmcu=atmega16 -o "MCU_1.elf"  ./MCAL/DIO.o  ./APP/main.o   
+Finished building target: MCU_1.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S MCU_1.elf  >"MCU_1.lss"
+Finished building: MCU_1.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex MCU_1.elf  "MCU_1.hex"
+Finished building: MCU_1.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 MCU_1.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:     126 bytes (0.8% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+22:46:21 **** Incremental Build of configuration Debug for project MCU_1 ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 MCU_1.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:     126 bytes (0.8% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+22:46:24 **** Incremental Build of configuration Debug for project MCU_1 ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 MCU_1.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:     126 bytes (0.8% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+22:50:18 **** Incremental Build of configuration Debug for project MCU_1 ****
+make all 
+Building file: ../MCAL/DIO.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"MCAL/DIO.d" -MT"MCAL/DIO.o" -c -o "MCAL/DIO.o" "../MCAL/DIO.c"
+../MCAL/DIO.c:10: error: expected identifier or '(' before '{' token
+../MCAL/DIO.c: In function 'DIO_READ_PIN':
+../MCAL/DIO.c:38: warning: control reaches end of non-void function
+make: *** [MCAL/DIO.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+22:52:00 **** Incremental Build of configuration Debug for project MCU_1 ****
+make all 
+Building file: ../MCAL/DIO.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"MCAL/DIO.d" -MT"MCAL/DIO.o" -c -o "MCAL/DIO.o" "../MCAL/DIO.c"
+../MCAL/DIO.c:10: error: expected identifier or '(' before '{' token
+../MCAL/DIO.c: In function 'DIO_READ_PIN':
+../MCAL/DIO.c:62: warning: control reaches end of non-void function
+make: *** [MCAL/DIO.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+22:52:52 **** Incremental Build of configuration Debug for project MCU_1 ****
+make all 
+Building file: ../MCAL/DIO.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"MCAL/DIO.d" -MT"MCAL/DIO.o" -c -o "MCAL/DIO.o" "../MCAL/DIO.c"
+../MCAL/DIO.c:10: error: expected identifier or '(' before '{' token
+../MCAL/DIO.c: In function 'DIO_READ_PIN':
+../MCAL/DIO.c:62: warning: control reaches end of non-void function
+make: *** [MCAL/DIO.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+22:52:57 **** Incremental Build of configuration Debug for project MCU_1 ****
+make all 
+Building file: ../MCAL/DIO.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"MCAL/DIO.d" -MT"MCAL/DIO.o" -c -o "MCAL/DIO.o" "../MCAL/DIO.c"
+../MCAL/DIO.c:10: error: expected identifier or '(' before '{' token
+../MCAL/DIO.c: In function 'DIO_READ_PIN':
+../MCAL/DIO.c:62: warning: control reaches end of non-void function
+make: *** [MCAL/DIO.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+22:53:22 **** Incremental Build of configuration Debug for project MCU_1 ****
+make all 
+Building file: ../MCAL/DIO.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"MCAL/DIO.d" -MT"MCAL/DIO.o" -c -o "MCAL/DIO.o" "../MCAL/DIO.c"
+../MCAL/DIO.c:11: error: expected identifier or '(' before '{' token
+../MCAL/DIO.c: In function 'DIO_READ_PIN':
+../MCAL/DIO.c:63: warning: control reaches end of non-void function
+make: *** [MCAL/DIO.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+22:53:44 **** Incremental Build of configuration Debug for project MCU_1 ****
+make all 
+Building file: ../MCAL/DIO.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"MCAL/DIO.d" -MT"MCAL/DIO.o" -c -o "MCAL/DIO.o" "../MCAL/DIO.c"
+../MCAL/DIO.c: In function 'DIO_INIT':
+../MCAL/DIO.c:17: error: expected expression before ')' token
+../MCAL/DIO.c:19: error: 'DIO_OUTPUT' undeclared (first use in this function)
+../MCAL/DIO.c:19: error: (Each undeclared identifier is reported only once
+../MCAL/DIO.c:19: error: for each function it appears in.)
+../MCAL/DIO.c:21: error: expected expression before ')' token
+../MCAL/DIO.c:26: error: expected expression before ')' token
+../MCAL/DIO.c:30: error: expected expression before ')' token
+../MCAL/DIO.c:35: error: expected expression before ')' token
+../MCAL/DIO.c:39: error: expected expression before ')' token
+../MCAL/DIO.c:44: error: expected expression before ')' token
+../MCAL/DIO.c:48: error: expected expression before ')' token
+../MCAL/DIO.c: In function 'DIO_READ_PIN':
+../MCAL/DIO.c:63: warning: control reaches end of non-void function
+make: *** [MCAL/DIO.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+22:54:28 **** Incremental Build of configuration Debug for project MCU_1 ****
+make all 
+Building file: ../MCAL/DIO.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"MCAL/DIO.d" -MT"MCAL/DIO.o" -c -o "MCAL/DIO.o" "../MCAL/DIO.c"
+../MCAL/DIO.c: In function 'DIO_INIT':
+../MCAL/DIO.c:17: error: expected expression before ')' token
+../MCAL/DIO.c:19: error: 'DIO_OUTPUT' undeclared (first use in this function)
+../MCAL/DIO.c:19: error: (Each undeclared identifier is reported only once
+../MCAL/DIO.c:19: error: for each function it appears in.)
+../MCAL/DIO.c:21: error: expected expression before ')' token
+../MCAL/DIO.c:27: error: expected expression before ')' token
+../MCAL/DIO.c:31: error: expected expression before ')' token
+../MCAL/DIO.c:37: error: expected expression before ')' token
+../MCAL/DIO.c:41: error: expected expression before ')' token
+../MCAL/DIO.c:47: error: expected expression before ')' token
+../MCAL/DIO.c:51: error: expected expression before ')' token
+../MCAL/DIO.c: In function 'DIO_READ_PIN':
+../MCAL/DIO.c:67: warning: control reaches end of non-void function
+make: *** [MCAL/DIO.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+22:54:52 **** Incremental Build of configuration Debug for project MCU_1 ****
+make all 
+Building file: ../MCAL/DIO.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"MCAL/DIO.d" -MT"MCAL/DIO.o" -c -o "MCAL/DIO.o" "../MCAL/DIO.c"
+../MCAL/DIO.c: In function 'DIO_INIT':
+../MCAL/DIO.c:20: error: expected expression before ')' token
+../MCAL/DIO.c:22: error: 'DIO_OUTPUT' undeclared (first use in this function)
+../MCAL/DIO.c:22: error: (Each undeclared identifier is reported only once
+../MCAL/DIO.c:22: error: for each function it appears in.)
+../MCAL/DIO.c:24: error: expected expression before ')' token
+../MCAL/DIO.c:30: error: expected expression before ')' token
+../MCAL/DIO.c:34: error: expected expression before ')' token
+../MCAL/DIO.c:40: error: expected expression before ')' token
+../MCAL/DIO.c:44: error: expected expression before ')' token
+../MCAL/DIO.c:50: error: expected expression before ')' token
+../MCAL/DIO.c:54: error: expected expression before ')' token
+../MCAL/DIO.c: In function 'DIO_READ_PIN':
+../MCAL/DIO.c:70: warning: control reaches end of non-void function
+make: *** [MCAL/DIO.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+22:55:25 **** Incremental Build of configuration Debug for project MCU_1 ****
+make all 
+Building file: ../MCAL/DIO.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"MCAL/DIO.d" -MT"MCAL/DIO.o" -c -o "MCAL/DIO.o" "../MCAL/DIO.c"
+../MCAL/DIO.c: In function 'DIO_INIT':
+../MCAL/DIO.c:20: error: expected expression before ')' token
+../MCAL/DIO.c:22: error: 'DIO_OUTPUT' undeclared (first use in this function)
+../MCAL/DIO.c:22: error: (Each undeclared identifier is reported only once
+../MCAL/DIO.c:22: error: for each function it appears in.)
+../MCAL/DIO.c:24: error: expected expression before ')' token
+../MCAL/DIO.c:30: error: expected expression before ')' token
+../MCAL/DIO.c:34: error: expected expression before ')' token
+../MCAL/DIO.c:40: error: expected expression before ')' token
+../MCAL/DIO.c:44: error: expected expression before ')' token
+../MCAL/DIO.c:50: error: expected expression before ')' token
+../MCAL/DIO.c:54: error: expected expression before ')' token
+../MCAL/DIO.c: In function 'DIO_READ_PIN':
+../MCAL/DIO.c:70: warning: control reaches end of non-void function
+make: *** [MCAL/DIO.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+22:57:01 **** Incremental Build of configuration Debug for project MCU_1 ****
+make all 
+Building file: ../MCAL/DIO.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"MCAL/DIO.d" -MT"MCAL/DIO.o" -c -o "MCAL/DIO.o" "../MCAL/DIO.c"
+../MCAL/DIO.c: In function 'DIO_INIT':
+../MCAL/DIO.c:21: error: expected expression before ')' token
+../MCAL/DIO.c:23: error: 'DIO_OUTPUT' undeclared (first use in this function)
+../MCAL/DIO.c:23: error: (Each undeclared identifier is reported only once
+../MCAL/DIO.c:23: error: for each function it appears in.)
+../MCAL/DIO.c:25: error: expected expression before ')' token
+../MCAL/DIO.c:31: error: expected expression before ')' token
+../MCAL/DIO.c:35: error: expected expression before ')' token
+../MCAL/DIO.c:41: error: expected expression before ')' token
+../MCAL/DIO.c:45: error: expected expression before ')' token
+../MCAL/DIO.c:51: error: expected expression before ')' token
+../MCAL/DIO.c:55: error: expected expression before ')' token
+../MCAL/DIO.c: In function 'DIO_READ_PIN':
+../MCAL/DIO.c:71: warning: control reaches end of non-void function
+make: *** [MCAL/DIO.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+22:57:33 **** Incremental Build of configuration Debug for project MCU_1 ****
+make all 
+Building file: ../MCAL/DIO.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"MCAL/DIO.d" -MT"MCAL/DIO.o" -c -o "MCAL/DIO.o" "../MCAL/DIO.c"
+../MCAL/DIO.c: In function 'DIO_INIT':
+../MCAL/DIO.c:21: error: expected expression before ')' token
+../MCAL/DIO.c:23: error: 'DIO_OUTPUT' undeclared (first use in this function)
+../MCAL/DIO.c:23: error: (Each undeclared identifier is reported only once
+../MCAL/DIO.c:23: error: for each function it appears in.)
+../MCAL/DIO.c:25: error: expected expression before ')' token
+../MCAL/DIO.c:31: error: expected expression before ')' token
+../MCAL/DIO.c:35: error: expected expression before ')' token
+../MCAL/DIO.c:41: error: expected expression before ')' token
+../MCAL/DIO.c:45: error: expected expression before ')' token
+../MCAL/DIO.c:51: error: expected expression before ')' token
+../MCAL/DIO.c:55: error: expected expression before ')' token
+../MCAL/DIO.c: In function 'DIO_READ_PIN':
+../MCAL/DIO.c:71: warning: control reaches end of non-void function
+make: *** [MCAL/DIO.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+22:57:35 **** Incremental Build of configuration Debug for project MCU_1 ****
+make all 
+Building file: ../MCAL/DIO.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"MCAL/DIO.d" -MT"MCAL/DIO.o" -c -o "MCAL/DIO.o" "../MCAL/DIO.c"
+../MCAL/DIO.c: In function 'DIO_INIT':
+../MCAL/DIO.c:21: error: expected expression before ')' token
+../MCAL/DIO.c:23: error: 'DIO_OUTPUT' undeclared (first use in this function)
+../MCAL/DIO.c:23: error: (Each undeclared identifier is reported only once
+../MCAL/DIO.c:23: error: for each function it appears in.)
+../MCAL/DIO.c:25: error: expected expression before ')' token
+../MCAL/DIO.c:31: error: expected expression before ')' token
+../MCAL/DIO.c:35: error: expected expression before ')' token
+../MCAL/DIO.c:41: error: expected expression before ')' token
+../MCAL/DIO.c:45: error: expected expression before ')' token
+../MCAL/DIO.c:51: error: expected expression before ')' token
+../MCAL/DIO.c:55: error: expected expression before ')' token
+../MCAL/DIO.c: In function 'DIO_READ_PIN':
+../MCAL/DIO.c:71: warning: control reaches end of non-void function
+make: *** [MCAL/DIO.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+22:59:50 **** Incremental Build of configuration Debug for project MCU_1 ****
+make all 
+Building file: ../MCAL/DIO.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"MCAL/DIO.d" -MT"MCAL/DIO.o" -c -o "MCAL/DIO.o" "../MCAL/DIO.c"
+../MCAL/DIO.c: In function 'DIO_INIT':
+../MCAL/DIO.c:23: error: 'DIO_OUTPUT' undeclared (first use in this function)
+../MCAL/DIO.c:23: error: (Each undeclared identifier is reported only once
+../MCAL/DIO.c:23: error: for each function it appears in.)
+../MCAL/DIO.c: In function 'DIO_READ_PIN':
+../MCAL/DIO.c:71: warning: control reaches end of non-void function
+make: *** [MCAL/DIO.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+23:00:20 **** Incremental Build of configuration Debug for project MCU_1 ****
+make all 
+Building file: ../MCAL/DIO.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"MCAL/DIO.d" -MT"MCAL/DIO.o" -c -o "MCAL/DIO.o" "../MCAL/DIO.c"
+../MCAL/DIO.c: In function 'DIO_READ_PIN':
+../MCAL/DIO.c:71: warning: control reaches end of non-void function
+Finished building: ../MCAL/DIO.c
+ 
+Building target: MCU_1.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,MCU_1.map -mmcu=atmega16 -o "MCU_1.elf"  ./MCAL/DIO.o  ./APP/main.o   
+Finished building target: MCU_1.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S MCU_1.elf  >"MCU_1.lss"
+Finished building: MCU_1.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex MCU_1.elf  "MCU_1.hex"
+Finished building: MCU_1.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 MCU_1.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:     694 bytes (4.2% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+23:11:16 **** Incremental Build of configuration Debug for project MCU_1 ****
+make all 
+Building file: ../MCAL/DIO.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"MCAL/DIO.d" -MT"MCAL/DIO.o" -c -o "MCAL/DIO.o" "../MCAL/DIO.c"
+Finished building: ../MCAL/DIO.c
+ 
+Building file: ../APP/main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"APP/main.d" -MT"APP/main.o" -c -o "APP/main.o" "../APP/main.c"
+../APP/main.c:10: warning: return type of 'main' is not 'int'
+Finished building: ../APP/main.c
+ 
+Building target: MCU_1.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,MCU_1.map -mmcu=atmega16 -o "MCU_1.elf"  ./MCAL/DIO.o  ./APP/main.o   
+Finished building target: MCU_1.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S MCU_1.elf  >"MCU_1.lss"
+Finished building: MCU_1.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex MCU_1.elf  "MCU_1.hex"
+Finished building: MCU_1.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 MCU_1.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    1710 bytes (10.4% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+23:11:18 **** Incremental Build of configuration Debug for project MCU_1 ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 MCU_1.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    1710 bytes (10.4% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+23:14:58 **** Incremental Build of configuration Debug for project MCU_1 ****
+make all 
+Building file: ../APP/main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"APP/main.d" -MT"APP/main.o" -c -o "APP/main.o" "../APP/main.c"
+In file included from ../APP/main.c:10:
+d:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../APP/main.c:11: warning: return type of 'main' is not 'int'
+Finished building: ../APP/main.c
+ 
+Building target: MCU_1.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,MCU_1.map -mmcu=atmega16 -o "MCU_1.elf"  ./MCAL/DIO.o  ./APP/main.o   
+Finished building target: MCU_1.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S MCU_1.elf  >"MCU_1.lss"
+Finished building: MCU_1.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex MCU_1.elf  "MCU_1.hex"
+Finished building: MCU_1.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 MCU_1.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    4840 bytes (29.5% Full)
+(.text + .data + .bootloader)
+
+Data:          8 bytes (0.8% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+23:15:07 **** Incremental Build of configuration Debug for project MCU_1 ****
+make all 
+Building file: ../APP/main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"APP/main.d" -MT"APP/main.o" -c -o "APP/main.o" "../APP/main.c"
+In file included from ../APP/main.c:10:
+d:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../APP/main.c:11: warning: return type of 'main' is not 'int'
+Finished building: ../APP/main.c
+ 
+Building target: MCU_1.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,MCU_1.map -mmcu=atmega16 -o "MCU_1.elf"  ./MCAL/DIO.o  ./APP/main.o   
+Finished building target: MCU_1.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S MCU_1.elf  >"MCU_1.lss"
+Finished building: MCU_1.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex MCU_1.elf  "MCU_1.hex"
+Finished building: MCU_1.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 MCU_1.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    5068 bytes (30.9% Full)
+(.text + .data + .bootloader)
+
+Data:          8 bytes (0.8% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+23:15:09 **** Incremental Build of configuration Debug for project MCU_1 ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 MCU_1.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    5068 bytes (30.9% Full)
+(.text + .data + .bootloader)
+
+Data:          8 bytes (0.8% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+23:39:11 **** Incremental Build of configuration Debug for project MCU_1 ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 MCU_1.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    5068 bytes (30.9% Full)
+(.text + .data + .bootloader)
+
+Data:          8 bytes (0.8% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+23:39:12 **** Build of configuration Debug for project MCU_2 ****
+make all 
+Building file: ../MCAL/DIO.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"MCAL/DIO.d" -MT"MCAL/DIO.o" -c -o "MCAL/DIO.o" "../MCAL/DIO.c"
+Finished building: ../MCAL/DIO.c
+ 
+Building file: ../APP/main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"APP/main.d" -MT"APP/main.o" -c -o "APP/main.o" "../APP/main.c"
+In file included from ../APP/main.c:10:
+d:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../APP/main.c:11: warning: return type of 'main' is not 'int'
+Finished building: ../APP/main.c
+ 
+Building target: MCU_2.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,MCU_2.map -mmcu=atmega16 -o "MCU_2.elf"  ./MCAL/DIO.o  ./APP/main.o   
+Finished building target: MCU_2.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S MCU_2.elf  >"MCU_2.lss"
+Finished building: MCU_2.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex MCU_2.elf  "MCU_2.hex"
+Finished building: MCU_2.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 MCU_2.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    1690 bytes (10.3% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+23:39:14 **** Build of configuration Debug for project MCU_3 ****
+make all 
+Building file: ../MCAL/DIO.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"MCAL/DIO.d" -MT"MCAL/DIO.o" -c -o "MCAL/DIO.o" "../MCAL/DIO.c"
+Finished building: ../MCAL/DIO.c
+ 
+Building file: ../APP/main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"APP/main.d" -MT"APP/main.o" -c -o "APP/main.o" "../APP/main.c"
+In file included from ../APP/main.c:10:
+d:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../APP/main.c:11: warning: return type of 'main' is not 'int'
+Finished building: ../APP/main.c
+ 
+Building target: MCU_3.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,MCU_3.map -mmcu=atmega16 -o "MCU_3.elf"  ./MCAL/DIO.o  ./APP/main.o   
+Finished building target: MCU_3.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S MCU_3.elf  >"MCU_3.lss"
+Finished building: MCU_3.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex MCU_3.elf  "MCU_3.hex"
+Finished building: MCU_3.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex MCU_3.elf  "MCU_3.eep"
+Finished building: MCU_3.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 MCU_3.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    1690 bytes (10.3% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
