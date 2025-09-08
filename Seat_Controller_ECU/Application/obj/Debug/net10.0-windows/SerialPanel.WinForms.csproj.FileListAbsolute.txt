@@ -1,0 +1,5 @@
+C:\Users\AMRYB\Desktop\Emb_desktop_app\SerialPanel.WinForms\obj\Debug\net10.0-windows\SerialPanel.WinForms.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\AMRYB\Desktop\Emb_desktop_app\SerialPanel.WinForms\obj\Debug\net10.0-windows\SerialPanel.WinForms.AssemblyInfoInputs.cache
+C:\Users\AMRYB\Desktop\Emb_desktop_app\SerialPanel.WinForms\obj\Debug\net10.0-windows\SerialPanel.WinForms.AssemblyInfo.cs
+C:\Users\AMRYB\Desktop\Emb_desktop_app\SerialPanel.WinForms\obj\Debug\net10.0-windows\SerialPanel.WinForms.csproj.CoreCompileInputs.cache
+C:\Users\AMRYB\Desktop\Emb_desktop_app\SerialPanel.WinForms\obj\Debug\net10.0-windows\SerialPanel.WinForms.csproj.AssemblyReference.cache
