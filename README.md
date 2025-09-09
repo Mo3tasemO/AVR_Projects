@@ -42,3 +42,4 @@ This project is a **smart home temperature control system** developed using an *
 ## License
 
 This project is licensed under the **MIT License** – feel free to use and modify it.
+only test
