@@ -4,22 +4,21 @@
  *  Created on: Sep 7, 2025
  *      Author: Moata
  */
-#include "../MCAL/DIO.h"
+#include "../MCAL/DIO/DIO.h"
 #include "../LIB/BIT_MATH.h"
 #include "../LIB/STD_TYPES.h"
+#include "../MCAL/EEPROM/EEPROM.h"
+#include "../MCAL/UART/UART.h"
 #include <util/delay.h>
 void main()
 {
+	UART_Init(9600, 8) ;
 
-	EEPROM_WRITE(0x50, 15);
-
-	while(1)
+	u8 Received_Data = UART_RX();
+	EEPROM_WRITE(0x40, Received_Data);
+	_delay_ms(500) ;
+	while (1)
 	{
-
-
-
 	}
-
-
 }
 

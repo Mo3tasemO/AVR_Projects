@@ -1,4 +1,4 @@
-20:45:51 **** Incremental Build of configuration Release for project SPI_EEPROM ****
+22:44:05 **** Build of configuration Release for project Test ****
 make all 
 Building file: ../MCAL/DIO.c
 Invoking: AVR Compiler
@@ -15,38 +15,795 @@ Invoking: AVR Compiler
 avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"MCAL/UART.d" -MT"MCAL/UART.o" -c -o "MCAL/UART.o" "../MCAL/UART.c"
 Finished building: ../MCAL/UART.c
  
-Building file: ../APP/main.c
+Building file: ../APP/main1.c
 Invoking: AVR Compiler
-avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"APP/main.d" -MT"APP/main.o" -c -o "APP/main.o" "../APP/main.c"
-../APP/main.c:11: warning: return type of 'main' is not 'int'
-../APP/main.c: In function 'main':
-../APP/main.c:13: warning: implicit declaration of function 'EEPROM_WRITE'
-Finished building: ../APP/main.c
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"APP/main1.d" -MT"APP/main1.o" -c -o "APP/main1.o" "../APP/main1.c"
+../APP/main1.c:12: warning: return type of 'main' is not 'int'
+../APP/main1.c: In function 'main':
+../APP/main1.c:18: warning: implicit declaration of function 'EEPROM_WRITE'
+Finished building: ../APP/main1.c
  
-Building target: SPI_EEPROM.elf
+Building target: Test.elf
 Invoking: AVR C Linker
-avr-gcc -Wl,-Map,SPI_EEPROM.map -mmcu=atmega16 -o "SPI_EEPROM.elf"  ./MCAL/DIO.o ./MCAL/EEPROM.o ./MCAL/UART.o  ./APP/main.o   
-Finished building target: SPI_EEPROM.elf
+avr-gcc -Wl,-Map,Test.map -mmcu=atmega16 -o "Test.elf"  ./MCAL/DIO.o ./MCAL/EEPROM.o ./MCAL/UART.o  ./APP/main1.o   
+Finished building target: Test.elf
  
 Invoking: AVR Create Extended Listing
-avr-objdump -h -S SPI_EEPROM.elf  >"SPI_EEPROM.lss"
-Finished building: SPI_EEPROM.lss
+avr-objdump -h -S Test.elf  >"Test.lss"
+Finished building: Test.lss
  
 Create Flash image (ihex format)
-avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex SPI_EEPROM.elf  "SPI_EEPROM.hex"
-Finished building: SPI_EEPROM.hex
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex Test.elf  "Test.hex"
+Finished building: Test.hex
  
 Create eeprom image (ihex format)
-avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex SPI_EEPROM.elf  "SPI_EEPROM.eep"
-Finished building: SPI_EEPROM.eep
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex Test.elf  "Test.eep"
+Finished building: Test.eep
  
 Invoking: Print Size
-avr-size --format=avr --mcu=atmega16 SPI_EEPROM.elf
+avr-size --format=avr --mcu=atmega16 Test.elf
 AVR Memory Usage
 ----------------
 Device: atmega16
 
-Program:     728 bytes (4.4% Full)
+Program:    1128 bytes (6.9% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+22:44:39 **** Incremental Build of configuration Release for project EEPROM_AVR ****
+make all 
+Building file: ../APP/main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"APP/main.d" -MT"APP/main.o" -c -o "APP/main.o" "../APP/main.c"
+../APP/main.c:12: warning: return type of 'main' is not 'int'
+Finished building: ../APP/main.c
+ 
+Building target: EEPROM_AVR.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,EEPROM_AVR.map -mmcu=atmega16 -o "EEPROM_AVR.elf"  ./MCAL/DIO.o ./MCAL/EEPROM.o ./MCAL/UART.o  ./APP/main.o   
+Finished building target: EEPROM_AVR.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S EEPROM_AVR.elf  >"EEPROM_AVR.lss"
+Finished building: EEPROM_AVR.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex EEPROM_AVR.elf  "EEPROM_AVR.hex"
+Finished building: EEPROM_AVR.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex EEPROM_AVR.elf  "EEPROM_AVR.eep"
+Finished building: EEPROM_AVR.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 EEPROM_AVR.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    1114 bytes (6.8% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+22:47:13 **** Incremental Build of configuration Release for project Test ****
+make all 
+Building file: ../APP/main1.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"APP/main1.d" -MT"APP/main1.o" -c -o "APP/main1.o" "../APP/main1.c"
+../APP/main1.c:12: warning: return type of 'main' is not 'int'
+../APP/main1.c: In function 'main':
+../APP/main1.c:20: warning: implicit declaration of function 'EEPROM_WRITE'
+Finished building: ../APP/main1.c
+ 
+Building target: Test.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Test.map -mmcu=atmega16 -o "Test.elf"  ./MCAL/DIO.o ./MCAL/EEPROM.o ./MCAL/UART.o  ./APP/main1.o   
+Finished building target: Test.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Test.elf  >"Test.lss"
+Finished building: Test.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex Test.elf  "Test.hex"
+Finished building: Test.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex Test.elf  "Test.eep"
+Finished building: Test.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 Test.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    1148 bytes (7.0% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+22:56:27 **** Incremental Build of configuration Release for project EEPROM_AVR ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 EEPROM_AVR.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    1114 bytes (6.8% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+22:56:27 **** Incremental Build of configuration Release for project Test ****
+make all 
+Building file: ../APP/main1.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"APP/main1.d" -MT"APP/main1.o" -c -o "APP/main1.o" "../APP/main1.c"
+../APP/main1.c:12: warning: return type of 'main' is not 'int'
+../APP/main1.c: In function 'main':
+../APP/main1.c:17: warning: implicit declaration of function 'EEPROM_WRITE'
+Finished building: ../APP/main1.c
+ 
+Building target: Test.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Test.map -mmcu=atmega16 -o "Test.elf"  ./MCAL/DIO.o ./MCAL/EEPROM.o ./MCAL/UART.o  ./APP/main1.o   
+Finished building target: Test.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Test.elf  >"Test.lss"
+Finished building: Test.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex Test.elf  "Test.hex"
+Finished building: Test.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex Test.elf  "Test.eep"
+Finished building: Test.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 Test.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    1124 bytes (6.9% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+22:56:40 **** Incremental Build of configuration Release for project Test ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 Test.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    1124 bytes (6.9% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+22:56:42 **** Incremental Build of configuration Release for project Test ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 Test.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    1124 bytes (6.9% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+23:08:25 **** Incremental Build of configuration Release for project Test ****
+make all 
+Building file: ../MCAL/UART.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"MCAL/UART.d" -MT"MCAL/UART.o" -c -o "MCAL/UART.o" "../MCAL/UART.c"
+Finished building: ../MCAL/UART.c
+ 
+Building target: Test.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Test.map -mmcu=atmega16 -o "Test.elf"  ./MCAL/DIO.o ./MCAL/EEPROM.o ./MCAL/UART.o  ./APP/main1.o   
+Finished building target: Test.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Test.elf  >"Test.lss"
+Finished building: Test.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex Test.elf  "Test.hex"
+Finished building: Test.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex Test.elf  "Test.eep"
+Finished building: Test.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 Test.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    1124 bytes (6.9% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+23:11:54 **** Incremental Build of configuration Release for project Test ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 Test.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    1124 bytes (6.9% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+23:37:32 **** Incremental Build of configuration Release for project Test ****
+make all 
+Building file: ../APP/main1.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"APP/main1.d" -MT"APP/main1.o" -c -o "APP/main1.o" "../APP/main1.c"
+../APP/main1.c:12: warning: return type of 'main' is not 'int'
+../APP/main1.c: In function 'main':
+../APP/main1.c:17: warning: implicit declaration of function 'EEPROM_WRITE'
+Finished building: ../APP/main1.c
+ 
+Building target: Test.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Test.map -mmcu=atmega16 -o "Test.elf"  ./MCAL/DIO.o ./MCAL/EEPROM.o ./MCAL/UART.o  ./APP/main1.o   
+Finished building target: Test.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Test.elf  >"Test.lss"
+Finished building: Test.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex Test.elf  "Test.hex"
+Finished building: Test.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex Test.elf  "Test.eep"
+Finished building: Test.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 Test.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    1124 bytes (6.9% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+23:37:35 **** Incremental Build of configuration Release for project Test ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 Test.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    1124 bytes (6.9% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+00:45:44 **** Incremental Build of configuration Release for project Test ****
+make all 
+Building file: ../APP/main1.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"APP/main1.d" -MT"APP/main1.o" -c -o "APP/main1.o" "../APP/main1.c"
+../APP/main1.c:12: warning: return type of 'main' is not 'int'
+../APP/main1.c: In function 'main':
+../APP/main1.c:17: warning: implicit declaration of function 'EEPROM_WRITE'
+Finished building: ../APP/main1.c
+ 
+Building target: Test.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Test.map -mmcu=atmega16 -o "Test.elf"  ./MCAL/DIO.o ./MCAL/EEPROM.o ./MCAL/UART.o  ./APP/main1.o   
+Finished building target: Test.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Test.elf  >"Test.lss"
+Finished building: Test.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex Test.elf  "Test.hex"
+Finished building: Test.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex Test.elf  "Test.eep"
+Finished building: Test.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 Test.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    1124 bytes (6.9% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+00:47:49 **** Build of configuration Release for project EEPROM_AVR ****
+make all 
+Building file: ../APP/main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"APP/main.d" -MT"APP/main.o" -c -o "APP/main.o" "../APP/main.c"
+../APP/main.c:12: warning: return type of 'main' is not 'int'
+../APP/main.c: In function 'main':
+../APP/main.c:17: warning: implicit declaration of function 'EEPROM_WRITE'
+Finished building: ../APP/main.c
+ 
+Building target: EEPROM_AVR.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,EEPROM_AVR.map -mmcu=atmega16 -o "EEPROM_AVR.elf"  ./MCAL/DIO.o ./MCAL/EEPROM.o ./MCAL/UART.o  ./APP/main.o   
+Finished building target: EEPROM_AVR.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S EEPROM_AVR.elf  >"EEPROM_AVR.lss"
+Finished building: EEPROM_AVR.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex EEPROM_AVR.elf  "EEPROM_AVR.hex"
+Finished building: EEPROM_AVR.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex EEPROM_AVR.elf  "EEPROM_AVR.eep"
+Finished building: EEPROM_AVR.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 EEPROM_AVR.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    1124 bytes (6.9% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+00:47:51 **** Incremental Build of configuration Release for project EEPROM_AVR ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 EEPROM_AVR.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    1124 bytes (6.9% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+00:49:42 **** Incremental Build of configuration Release for project EEPROM_AVR ****
+make all 
+Building file: ../APP/main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"APP/main.d" -MT"APP/main.o" -c -o "APP/main.o" "../APP/main.c"
+../APP/main.c:12: warning: return type of 'main' is not 'int'
+../APP/main.c: In function 'main':
+../APP/main.c:17: warning: implicit declaration of function 'EEPROM_WRITE'
+Finished building: ../APP/main.c
+ 
+Building target: EEPROM_AVR.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,EEPROM_AVR.map -mmcu=atmega16 -o "EEPROM_AVR.elf"  ./MCAL/DIO.o ./MCAL/EEPROM.o ./MCAL/UART.o  ./APP/main.o   
+Finished building target: EEPROM_AVR.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S EEPROM_AVR.elf  >"EEPROM_AVR.lss"
+Finished building: EEPROM_AVR.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex EEPROM_AVR.elf  "EEPROM_AVR.hex"
+Finished building: EEPROM_AVR.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex EEPROM_AVR.elf  "EEPROM_AVR.eep"
+Finished building: EEPROM_AVR.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 EEPROM_AVR.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    1124 bytes (6.9% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+00:52:22 **** Incremental Build of configuration Release for project EEPROM_AVR ****
+make all 
+Building file: ../APP/main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"APP/main.d" -MT"APP/main.o" -c -o "APP/main.o" "../APP/main.c"
+../APP/main.c:12: warning: return type of 'main' is not 'int'
+../APP/main.c: In function 'main':
+../APP/main.c:17: warning: implicit declaration of function 'EEPROM_WRITE'
+Finished building: ../APP/main.c
+ 
+Building target: EEPROM_AVR.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,EEPROM_AVR.map -mmcu=atmega16 -o "EEPROM_AVR.elf"  ./MCAL/DIO.o ./MCAL/EEPROM.o ./MCAL/UART.o  ./APP/main.o   
+Finished building target: EEPROM_AVR.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S EEPROM_AVR.elf  >"EEPROM_AVR.lss"
+Finished building: EEPROM_AVR.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex EEPROM_AVR.elf  "EEPROM_AVR.hex"
+Finished building: EEPROM_AVR.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex EEPROM_AVR.elf  "EEPROM_AVR.eep"
+Finished building: EEPROM_AVR.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 EEPROM_AVR.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    1124 bytes (6.9% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+00:52:24 **** Incremental Build of configuration Release for project EEPROM_AVR ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 EEPROM_AVR.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    1124 bytes (6.9% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+00:53:18 **** Incremental Build of configuration Release for project EEPROM_AVR ****
+make all 
+Building file: ../APP/main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"APP/main.d" -MT"APP/main.o" -c -o "APP/main.o" "../APP/main.c"
+../APP/main.c:12: warning: return type of 'main' is not 'int'
+../APP/main.c: In function 'main':
+../APP/main.c:17: warning: implicit declaration of function 'EEPROM_WRITE'
+Finished building: ../APP/main.c
+ 
+Building target: EEPROM_AVR.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,EEPROM_AVR.map -mmcu=atmega16 -o "EEPROM_AVR.elf"  ./MCAL/DIO.o ./MCAL/EEPROM.o ./MCAL/UART.o  ./APP/main.o   
+Finished building target: EEPROM_AVR.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S EEPROM_AVR.elf  >"EEPROM_AVR.lss"
+Finished building: EEPROM_AVR.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex EEPROM_AVR.elf  "EEPROM_AVR.hex"
+Finished building: EEPROM_AVR.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex EEPROM_AVR.elf  "EEPROM_AVR.eep"
+Finished building: EEPROM_AVR.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 EEPROM_AVR.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    1124 bytes (6.9% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+00:53:19 **** Incremental Build of configuration Release for project EEPROM_AVR ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 EEPROM_AVR.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    1124 bytes (6.9% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+00:56:27 **** Incremental Build of configuration Release for project EEPROM_AVR ****
+make all 
+Building file: ../MCAL/UART/UART.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"MCAL/UART/UART.d" -MT"MCAL/UART/UART.o" -c -o "MCAL/UART/UART.o" "../MCAL/UART/UART.c"
+../MCAL/UART/UART.c:9:29: error: ../LIB/BIT_MATH.h: No such file or directory
+../MCAL/UART/UART.c:10:30: error: ../LIB/STD_TYPES.h: No such file or directory
+In file included from ../MCAL/UART/UART.c:12:
+../MCAL/UART/UART.h:46: error: expected ')' before 'BuadRate'
+../MCAL/UART/UART.h:47: error: expected ')' before 'Data'
+../MCAL/UART/UART.h:48: error: expected ')' before 'str'
+../MCAL/UART/UART.h:49: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'UART_RX'
+../MCAL/UART/UART.c:14: error: expected ')' before 'BuadRate'
+../MCAL/UART/UART.c:57: error: expected ')' before 'Data'
+../MCAL/UART/UART.c:62: error: expected ')' before 'str'
+../MCAL/UART/UART.c:72: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'UART_RX'
+make: *** [MCAL/UART/UART.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+00:57:21 **** Incremental Build of configuration Release for project EEPROM_AVR ****
+make all 
+Building file: ../MCAL/UART/UART.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"MCAL/UART/UART.d" -MT"MCAL/UART/UART.o" -c -o "MCAL/UART/UART.o" "../MCAL/UART/UART.c"
+Finished building: ../MCAL/UART/UART.c
+ 
+Building file: ../MCAL/EEPROM/EEPROM.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"MCAL/EEPROM/EEPROM.d" -MT"MCAL/EEPROM/EEPROM.o" -c -o "MCAL/EEPROM/EEPROM.o" "../MCAL/EEPROM/EEPROM.c"
+In file included from ../MCAL/EEPROM/EEPROM.c:8:
+../MCAL/EEPROM/EEPROM.h:11:29: error: ../LIB/BIT_MATH.h: No such file or directory
+../MCAL/EEPROM/EEPROM.h:12:30: error: ../LIB/STD_TYPES.h: No such file or directory
+../MCAL/EEPROM/EEPROM.h:13:25: error: ../MCAL/DIO.h: No such file or directory
+In file included from ../MCAL/EEPROM/EEPROM.c:8:
+../MCAL/EEPROM/EEPROM.h:24: error: expected ')' before 'Address'
+../MCAL/EEPROM/EEPROM.h:25: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'EEPROM_READ'
+../MCAL/EEPROM/EEPROM.c:10: error: expected ')' before 'Address'
+../MCAL/EEPROM/EEPROM.c:20: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'EEPROM_READ'
+make: *** [MCAL/EEPROM/EEPROM.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+00:58:27 **** Incremental Build of configuration Release for project EEPROM_AVR ****
+make all 
+Building file: ../MCAL/EEPROM/EEPROM.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"MCAL/EEPROM/EEPROM.d" -MT"MCAL/EEPROM/EEPROM.o" -c -o "MCAL/EEPROM/EEPROM.o" "../MCAL/EEPROM/EEPROM.c"
+In file included from ../MCAL/EEPROM/EEPROM.h:13,
+                 from ../MCAL/EEPROM/EEPROM.c:8:
+../MCAL/EEPROM/../../MCAL/DIO/DIO.h:13:29: error: ../LIB/BIT_MATH.h: No such file or directory
+../MCAL/EEPROM/../../MCAL/DIO/DIO.h:14:30: error: ../LIB/STD_TYPES.h: No such file or directory
+make: *** [MCAL/EEPROM/EEPROM.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+00:58:39 **** Incremental Build of configuration Release for project EEPROM_AVR ****
+make all 
+Building file: ../MCAL/EEPROM/EEPROM.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"MCAL/EEPROM/EEPROM.d" -MT"MCAL/EEPROM/EEPROM.o" -c -o "MCAL/EEPROM/EEPROM.o" "../MCAL/EEPROM/EEPROM.c"
+Finished building: ../MCAL/EEPROM/EEPROM.c
+ 
+Building file: ../MCAL/DIO/DIO.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"MCAL/DIO/DIO.d" -MT"MCAL/DIO/DIO.o" -c -o "MCAL/DIO/DIO.o" "../MCAL/DIO/DIO.c"
+../MCAL/DIO/DIO.c:7:29: error: ../LIB/BIT_MATH.h: No such file or directory
+../MCAL/DIO/DIO.c:8:30: error: ../LIB/STD_TYPES.h: No such file or directory
+make: *** [MCAL/DIO/DIO.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+00:58:54 **** Incremental Build of configuration Release for project EEPROM_AVR ****
+make all 
+Building file: ../MCAL/DIO/DIO.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"MCAL/DIO/DIO.d" -MT"MCAL/DIO/DIO.o" -c -o "MCAL/DIO/DIO.o" "../MCAL/DIO/DIO.c"
+Finished building: ../MCAL/DIO/DIO.c
+ 
+Building file: ../APP/main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"APP/main.d" -MT"APP/main.o" -c -o "APP/main.o" "../APP/main.c"
+../APP/main.c:13: warning: return type of 'main' is not 'int'
+Finished building: ../APP/main.c
+ 
+Building target: EEPROM_AVR.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,EEPROM_AVR.map -mmcu=atmega16 -o "EEPROM_AVR.elf"  ./MCAL/UART/UART.o  ./MCAL/EEPROM/EEPROM.o  ./MCAL/DIO/DIO.o  ./APP/main.o   
+Finished building target: EEPROM_AVR.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S EEPROM_AVR.elf  >"EEPROM_AVR.lss"
+Finished building: EEPROM_AVR.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex EEPROM_AVR.elf  "EEPROM_AVR.hex"
+Finished building: EEPROM_AVR.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex EEPROM_AVR.elf  "EEPROM_AVR.eep"
+Finished building: EEPROM_AVR.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 EEPROM_AVR.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    1124 bytes (6.9% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+00:59:01 **** Incremental Build of configuration Release for project EEPROM_AVR ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 EEPROM_AVR.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    1124 bytes (6.9% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+00:59:12 **** Incremental Build of configuration Release for project EEPROM_AVR ****
+make all 
+Building file: ../APP/main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"APP/main.d" -MT"APP/main.o" -c -o "APP/main.o" "../APP/main.c"
+../APP/main.c:13: warning: return type of 'main' is not 'int'
+Finished building: ../APP/main.c
+ 
+Building target: EEPROM_AVR.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,EEPROM_AVR.map -mmcu=atmega16 -o "EEPROM_AVR.elf"  ./MCAL/UART/UART.o  ./MCAL/EEPROM/EEPROM.o  ./MCAL/DIO/DIO.o  ./APP/main.o   
+Finished building target: EEPROM_AVR.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S EEPROM_AVR.elf  >"EEPROM_AVR.lss"
+Finished building: EEPROM_AVR.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex EEPROM_AVR.elf  "EEPROM_AVR.hex"
+Finished building: EEPROM_AVR.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex EEPROM_AVR.elf  "EEPROM_AVR.eep"
+Finished building: EEPROM_AVR.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 EEPROM_AVR.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    1124 bytes (6.9% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+00:59:35 **** Incremental Build of configuration Release for project EEPROM_AVR ****
+make all 
+Building file: ../APP/main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"APP/main.d" -MT"APP/main.o" -c -o "APP/main.o" "../APP/main.c"
+../APP/main.c:13: warning: return type of 'main' is not 'int'
+Finished building: ../APP/main.c
+ 
+Building target: EEPROM_AVR.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,EEPROM_AVR.map -mmcu=atmega16 -o "EEPROM_AVR.elf"  ./MCAL/UART/UART.o  ./MCAL/EEPROM/EEPROM.o  ./MCAL/DIO/DIO.o  ./APP/main.o   
+Finished building target: EEPROM_AVR.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S EEPROM_AVR.elf  >"EEPROM_AVR.lss"
+Finished building: EEPROM_AVR.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex EEPROM_AVR.elf  "EEPROM_AVR.hex"
+Finished building: EEPROM_AVR.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex EEPROM_AVR.elf  "EEPROM_AVR.eep"
+Finished building: EEPROM_AVR.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 EEPROM_AVR.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    1124 bytes (6.9% Full)
 (.text + .data + .bootloader)
 
 Data:          0 bytes (0.0% Full)
