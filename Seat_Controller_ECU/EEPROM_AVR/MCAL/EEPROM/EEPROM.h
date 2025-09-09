@@ -8,9 +8,9 @@
 #ifndef MCAL_EEPROM_H_
 #define MCAL_EEPROM_H_
 
-#include "../LIB/BIT_MATH.h"
-#include "../LIB/STD_TYPES.h"
-#include "../MCAL/DIO.h"
+#include "../../LIB/BIT_MATH.h"
+#include "../../LIB/STD_TYPES.h"
+#include "../../MCAL/DIO/DIO.h"
 
 #define EEAR (*(volatile u16*)(0x3E))
 #define EEDR (*(volatile u8*)(0x3D))

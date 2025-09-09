@@ -4,8 +4,8 @@
  *  Created on: Sep 7, 2025
  *      Author: Moata
  */
-#include "../LIB/BIT_MATH.h"
-#include "../LIB/STD_TYPES.h"
+#include "../../LIB/BIT_MATH.h"
+#include "../../LIB/STD_TYPES.h"
 #include "DIO.h"
 
 
@@ -139,4 +139,5 @@ u8 DIO_READ_PIN(u8 PORT_NAME, u8 PIN_NUM)
 		RET_VAL = READ_BIT(PIND, PIN_NUM);
 		break;
 	}
+	return RET_VAL;
 }
