@@ -1,0 +1,20 @@
+01:19:29 **** Incremental Build of configuration Debug for project Master_STM32 ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 Master_STM32.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    5068 bytes (30.9% Full)
+(.text + .data + .bootloader)
+
+Data:          8 bytes (0.8% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+01:19:30 Build Finished. 0 errors, 0 warnings. (took 329ms)
+

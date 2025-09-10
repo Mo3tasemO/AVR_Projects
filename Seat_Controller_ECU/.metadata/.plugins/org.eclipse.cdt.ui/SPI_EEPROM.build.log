@@ -1,0 +1,60 @@
+20:45:51 **** Incremental Build of configuration Release for project SPI_EEPROM ****
+make all 
+Building file: ../MCAL/DIO.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"MCAL/DIO.d" -MT"MCAL/DIO.o" -c -o "MCAL/DIO.o" "../MCAL/DIO.c"
+Finished building: ../MCAL/DIO.c
+ 
+Building file: ../MCAL/EEPROM.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"MCAL/EEPROM.d" -MT"MCAL/EEPROM.o" -c -o "MCAL/EEPROM.o" "../MCAL/EEPROM.c"
+Finished building: ../MCAL/EEPROM.c
+ 
+Building file: ../MCAL/UART.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"MCAL/UART.d" -MT"MCAL/UART.o" -c -o "MCAL/UART.o" "../MCAL/UART.c"
+Finished building: ../MCAL/UART.c
+ 
+Building file: ../APP/main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"APP/main.d" -MT"APP/main.o" -c -o "APP/main.o" "../APP/main.c"
+../APP/main.c:11: warning: return type of 'main' is not 'int'
+../APP/main.c: In function 'main':
+../APP/main.c:13: warning: implicit declaration of function 'EEPROM_WRITE'
+Finished building: ../APP/main.c
+ 
+Building target: SPI_EEPROM.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,SPI_EEPROM.map -mmcu=atmega16 -o "SPI_EEPROM.elf"  ./MCAL/DIO.o ./MCAL/EEPROM.o ./MCAL/UART.o  ./APP/main.o   
+Finished building target: SPI_EEPROM.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S SPI_EEPROM.elf  >"SPI_EEPROM.lss"
+Finished building: SPI_EEPROM.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex SPI_EEPROM.elf  "SPI_EEPROM.hex"
+Finished building: SPI_EEPROM.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex SPI_EEPROM.elf  "SPI_EEPROM.eep"
+Finished building: SPI_EEPROM.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 SPI_EEPROM.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:     728 bytes (4.4% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+20:45:53 Build Finished. 0 errors, 2 warnings. (took 1s.974ms)
+

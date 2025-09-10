@@ -1,0 +1,24 @@
+/*
+ * main.c
+ *
+ *  Created on: Sep 7, 2025
+ *      Author: Moata
+ */
+#include "../MCAL/DIO.h"
+#include "../LIB/BIT_MATH.h"
+#include "../LIB/STD_TYPES.h"
+#include "../MCAL/UART.h"
+#include <util/delay.h>
+void main()
+{
+	EEPROM_WRITE(0x50, 'A');
+	u8 x = EEPROM_READ(0x50);
+	_delay_ms(500) ;
+	UART_Init(9600, 8) ;
+	while (1)
+	{
+		UART_Tx(x) ;
+		_delay_ms(500) ;
+	}
+}
+
