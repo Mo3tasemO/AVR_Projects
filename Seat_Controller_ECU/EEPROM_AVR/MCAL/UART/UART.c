@@ -15,7 +15,7 @@ void UART_Init (u32 BuadRate , u32 DataSize)
 {
 	u16 UBRR = (8000000/(16*BuadRate))-1 ;
 	UBRRL = (u8)UBRR ;
-	UBRRH = UBRR>>8 ;
+	UBRRH = (u8)(UBRR>>8) ;
 
 	SET_BIT(UCSRB , TXEN) ;
 	SET_BIT(UCSRB , RXEN) ;

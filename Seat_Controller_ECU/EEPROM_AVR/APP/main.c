@@ -10,15 +10,17 @@
 #include "../MCAL/EEPROM/EEPROM.h"
 #include "../MCAL/UART/UART.h"
 #include <util/delay.h>
+
 void main()
 {
 	UART_Init(9600, 8) ;
-
-	u8 Received_Data = UART_RX();
-	EEPROM_WRITE(0x40, Received_Data);
+	u16 Address = 0x08;
 	_delay_ms(500) ;
 	while (1)
 	{
+		u8 Received_Data = UART_RX();
+		EEPROM_WRITE(Address, Received_Data);
+		Address++;
 	}
 }
 

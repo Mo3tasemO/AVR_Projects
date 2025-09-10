@@ -890,3 +890,611 @@ Data:          8 bytes (0.8% Full)
 
 Finished building: sizedummy
  
+08:47:22 **** Incremental Build of configuration Release for project EEPROM_AVR ****
+make all 
+Building file: ../APP/main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"APP/main.d" -MT"APP/main.o" -c -o "APP/main.o" "../APP/main.c"
+../APP/main.c:13: warning: return type of 'main' is not 'int'
+Finished building: ../APP/main.c
+ 
+Building target: EEPROM_AVR.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,EEPROM_AVR.map -mmcu=atmega16 -o "EEPROM_AVR.elf"  ./MCAL/UART/UART.o  ./MCAL/EEPROM/EEPROM.o  ./MCAL/DIO/DIO.o  ./APP/main.o   
+Finished building target: EEPROM_AVR.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S EEPROM_AVR.elf  >"EEPROM_AVR.lss"
+Finished building: EEPROM_AVR.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex EEPROM_AVR.elf  "EEPROM_AVR.hex"
+Finished building: EEPROM_AVR.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex EEPROM_AVR.elf  "EEPROM_AVR.eep"
+Finished building: EEPROM_AVR.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 EEPROM_AVR.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    1124 bytes (6.9% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+08:47:25 **** Incremental Build of configuration Release for project EEPROM_AVR ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 EEPROM_AVR.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    1124 bytes (6.9% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+08:53:46 **** Incremental Build of configuration Release for project EEPROM_AVR ****
+make all 
+Building file: ../APP/main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"APP/main.d" -MT"APP/main.o" -c -o "APP/main.o" "../APP/main.c"
+../APP/main.c:13: warning: return type of 'main' is not 'int'
+Finished building: ../APP/main.c
+ 
+Building target: EEPROM_AVR.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,EEPROM_AVR.map -mmcu=atmega16 -o "EEPROM_AVR.elf"  ./MCAL/UART/UART.o  ./MCAL/EEPROM/EEPROM.o  ./MCAL/DIO/DIO.o  ./APP/main.o   
+Finished building target: EEPROM_AVR.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S EEPROM_AVR.elf  >"EEPROM_AVR.lss"
+Finished building: EEPROM_AVR.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex EEPROM_AVR.elf  "EEPROM_AVR.hex"
+Finished building: EEPROM_AVR.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex EEPROM_AVR.elf  "EEPROM_AVR.eep"
+Finished building: EEPROM_AVR.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 EEPROM_AVR.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    1124 bytes (6.9% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+08:55:32 **** Incremental Build of configuration Release for project EEPROM_AVR ****
+make all 
+Building file: ../APP/main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"APP/main.d" -MT"APP/main.o" -c -o "APP/main.o" "../APP/main.c"
+../APP/main.c:13: warning: return type of 'main' is not 'int'
+Finished building: ../APP/main.c
+ 
+Building target: EEPROM_AVR.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,EEPROM_AVR.map -mmcu=atmega16 -o "EEPROM_AVR.elf"  ./MCAL/UART/UART.o  ./MCAL/EEPROM/EEPROM.o  ./MCAL/DIO/DIO.o  ./APP/main.o   
+Finished building target: EEPROM_AVR.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S EEPROM_AVR.elf  >"EEPROM_AVR.lss"
+Finished building: EEPROM_AVR.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex EEPROM_AVR.elf  "EEPROM_AVR.hex"
+Finished building: EEPROM_AVR.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex EEPROM_AVR.elf  "EEPROM_AVR.eep"
+Finished building: EEPROM_AVR.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 EEPROM_AVR.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    1124 bytes (6.9% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+08:58:12 **** Incremental Build of configuration Release for project EEPROM_AVR ****
+make all 
+Building file: ../APP/main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"APP/main.d" -MT"APP/main.o" -c -o "APP/main.o" "../APP/main.c"
+../APP/main.c:13: warning: return type of 'main' is not 'int'
+Finished building: ../APP/main.c
+ 
+Building target: EEPROM_AVR.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,EEPROM_AVR.map -mmcu=atmega16 -o "EEPROM_AVR.elf"  ./MCAL/UART/UART.o  ./MCAL/EEPROM/EEPROM.o  ./MCAL/DIO/DIO.o  ./APP/main.o   
+Finished building target: EEPROM_AVR.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S EEPROM_AVR.elf  >"EEPROM_AVR.lss"
+Finished building: EEPROM_AVR.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex EEPROM_AVR.elf  "EEPROM_AVR.hex"
+Finished building: EEPROM_AVR.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex EEPROM_AVR.elf  "EEPROM_AVR.eep"
+Finished building: EEPROM_AVR.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 EEPROM_AVR.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    1124 bytes (6.9% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+09:05:04 **** Incremental Build of configuration Release for project EEPROM_AVR ****
+make all 
+Building file: ../APP/main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"APP/main.d" -MT"APP/main.o" -c -o "APP/main.o" "../APP/main.c"
+../APP/main.c:13:1: warning: "F_CPU" redefined
+<command-line>: warning: this is the location of the previous definition
+../APP/main.c:14: warning: return type of 'main' is not 'int'
+Finished building: ../APP/main.c
+ 
+Building target: EEPROM_AVR.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,EEPROM_AVR.map -mmcu=atmega16 -o "EEPROM_AVR.elf"  ./MCAL/UART/UART.o  ./MCAL/EEPROM/EEPROM.o  ./MCAL/DIO/DIO.o  ./APP/main.o   
+Finished building target: EEPROM_AVR.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S EEPROM_AVR.elf  >"EEPROM_AVR.lss"
+Finished building: EEPROM_AVR.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex EEPROM_AVR.elf  "EEPROM_AVR.hex"
+Finished building: EEPROM_AVR.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex EEPROM_AVR.elf  "EEPROM_AVR.eep"
+Finished building: EEPROM_AVR.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 EEPROM_AVR.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    1124 bytes (6.9% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+09:06:42 **** Incremental Build of configuration Release for project EEPROM_AVR ****
+make all 
+Building file: ../APP/main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"APP/main.d" -MT"APP/main.o" -c -o "APP/main.o" "../APP/main.c"
+../APP/main.c:13:1: warning: "F_CPU" redefined
+<command-line>: warning: this is the location of the previous definition
+../APP/main.c:14: warning: return type of 'main' is not 'int'
+Finished building: ../APP/main.c
+ 
+Building target: EEPROM_AVR.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,EEPROM_AVR.map -mmcu=atmega16 -o "EEPROM_AVR.elf"  ./MCAL/UART/UART.o  ./MCAL/EEPROM/EEPROM.o  ./MCAL/DIO/DIO.o  ./APP/main.o   
+Finished building target: EEPROM_AVR.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S EEPROM_AVR.elf  >"EEPROM_AVR.lss"
+Finished building: EEPROM_AVR.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex EEPROM_AVR.elf  "EEPROM_AVR.hex"
+Finished building: EEPROM_AVR.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex EEPROM_AVR.elf  "EEPROM_AVR.eep"
+Finished building: EEPROM_AVR.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 EEPROM_AVR.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    1124 bytes (6.9% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+09:06:45 **** Incremental Build of configuration Release for project EEPROM_AVR ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 EEPROM_AVR.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    1124 bytes (6.9% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+09:07:17 **** Incremental Build of configuration Release for project EEPROM_AVR ****
+make all 
+Building file: ../APP/main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"APP/main.d" -MT"APP/main.o" -c -o "APP/main.o" "../APP/main.c"
+../APP/main.c:13: warning: return type of 'main' is not 'int'
+Finished building: ../APP/main.c
+ 
+Building target: EEPROM_AVR.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,EEPROM_AVR.map -mmcu=atmega16 -o "EEPROM_AVR.elf"  ./MCAL/UART/UART.o  ./MCAL/EEPROM/EEPROM.o  ./MCAL/DIO/DIO.o  ./APP/main.o   
+Finished building target: EEPROM_AVR.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S EEPROM_AVR.elf  >"EEPROM_AVR.lss"
+Finished building: EEPROM_AVR.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex EEPROM_AVR.elf  "EEPROM_AVR.hex"
+Finished building: EEPROM_AVR.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex EEPROM_AVR.elf  "EEPROM_AVR.eep"
+Finished building: EEPROM_AVR.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 EEPROM_AVR.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    1124 bytes (6.9% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+09:07:23 **** Incremental Build of configuration Release for project EEPROM_AVR ****
+make all 
+Building file: ../APP/main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"APP/main.d" -MT"APP/main.o" -c -o "APP/main.o" "../APP/main.c"
+../APP/main.c:13: warning: return type of 'main' is not 'int'
+Finished building: ../APP/main.c
+ 
+Building target: EEPROM_AVR.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,EEPROM_AVR.map -mmcu=atmega16 -o "EEPROM_AVR.elf"  ./MCAL/UART/UART.o  ./MCAL/EEPROM/EEPROM.o  ./MCAL/DIO/DIO.o  ./APP/main.o   
+Finished building target: EEPROM_AVR.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S EEPROM_AVR.elf  >"EEPROM_AVR.lss"
+Finished building: EEPROM_AVR.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex EEPROM_AVR.elf  "EEPROM_AVR.hex"
+Finished building: EEPROM_AVR.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex EEPROM_AVR.elf  "EEPROM_AVR.eep"
+Finished building: EEPROM_AVR.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 EEPROM_AVR.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    1124 bytes (6.9% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+09:07:27 **** Incremental Build of configuration Release for project EEPROM_AVR ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 EEPROM_AVR.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    1124 bytes (6.9% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+09:08:40 **** Incremental Build of configuration Release for project EEPROM_AVR ****
+make all 
+Building file: ../APP/main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"APP/main.d" -MT"APP/main.o" -c -o "APP/main.o" "../APP/main.c"
+../APP/main.c:13: warning: return type of 'main' is not 'int'
+Finished building: ../APP/main.c
+ 
+Building target: EEPROM_AVR.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,EEPROM_AVR.map -mmcu=atmega16 -o "EEPROM_AVR.elf"  ./MCAL/UART/UART.o  ./MCAL/EEPROM/EEPROM.o  ./MCAL/DIO/DIO.o  ./APP/main.o   
+Finished building target: EEPROM_AVR.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S EEPROM_AVR.elf  >"EEPROM_AVR.lss"
+Finished building: EEPROM_AVR.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex EEPROM_AVR.elf  "EEPROM_AVR.hex"
+Finished building: EEPROM_AVR.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex EEPROM_AVR.elf  "EEPROM_AVR.eep"
+Finished building: EEPROM_AVR.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 EEPROM_AVR.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    1124 bytes (6.9% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+09:08:43 **** Incremental Build of configuration Release for project EEPROM_AVR ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 EEPROM_AVR.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    1124 bytes (6.9% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+09:21:35 **** Incremental Build of configuration Release for project EEPROM_AVR ****
+make all 
+Building file: ../MCAL/UART/UART.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"MCAL/UART/UART.d" -MT"MCAL/UART/UART.o" -c -o "MCAL/UART/UART.o" "../MCAL/UART/UART.c"
+Finished building: ../MCAL/UART/UART.c
+ 
+Building file: ../APP/main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"APP/main.d" -MT"APP/main.o" -c -o "APP/main.o" "../APP/main.c"
+../APP/main.c:14: warning: return type of 'main' is not 'int'
+Finished building: ../APP/main.c
+ 
+Building target: EEPROM_AVR.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,EEPROM_AVR.map -mmcu=atmega16 -o "EEPROM_AVR.elf"  ./MCAL/UART/UART.o  ./MCAL/EEPROM/EEPROM.o  ./MCAL/DIO/DIO.o  ./APP/main.o   
+Finished building target: EEPROM_AVR.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S EEPROM_AVR.elf  >"EEPROM_AVR.lss"
+Finished building: EEPROM_AVR.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex EEPROM_AVR.elf  "EEPROM_AVR.hex"
+Finished building: EEPROM_AVR.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex EEPROM_AVR.elf  "EEPROM_AVR.eep"
+Finished building: EEPROM_AVR.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 EEPROM_AVR.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    1124 bytes (6.9% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+09:21:39 **** Incremental Build of configuration Release for project EEPROM_AVR ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 EEPROM_AVR.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    1124 bytes (6.9% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+09:31:37 **** Incremental Build of configuration Release for project EEPROM_AVR ****
+make all 
+Building file: ../APP/main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"APP/main.d" -MT"APP/main.o" -c -o "APP/main.o" "../APP/main.c"
+../APP/main.c:14: warning: return type of 'main' is not 'int'
+Finished building: ../APP/main.c
+ 
+Building target: EEPROM_AVR.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,EEPROM_AVR.map -mmcu=atmega16 -o "EEPROM_AVR.elf"  ./MCAL/UART/UART.o  ./MCAL/EEPROM/EEPROM.o  ./MCAL/DIO/DIO.o  ./APP/main.o   
+Finished building target: EEPROM_AVR.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S EEPROM_AVR.elf  >"EEPROM_AVR.lss"
+Finished building: EEPROM_AVR.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex EEPROM_AVR.elf  "EEPROM_AVR.hex"
+Finished building: EEPROM_AVR.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex EEPROM_AVR.elf  "EEPROM_AVR.eep"
+Finished building: EEPROM_AVR.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 EEPROM_AVR.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    1148 bytes (7.0% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+09:31:40 **** Incremental Build of configuration Release for project EEPROM_AVR ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 EEPROM_AVR.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    1148 bytes (7.0% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+09:32:14 **** Incremental Build of configuration Release for project EEPROM_AVR ****
+make all 
+Building file: ../APP/main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"APP/main.d" -MT"APP/main.o" -c -o "APP/main.o" "../APP/main.c"
+../APP/main.c:14: warning: return type of 'main' is not 'int'
+Finished building: ../APP/main.c
+ 
+Building target: EEPROM_AVR.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,EEPROM_AVR.map -mmcu=atmega16 -o "EEPROM_AVR.elf"  ./MCAL/UART/UART.o  ./MCAL/EEPROM/EEPROM.o  ./MCAL/DIO/DIO.o  ./APP/main.o   
+Finished building target: EEPROM_AVR.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S EEPROM_AVR.elf  >"EEPROM_AVR.lss"
+Finished building: EEPROM_AVR.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex EEPROM_AVR.elf  "EEPROM_AVR.hex"
+Finished building: EEPROM_AVR.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex EEPROM_AVR.elf  "EEPROM_AVR.eep"
+Finished building: EEPROM_AVR.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 EEPROM_AVR.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    1132 bytes (6.9% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+09:32:17 **** Incremental Build of configuration Release for project EEPROM_AVR ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 EEPROM_AVR.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    1132 bytes (6.9% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
