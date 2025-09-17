@@ -22,17 +22,10 @@ jobs:
         dotnet-version: 8.0.x
 
     - name: Restore dependencies
-      run: dotnet restore ./EepromProgrammerUI/EepromProgrammerUI.sln
+      run: dotnet restore 
 
     - name: Build
-      run: dotnet build --no-restore ./EepromProgrammerUI/EepromProgrammerUI.sln
-
+      run: dotnet build --no-restore 
     - name: Test
-      run: dotnet test --no-build --verbosity normal ./EepromProgrammerUI/EepromProgrammerUI.sln
-    - name: Publish
-      run: dotnet publish --configuration Release --no-build --output ${{ github.workspace }}/publish
-    - name: Upload a Build Artifact
-      uses: actions/upload-artifact@v4
-      with:
-        name: my-app
-        path: ${{ github.workspace }}/publish
+      run: dotnet test --no-build --verbosity normal 
+
