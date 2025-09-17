@@ -10,6 +10,9 @@
 #include "../../LIB/STD_TYPES.h"
 
 #include "UART.h"
+#include "../DIO/DIO.h"
+#include "../EEPROM/EEPROM.h"
+#include <util/delay.h>
 
 void UART_Init (u32 BuadRate , u32 DataSize)
 {
@@ -73,4 +76,82 @@ u8 UART_RX   (void)
 {
 	while (READ_BIT(UCSRA , RXC) == 0) ;
 	return UDR ;
+}
+
+void UART_SendByte(u8 data) {
+	while (!(UCSRA & (1 << UDRE)));
+	UDR = data;
+}
+
+void UART_SendFrame(u8 cmd_id, u32 param1, u8 param2) {
+	// Response Frame = Header | Length | Cmd_ID | Param1 | Param2 | Tail
+	UART_SendByte(CMD_HEADER);
+	UART_SendByte(6); UART_SendByte(0); UART_SendByte(0); UART_SendByte(0); // length = 6 bytes
+	UART_SendByte(cmd_id);
+	UART_SendByte((u8)(param1 & 0xFF));
+	UART_SendByte(param2);
+	UART_SendByte(RES_TAIL);
+}
+
+char UART_ReceiveChar(void) {
+	while (!(UCSRA & (1 << RXC))); // wait until data received
+	return UDR;
+}
+void ProcessCommand(char *cmd) {
+	u16 addr;
+	char out[32];
+
+	if (cmd[0] == 'W') {
+		// Format: W-0x10-123
+		unsigned int a;
+		unsigned int v;
+		if (sscanf(cmd, "W-%x-%u", &a, &v) == 2) {   // parse hex address + decimal value
+			addr = (u16)a;
+
+			// convert number to string before storing
+			char strVal[10];
+			sprintf(strVal, "%u", v);
+
+			// write each character to EEPROM
+			for (u8 i = 0; strVal[i] != '\0'; i++) {
+				EEPROM_WRITE(addr + i, strVal[i]);
+			}
+			EEPROM_WRITE(addr + strlen(strVal), '\0');  // null terminator
+			DIO_SET_PIN_DIR(DIO_PORTB,DIO_PIN3, DIO_HIGH);
+			_delay_ms(200);
+			DIO_SET_PIN_DIR(DIO_PORTB,DIO_PIN3, DIO_LOW);
+
+			sprintf(out, "WRITE[0x%X]=\"%s\" OK\r\n", addr, strVal);
+			DIO_SET_PIN_DIR(DIO_PORTD, DIO_PIN2, DIO_LOW);
+			UART_TxStr(out);
+		} else {
+			UART_TxStr("INVALID WRITE\r\n");
+		}
+
+	}
+	else if (cmd[0] == 'R') {
+		// Format: R-0x10
+		unsigned int a;
+		if (sscanf(cmd, "R-%x", &a) == 1) {
+			addr = (u16)a;
+
+			// read back string
+			char strVal[10];
+			u8 i = 0;
+			char c;
+			do {
+				c = EEPROM_READ(addr + i);
+				strVal[i] = c;
+			} while (c != '\0' && ++i < sizeof(strVal)-1);
+			strVal[i] = '\0';
+
+			sprintf(out, "READ[0x%X]=\"%s\"\r\n", addr, strVal);
+			UART_TxStr(out);
+		} else {
+			UART_TxStr("INVALID READ\r\n");
+		}
+	}
+	else {
+		UART_TxStr("UNKNOWN CMD\r\n");
+	}
 }

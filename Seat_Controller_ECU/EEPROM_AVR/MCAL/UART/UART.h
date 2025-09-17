@@ -43,10 +43,20 @@
 #define UCSZ0  1
 #define UCPOL  0
 
+#define CMD_HEADER  0xAA
+#define CMD_TAIL    0x55
+#define RES_TAIL    0x77
+
+#define CMD_READ_BYTE   0x01
+#define CMD_WRITE_BYTE  0x02
+
 void UART_Init (u32 BuadRate , u32 DataSize) ;
 void UART_Tx   (u8 Data) ;
 void UART_TxStr (u8 str []) ;
 u8 UART_RX   (void) ;
-
+void UART_SendByte(u8 data);
+void UART_SendFrame(u8 cmd_id, u32 param1, u8 param2);
+char UART_ReceiveChar(void);
+void ProcessCommand(char *cmd);
 
 #endif /* MCAL_UART_H_ */
