@@ -1,0 +1,104 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\ADHAM\\Downloads\\EepromProgrammerUI\\EepromProgrammerUI\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{90ADAA87-DF33-49B3-BDF5-9D8BAD487C2D}|EepromProgrammerUI\\EepromProgrammerUI.csproj|C:\\Users\\ADHAM\\Downloads\\EepromProgrammerUI\\EepromProgrammerUI\\eepromprogrammerui\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{90ADAA87-DF33-49B3-BDF5-9D8BAD487C2D}|EepromProgrammerUI\\EepromProgrammerUI.csproj|solutionrelative:eepromprogrammerui\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{90ADAA87-DF33-49B3-BDF5-9D8BAD487C2D}|EepromProgrammerUI\\EepromProgrammerUI.csproj|C:\\Users\\ADHAM\\Downloads\\EepromProgrammerUI\\EepromProgrammerUI\\eepromprogrammerui\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{90ADAA87-DF33-49B3-BDF5-9D8BAD487C2D}|EepromProgrammerUI\\EepromProgrammerUI.csproj|solutionrelative:eepromprogrammerui\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{90ADAA87-DF33-49B3-BDF5-9D8BAD487C2D}|EepromProgrammerUI\\EepromProgrammerUI.csproj|c:\\users\\adham\\downloads\\eepromprogrammerui\\eepromprogrammerui\\eepromprogrammerui\\eepromprogrammer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{90ADAA87-DF33-49B3-BDF5-9D8BAD487C2D}|EepromProgrammerUI\\EepromProgrammerUI.csproj|solutionrelative:eepromprogrammerui\\eepromprogrammer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{90ADAA87-DF33-49B3-BDF5-9D8BAD487C2D}|EepromProgrammerUI\\EepromProgrammerUI.csproj|C:\\Users\\ADHAM\\Downloads\\EepromProgrammerUI\\EepromProgrammerUI\\eepromprogrammerui\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{90ADAA87-DF33-49B3-BDF5-9D8BAD487C2D}|EepromProgrammerUI\\EepromProgrammerUI.csproj|solutionrelative:eepromprogrammerui\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{90ADAA87-DF33-49B3-BDF5-9D8BAD487C2D}|EepromProgrammerUI\\EepromProgrammerUI.csproj|c:\\users\\adham\\downloads\\eepromprogrammerui\\eepromprogrammerui\\eepromprogrammerui\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{90ADAA87-DF33-49B3-BDF5-9D8BAD487C2D}|EepromProgrammerUI\\EepromProgrammerUI.csproj|solutionrelative:eepromprogrammerui\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "EepromProgrammer.cs",
+              "DocumentMoniker": "C:\\Users\\ADHAM\\Downloads\\EepromProgrammerUI\\EepromProgrammerUI\\EepromProgrammerUI\\EepromProgrammer.cs",
+              "RelativeDocumentMoniker": "EepromProgrammerUI\\EepromProgrammer.cs",
+              "ToolTip": "C:\\Users\\ADHAM\\Downloads\\EepromProgrammerUI\\EepromProgrammerUI\\EepromProgrammerUI\\EepromProgrammer.cs",
+              "RelativeToolTip": "EepromProgrammerUI\\EepromProgrammer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvxUAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-12T23:05:25.327Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Form1.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\ADHAM\\Downloads\\EepromProgrammerUI\\EepromProgrammerUI\\EepromProgrammerUI\\Form1.cs",
+              "RelativeDocumentMoniker": "EepromProgrammerUI\\Form1.cs",
+              "ToolTip": "C:\\Users\\ADHAM\\Downloads\\EepromProgrammerUI\\EepromProgrammerUI\\EepromProgrammerUI\\Form1.cs [Design]",
+              "RelativeToolTip": "EepromProgrammerUI\\Form1.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-12T20:09:52.342Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Form1.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\ADHAM\\Downloads\\EepromProgrammerUI\\EepromProgrammerUI\\EepromProgrammerUI\\Form1.Designer.cs",
+              "RelativeDocumentMoniker": "EepromProgrammerUI\\Form1.Designer.cs",
+              "ToolTip": "C:\\Users\\ADHAM\\Downloads\\EepromProgrammerUI\\EepromProgrammerUI\\EepromProgrammerUI\\Form1.Designer.cs",
+              "RelativeToolTip": "EepromProgrammerUI\\Form1.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-12T20:10:41.972Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\ADHAM\\Downloads\\EepromProgrammerUI\\EepromProgrammerUI\\EepromProgrammerUI\\Program.cs",
+              "RelativeDocumentMoniker": "EepromProgrammerUI\\Program.cs",
+              "ToolTip": "C:\\Users\\ADHAM\\Downloads\\EepromProgrammerUI\\EepromProgrammerUI\\EepromProgrammerUI\\Program.cs",
+              "RelativeToolTip": "EepromProgrammerUI\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-16T10:44:02.299Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "C:\\Users\\ADHAM\\Downloads\\EepromProgrammerUI\\EepromProgrammerUI\\EepromProgrammerUI\\Form1.cs",
+              "RelativeDocumentMoniker": "EepromProgrammerUI\\Form1.cs",
+              "ToolTip": "C:\\Users\\ADHAM\\Downloads\\EepromProgrammerUI\\EepromProgrammerUI\\EepromProgrammerUI\\Form1.cs",
+              "RelativeToolTip": "EepromProgrammerUI\\Form1.cs",
+              "ViewState": "AgIAAD4AAAAAAAAAAAAgwEcAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-12T21:33:00.67Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
