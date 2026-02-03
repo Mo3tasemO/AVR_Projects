@@ -20,7 +20,7 @@ void main()
 	u8 index = 0;
 	//	u16 Address = 0x08;
 	//	_delay_ms(500) ;
-
+	SET_BIT(DDRD, PD2);
 	while (1)
 	{
 		//		u8 Received_Data = UART_RX();

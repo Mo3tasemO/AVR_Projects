@@ -117,12 +117,12 @@ void ProcessCommand(char *cmd) {
 				EEPROM_WRITE(addr + i, strVal[i]);
 			}
 			EEPROM_WRITE(addr + strlen(strVal), '\0');  // null terminator
-			DIO_SET_PIN_DIR(DIO_PORTB,DIO_PIN3, DIO_HIGH);
+			DIO_SET_PIN_DIR(DIO_PORTD,DIO_PIN2, DIO_HIGH);
 			_delay_ms(200);
-			DIO_SET_PIN_DIR(DIO_PORTB,DIO_PIN3, DIO_LOW);
+			DIO_SET_PIN_DIR(DIO_PORTD,DIO_PIN2, DIO_LOW);
 
 			sprintf(out, "WRITE[0x%X]=\"%s\" OK\r\n", addr, strVal);
-			DIO_SET_PIN_DIR(DIO_PORTD, DIO_PIN2, DIO_LOW);
+
 			UART_TxStr(out);
 		} else {
 			UART_TxStr("INVALID WRITE\r\n");
