@@ -1,4 +1,4 @@
-# 🚀 Embedded_System_Projects
+#  Embedded_System_Projects
 
 This repository showcases a curated collection of **Embedded Systems projects** built with a strong focus on **real-world applications** using **AVR and STM32 microcontrollers**.  
 It includes both **Bare-Metal** and **RTOS-based** implementations, reflecting hands-on experience in developing reliable systems for **automotive industry 🚗**, **robotics 🤖**, and **smart home applications 🏠**.
