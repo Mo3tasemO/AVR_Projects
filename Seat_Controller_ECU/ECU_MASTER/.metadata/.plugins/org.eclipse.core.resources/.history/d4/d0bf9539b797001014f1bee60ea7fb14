@@ -1,0 +1,1245 @@
+/* USER CODE BEGIN Header */
+/**
+ ******************************************************************************
+ * @file           : main.c
+ * @brief          : Main program body
+ ******************************************************************************
+ * @attention
+ *
+ * Copyright (c) 2025 STMicroelectronics.
+ * All rights reserved.
+ *
+ * This software is licensed under terms that can be found in the LICENSE file
+ * in the root directory of this software component.
+ * If no LICENSE file comes with this software, it is provided AS-IS.
+ *
+ ******************************************************************************
+ */
+/* USER CODE END Header */
+/* Includes ------------------------------------------------------------------*/
+#include "main.h"
+#include "cmsis_os.h"
+
+/* Private includes ----------------------------------------------------------*/
+/* USER CODE BEGIN Includes */
+#include "Servo.h"
+#include <string.h>
+#include <stdio.h>
+/* USER CODE END Includes */
+
+/* Private typedef -----------------------------------------------------------*/
+/* USER CODE BEGIN PTD */
+/* USER CODE END PTD */
+
+/* Private define ------------------------------------------------------------*/
+/* USER CODE BEGIN PD */
+/* Mode constants */
+#define MANUAL_MODE        1u
+#define AUTO_MODE          0u
+
+/* Edge-triggered requests */
+#define EVT_MODE_TOGGLE    (1u << 0)
+#define EVT_REQ_AUTO       (1u << 1)
+#define EVT_REQ_MANUAL     (1u << 2)
+/* Level/state announcements (sticky while active) */
+#define EVT_ACTIVE_AUTO    (1u << 3)
+#define EVT_ACTIVE_MANUAL  (1u << 4)
+
+/* SPI auto command mapping (0..180 deg) */
+#define BYTE_TO_DEG(b)     ((float)(b))     /* assuming AVR already sends 0..180 */
+#define ADC_MIN_CAL  100    // set after measuring your endpoint near 0°
+#define ADC_MAX_CAL  4000   // set after measuring your endpoint near 180°
+
+/* I2C addressing */
+#define I2C_SLAVE_ADDR    0x28
+
+/* I2C TX router */
+#define I2C_TX_MAX    64
+#define I2C_ADDR8(a7) ((uint16_t)((a7) << 1))
+/* USER CODE END PD */
+
+/* Private macro -------------------------------------------------------------*/
+/* USER CODE BEGIN PM */
+
+/* USER CODE END PM */
+
+/* Private variables ---------------------------------------------------------*/
+ADC_HandleTypeDef hadc1;
+DMA_HandleTypeDef hdma_adc1;
+
+I2C_HandleTypeDef hi2c1;
+
+SPI_HandleTypeDef hspi1;
+
+TIM_HandleTypeDef htim2;
+
+UART_HandleTypeDef huart1;
+
+/* Definitions for defaultTask */
+osThreadId_t defaultTaskHandle;
+const osThreadAttr_t defaultTask_attributes = {
+  .name = "defaultTask",
+  .stack_size = 128 * 4,
+  .priority = (osPriority_t) osPriorityNormal,
+};
+/* Definitions for I2C_TX */
+osThreadId_t I2C_TXHandle;
+const osThreadAttr_t I2C_TX_attributes = {
+  .name = "I2C_TX",
+  .stack_size = 128 * 4,
+  .priority = (osPriority_t) osPriorityAboveNormal,
+};
+/* Definitions for ADCReadTask */
+osThreadId_t ADCReadTaskHandle;
+const osThreadAttr_t ADCReadTask_attributes = {
+  .name = "ADCReadTask",
+  .stack_size = 128 * 4,
+  .priority = (osPriority_t) osPriorityLow,
+};
+/* Definitions for SendAliveTask */
+osThreadId_t SendAliveTaskHandle;
+const osThreadAttr_t SendAliveTask_attributes = {
+  .name = "SendAliveTask",
+  .stack_size = 128 * 4,
+  .priority = (osPriority_t) osPriorityLow,
+};
+/* Definitions for SpiReadTask */
+osThreadId_t SpiReadTaskHandle;
+const osThreadAttr_t SpiReadTask_attributes = {
+  .name = "SpiReadTask",
+  .stack_size = 128 * 4,
+  .priority = (osPriority_t) osPriorityBelowNormal,
+};
+/* Definitions for ManualModeTask */
+osThreadId_t ManualModeTaskHandle;
+const osThreadAttr_t ManualModeTask_attributes = {
+  .name = "ManualModeTask",
+  .stack_size = 128 * 4,
+  .priority = (osPriority_t) osPriorityNormal,
+};
+/* Definitions for AutoModeTask */
+osThreadId_t AutoModeTaskHandle;
+const osThreadAttr_t AutoModeTask_attributes = {
+  .name = "AutoModeTask",
+  .stack_size = 128 * 4,
+  .priority = (osPriority_t) osPriorityLow,
+};
+/* Definitions for SwitchModeTask */
+osThreadId_t SwitchModeTaskHandle;
+const osThreadAttr_t SwitchModeTask_attributes = {
+  .name = "SwitchModeTask",
+  .stack_size = 128 * 4,
+  .priority = (osPriority_t) osPriorityNormal,
+};
+/* Definitions for ModeManagerTask */
+osThreadId_t ModeManagerTaskHandle;
+const osThreadAttr_t ModeManagerTask_attributes = {
+  .name = "ModeManagerTask",
+  .stack_size = 128 * 4,
+  .priority = (osPriority_t) osPriorityHigh,
+};
+/* Definitions for UART_Send_word */
+osThreadId_t UART_Send_wordHandle;
+const osThreadAttr_t UART_Send_word_attributes = {
+  .name = "UART_Send_word",
+  .stack_size = 128 * 4,
+  .priority = (osPriority_t) osPriorityLow,
+};
+/* Definitions for SPI_SEND */
+osThreadId_t SPI_SENDHandle;
+const osThreadAttr_t SPI_SEND_attributes = {
+  .name = "SPI_SEND",
+  .stack_size = 128 * 4,
+  .priority = (osPriority_t) osPriorityLow,
+};
+/* Definitions for qI2C_LO */
+osMessageQueueId_t qI2C_LOHandle;
+const osMessageQueueAttr_t qI2C_LO_attributes = {
+  .name = "qI2C_LO"
+};
+/* Definitions for qI2C_HI */
+osMessageQueueId_t qI2C_HIHandle;
+const osMessageQueueAttr_t qI2C_HI_attributes = {
+  .name = "qI2C_HI"
+};
+/* Definitions for UART_Mutex */
+osMutexId_t UART_MutexHandle;
+const osMutexAttr_t UART_Mutex_attributes = {
+  .name = "UART_Mutex"
+};
+/* Definitions for SPI_Mutex */
+osMutexId_t SPI_MutexHandle;
+const osMutexAttr_t SPI_Mutex_attributes = {
+  .name = "SPI_Mutex"
+};
+/* Definitions for Angles_Mutex */
+osMutexId_t Angles_MutexHandle;
+const osMutexAttr_t Angles_Mutex_attributes = {
+  .name = "Angles_Mutex"
+};
+/* Definitions for BinarySem */
+osSemaphoreId_t BinarySemHandle;
+const osSemaphoreAttr_t BinarySem_attributes = {
+  .name = "BinarySem"
+};
+/* USER CODE BEGIN PV */
+__IO uint16_t g_adc_raw[3] = {0};  // CH3->g_adc_raw[0], CH4->[1], CH5->[2]
+
+/* --------- Queues --------- */
+/* High/Low I2C queues (router) */
+osMessageQueueId_t qI2C_HI;
+osMessageQueueId_t qI2C_LO;
+/* AUTO command queue */
+osMessageQueueId_t qAutoCmd;
+
+/* Event flags + mode */
+volatile uint8_t g_mode = MANUAL_MODE;      /* 1 = manual, 0 = auto */
+osEventFlagsId_t evModeFlags;               /* event group shared by tasks */
+
+typedef struct { float inc_deg, hei_deg, dis_deg; } AutoCmd_t;
+typedef struct { uint16_t timestamp, counter;} message_t;
+
+/* I2C router message types */
+typedef enum {
+  I2C_MSG_MANUAL   = 1,   // high priority
+  I2C_MSG_HEARTBEAT= 2    // low priority (best-effort)
+} I2C_MsgType;
+
+/* I2C router message */
+typedef struct {
+  I2C_MsgType type;
+  uint16_t    addr8;           // 8-bit HAL address (7-bit << 1)
+  uint16_t    len;             // <= I2C_TX_MAX
+  uint8_t     buf[I2C_TX_MAX]; // inline payload
+  uint16_t    timeout_ms;      // per xfer timeout
+  uint8_t     retries;         // limited retries on error
+} I2C_TxMsg_t;
+
+/* Manual state (kept in sync when AUTO runs) */
+static float angle_f_INC = 90.0f;
+static float angle_f_HEI = 90.0f;
+static float angle_f_DIS = 90.0f;
+/* USER CODE END PV */
+
+/* Private function prototypes -----------------------------------------------*/
+void SystemClock_Config(void);
+static void MX_GPIO_Init(void);
+static void MX_DMA_Init(void);
+static void MX_I2C1_Init(void);
+static void MX_TIM2_Init(void);
+static void MX_SPI1_Init(void);
+static void MX_ADC1_Init(void);
+static void MX_USART1_UART_Init(void);
+void StartDefaultTask(void *argument);
+void Start_I2C_TX(void *argument);
+void StartADCReadTask(void *argument);
+void StartSendAliveTask(void *argument);
+void StartSpiReadTask(void *argument);
+void StartManualModeTask(void *argument);
+void StartAutoModeTask(void *argument);
+void StartSwitchModeTask(void *argument);
+void Start_Mode_Manager_Task(void *argument);
+void StartUART_Send_word(void *argument);
+void StartSPI_SEND(void *argument);
+
+/* USER CODE BEGIN PFP */
+static void AutoMode_Run(float inc_deg, float hei_deg, float dis_deg);
+static float map_pot_to_angle(uint16_t raw);
+
+/* I2C TX router APIs */
+static osStatus_t I2C_PostHigh(const uint8_t *data, uint16_t n, uint8_t addr7, I2C_MsgType type);
+static osStatus_t I2C_PostLowBestEffort(const uint8_t *data, uint16_t n, uint8_t addr7, I2C_MsgType type);
+static void I2C_SendTextLN(const char *text);
+/* USER CODE END PFP */
+
+/* Private user code ---------------------------------------------------------*/
+/* USER CODE BEGIN 0 */
+static void AutoMode_Run(float inc_deg, float hei_deg, float dis_deg)
+{
+  /* clamp */
+  if (inc_deg < 0.f) inc_deg = 0.f;   if (inc_deg > 180.f) inc_deg = 180.f;
+  if (hei_deg < 0.f) hei_deg = 0.f;   if (hei_deg > 180.f) hei_deg = 180.f;
+  if (dis_deg < 0.f) dis_deg = 0.f;   if (dis_deg > 180.f) dis_deg = 180.f;
+
+  osMutexAcquire(Angles_MutexHandle, osWaitForever);
+  Servo_SetAngle   (&htim2, TIM_CHANNEL_1, inc_deg);
+  Servo_SetHeight  (&htim2, TIM_CHANNEL_2, hei_deg);
+  Servo_SetDistance(&htim2, TIM_CHANNEL_3, dis_deg);
+  angle_f_INC = inc_deg;
+  angle_f_HEI = hei_deg;
+  angle_f_DIS = dis_deg;
+  osMutexRelease(Angles_MutexHandle);
+}
+
+static float map_pot_to_angle(uint16_t raw)
+{
+  if (raw < ADC_MIN_CAL) raw = ADC_MIN_CAL;
+  if (raw > ADC_MAX_CAL) raw = ADC_MAX_CAL;
+  float norm = (float)(raw - ADC_MIN_CAL) / (float)(ADC_MAX_CAL - ADC_MIN_CAL);
+  float angle = norm * 180.0f;
+  if (angle < 0.0f)   angle = 0.0f;
+  if (angle > 180.0f) angle = 180.0f;
+  return angle;
+}
+
+static osStatus_t I2C_PostHigh(const uint8_t *data, uint16_t n, uint8_t addr7, I2C_MsgType type)
+{
+  if (!qI2C_HI) return osErrorParameter;
+  if (n > I2C_TX_MAX) n = I2C_TX_MAX;
+  I2C_TxMsg_t m = {0};
+  m.type       = type;
+  m.addr8      = I2C_ADDR8(addr7);
+  m.len        = n;
+  memcpy(m.buf, data, n);
+  m.timeout_ms = 10;
+  m.retries    = 2;
+  return osMessageQueuePut(qI2C_HI, &m, 0, 5);   // small wait to ensure delivery
+}
+
+static osStatus_t I2C_PostLowBestEffort(const uint8_t *data, uint16_t n, uint8_t addr7, I2C_MsgType type)
+{
+  if (!qI2C_LO) return osErrorParameter;
+  if (n > I2C_TX_MAX) n = I2C_TX_MAX;
+  I2C_TxMsg_t m = {0};
+  m.type       = type;
+  m.addr8      = I2C_ADDR8(addr7);
+  m.len        = n;
+  memcpy(m.buf, data, n);
+  m.timeout_ms = 10;
+  m.retries    = 1;
+  return osMessageQueuePut(qI2C_LO, &m, 0, 0);   // drop if busy
+}
+
+static void I2C_SendTextLN(const char *text)
+{
+  if (!text) return;
+  uint8_t buf[I2C_TX_MAX];
+  size_t n = strlen(text);
+  if (n + 1 > sizeof(buf)) n = sizeof(buf) - 1;
+  memcpy(buf, text, n);
+  buf[n] = '\n';
+  (void)I2C_PostHigh(buf, (uint16_t)(n + 1), I2C_SLAVE_ADDR, I2C_MSG_MANUAL);
+}
+/* USER CODE END 0 */
+
+/**
+  * @brief  The application entry point.
+  * @retval int
+  */
+int main(void)
+{
+
+  /* USER CODE BEGIN 1 */
+
+  /* USER CODE END 1 */
+
+  /* MCU Configuration--------------------------------------------------------*/
+
+  /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
+  HAL_Init();
+
+  /* USER CODE BEGIN Init */
+
+  /* USER CODE END Init */
+
+  /* Configure the system clock */
+  SystemClock_Config();
+
+  /* USER CODE BEGIN SysInit */
+
+  /* USER CODE END SysInit */
+
+  /* Initialize all configured peripherals */
+  MX_GPIO_Init();
+  MX_DMA_Init();
+  MX_I2C1_Init();
+  MX_TIM2_Init();
+  MX_SPI1_Init();
+  MX_ADC1_Init();
+  MX_USART1_UART_Init();
+  /* USER CODE BEGIN 2 */
+  /* Start PWM on all 3 channels for servos */
+  HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_1);
+  HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_2);
+  HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_3);
+
+  /* Set neutral positions */
+  Servo_SetAngle(&htim2,   TIM_CHANNEL_1, angle_f_INC);
+  Servo_SetHeight(&htim2,  TIM_CHANNEL_2, angle_f_HEI);
+  Servo_SetDistance(&htim2,TIM_CHANNEL_3, angle_f_DIS);
+
+  /* Ensure CS is deasserted (idle high) */
+  //HAL_GPIO_WritePin(SPI_CS_GPIO_Port, SPI_CS_Pin, GPIO_PIN_SET);
+
+  if (HAL_ADC_Start_DMA(&hadc1, (uint32_t*)g_adc_raw, 3) != HAL_OK) {
+    Error_Handler();
+  }
+  /* USER CODE END 2 */
+
+  /* Init scheduler */
+  osKernelInitialize();
+  /* Create the mutex(es) */
+  /* creation of UART_Mutex */
+  UART_MutexHandle = osMutexNew(&UART_Mutex_attributes);
+
+  /* creation of SPI_Mutex */
+  SPI_MutexHandle = osMutexNew(&SPI_Mutex_attributes);
+
+  /* creation of Angles_Mutex */
+  Angles_MutexHandle = osMutexNew(&Angles_Mutex_attributes);
+
+  /* USER CODE BEGIN RTOS_MUTEX */
+  /* add mutexes, ... */
+  /* USER CODE END RTOS_MUTEX */
+
+  /* Create the semaphores(s) */
+  /* creation of BinarySem */
+  BinarySemHandle = osSemaphoreNew(1, 1, &BinarySem_attributes);
+
+  /* USER CODE BEGIN RTOS_SEMAPHORES */
+  /* add semaphores, ... */
+  /* USER CODE END RTOS_SEMAPHORES */
+
+  /* USER CODE BEGIN RTOS_TIMERS */
+  /* start timers, add new ones, ... */
+  /* USER CODE END RTOS_TIMERS */
+
+  /* Create the queue(s) */
+  /* creation of qI2C_LO */
+  qI2C_LOHandle = osMessageQueueNew (16, sizeof(uint16_t), &qI2C_LO_attributes);
+
+  /* creation of qI2C_HI */
+  qI2C_HIHandle = osMessageQueueNew (8, sizeof(uint16_t), &qI2C_HI_attributes);
+
+  /* USER CODE BEGIN RTOS_QUEUES */
+  /* add queues, ... */
+  /* USER CODE END RTOS_QUEUES */
+
+  /* Create the thread(s) */
+  /* creation of defaultTask */
+  defaultTaskHandle = osThreadNew(StartDefaultTask, NULL, &defaultTask_attributes);
+
+  /* creation of I2C_TX */
+  I2C_TXHandle = osThreadNew(Start_I2C_TX, NULL, &I2C_TX_attributes);
+
+  /* creation of ADCReadTask */
+  ADCReadTaskHandle = osThreadNew(StartADCReadTask, NULL, &ADCReadTask_attributes);
+
+  /* creation of SendAliveTask */
+  SendAliveTaskHandle = osThreadNew(StartSendAliveTask, NULL, &SendAliveTask_attributes);
+
+  /* creation of SpiReadTask */
+  SpiReadTaskHandle = osThreadNew(StartSpiReadTask, NULL, &SpiReadTask_attributes);
+
+  /* creation of ManualModeTask */
+  ManualModeTaskHandle = osThreadNew(StartManualModeTask, NULL, &ManualModeTask_attributes);
+
+  /* creation of AutoModeTask */
+  AutoModeTaskHandle = osThreadNew(StartAutoModeTask, NULL, &AutoModeTask_attributes);
+
+  /* creation of SwitchModeTask */
+  SwitchModeTaskHandle = osThreadNew(StartSwitchModeTask, NULL, &SwitchModeTask_attributes);
+
+  /* creation of ModeManagerTask */
+  ModeManagerTaskHandle = osThreadNew(Start_Mode_Manager_Task, NULL, &ModeManagerTask_attributes);
+
+  /* creation of UART_Send_word */
+  UART_Send_wordHandle = osThreadNew(StartUART_Send_word, NULL, &UART_Send_word_attributes);
+
+  /* creation of SPI_SEND */
+  SPI_SENDHandle = osThreadNew(StartSPI_SEND, NULL, &SPI_SEND_attributes);
+
+  /* USER CODE BEGIN RTOS_THREADS */
+  /* add threads, ... */
+  /* USER CODE END RTOS_THREADS */
+
+  /* USER CODE BEGIN RTOS_EVENTS */
+  /* add events, ... */
+  /* USER CODE END RTOS_EVENTS */
+
+  /* Start scheduler */
+  osKernelStart();
+
+  /* We should never get here as control is now taken by the scheduler */
+
+  /* Infinite loop */
+  /* USER CODE BEGIN WHILE */
+  while (1)
+  {
+    /* USER CODE END WHILE */
+
+    /* USER CODE BEGIN 3 */
+  }
+  /* USER CODE END 3 */
+}
+
+/**
+  * @brief System Clock Configuration
+  * @retval None
+  */
+void SystemClock_Config(void)
+{
+  RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+  RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+
+  /** Configure the main internal regulator output voltage
+  */
+  __HAL_RCC_PWR_CLK_ENABLE();
+  __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE2);
+
+  /** Initializes the RCC Oscillators according to the specified parameters
+  * in the RCC_OscInitTypeDef structure.
+  */
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
+  RCC_OscInitStruct.HSIState = RCC_HSI_ON;
+  RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
+  RCC_OscInitStruct.PLL.PLLState = RCC_PLL_NONE;
+  if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  /** Initializes the CPU, AHB and APB buses clocks
+  */
+  RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
+                              |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
+  RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_HSI;
+  RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
+  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
+  RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
+
+  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_0) != HAL_OK)
+  {
+    Error_Handler();
+  }
+}
+
+/**
+  * @brief ADC1 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_ADC1_Init(void)
+{
+
+  /* USER CODE BEGIN ADC1_Init 0 */
+
+  /* USER CODE END ADC1_Init 0 */
+
+  ADC_ChannelConfTypeDef sConfig = {0};
+
+  /* USER CODE BEGIN ADC1_Init 1 */
+
+  /* USER CODE END ADC1_Init 1 */
+
+  /** Configure the global features of the ADC (Clock, Resolution, Data Alignment and number of conversion)
+  */
+  hadc1.Instance = ADC1;
+  hadc1.Init.ClockPrescaler = ADC_CLOCK_SYNC_PCLK_DIV2;
+  hadc1.Init.Resolution = ADC_RESOLUTION_12B;
+  hadc1.Init.ScanConvMode = ENABLE;
+  hadc1.Init.ContinuousConvMode = ENABLE;
+  hadc1.Init.DiscontinuousConvMode = DISABLE;
+  hadc1.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_NONE;
+  hadc1.Init.ExternalTrigConv = ADC_SOFTWARE_START;
+  hadc1.Init.DataAlign = ADC_DATAALIGN_RIGHT;
+  hadc1.Init.NbrOfConversion = 3;
+  hadc1.Init.DMAContinuousRequests = ENABLE;
+  hadc1.Init.EOCSelection = ADC_EOC_SINGLE_CONV;
+  if (HAL_ADC_Init(&hadc1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  /** Configure for the selected ADC regular channel its corresponding rank in the sequencer and its sample time.
+  */
+  sConfig.Channel = ADC_CHANNEL_6;
+  sConfig.Rank = 1;
+  sConfig.SamplingTime = ADC_SAMPLETIME_84CYCLES;
+  if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  /** Configure for the selected ADC regular channel its corresponding rank in the sequencer and its sample time.
+  */
+  sConfig.Channel = ADC_CHANNEL_3;
+  sConfig.Rank = 2;
+  if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  /** Configure for the selected ADC regular channel its corresponding rank in the sequencer and its sample time.
+  */
+  sConfig.Channel = ADC_CHANNEL_4;
+  sConfig.Rank = 3;
+  if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN ADC1_Init 2 */
+
+  /* USER CODE END ADC1_Init 2 */
+
+}
+
+/**
+  * @brief I2C1 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_I2C1_Init(void)
+{
+
+  /* USER CODE BEGIN I2C1_Init 0 */
+
+  /* USER CODE END I2C1_Init 0 */
+
+  /* USER CODE BEGIN I2C1_Init 1 */
+
+  /* USER CODE END I2C1_Init 1 */
+  hi2c1.Instance = I2C1;
+  hi2c1.Init.ClockSpeed = 100000;
+  hi2c1.Init.DutyCycle = I2C_DUTYCYCLE_2;
+  hi2c1.Init.OwnAddress1 = 0;
+  hi2c1.Init.AddressingMode = I2C_ADDRESSINGMODE_7BIT;
+  hi2c1.Init.DualAddressMode = I2C_DUALADDRESS_DISABLE;
+  hi2c1.Init.OwnAddress2 = 0;
+  hi2c1.Init.GeneralCallMode = I2C_GENERALCALL_DISABLE;
+  hi2c1.Init.NoStretchMode = I2C_NOSTRETCH_DISABLE;
+  if (HAL_I2C_Init(&hi2c1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN I2C1_Init 2 */
+
+  /* USER CODE END I2C1_Init 2 */
+
+}
+
+/**
+  * @brief SPI1 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_SPI1_Init(void)
+{
+
+  /* USER CODE BEGIN SPI1_Init 0 */
+
+  /* USER CODE END SPI1_Init 0 */
+
+  /* USER CODE BEGIN SPI1_Init 1 */
+
+  /* USER CODE END SPI1_Init 1 */
+  /* SPI1 parameter configuration*/
+  hspi1.Instance = SPI1;
+  hspi1.Init.Mode = SPI_MODE_MASTER;
+  hspi1.Init.Direction = SPI_DIRECTION_2LINES;
+  hspi1.Init.DataSize = SPI_DATASIZE_8BIT;
+  hspi1.Init.CLKPolarity = SPI_POLARITY_LOW;
+  hspi1.Init.CLKPhase = SPI_PHASE_1EDGE;
+  hspi1.Init.NSS = SPI_NSS_HARD_OUTPUT;
+  hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_2;
+  hspi1.Init.FirstBit = SPI_FIRSTBIT_MSB;
+  hspi1.Init.TIMode = SPI_TIMODE_DISABLE;
+  hspi1.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
+  hspi1.Init.CRCPolynomial = 10;
+  if (HAL_SPI_Init(&hspi1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN SPI1_Init 2 */
+
+  /* USER CODE END SPI1_Init 2 */
+
+}
+
+/**
+  * @brief TIM2 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_TIM2_Init(void)
+{
+
+  /* USER CODE BEGIN TIM2_Init 0 */
+
+  /* USER CODE END TIM2_Init 0 */
+
+  TIM_MasterConfigTypeDef sMasterConfig = {0};
+  TIM_OC_InitTypeDef sConfigOC = {0};
+
+  /* USER CODE BEGIN TIM2_Init 1 */
+
+  /* USER CODE END TIM2_Init 1 */
+  htim2.Instance = TIM2;
+  htim2.Init.Prescaler = 0;
+  htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
+  htim2.Init.Period = 4294967295;
+  htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+  htim2.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  if (HAL_TIM_PWM_Init(&htim2) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+  if (HAL_TIMEx_MasterConfigSynchronization(&htim2, &sMasterConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sConfigOC.OCMode = TIM_OCMODE_PWM1;
+  sConfigOC.Pulse = 0;
+  sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
+  sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
+  if (HAL_TIM_PWM_ConfigChannel(&htim2, &sConfigOC, TIM_CHANNEL_1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  if (HAL_TIM_PWM_ConfigChannel(&htim2, &sConfigOC, TIM_CHANNEL_2) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  if (HAL_TIM_PWM_ConfigChannel(&htim2, &sConfigOC, TIM_CHANNEL_3) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN TIM2_Init 2 */
+
+  /* USER CODE END TIM2_Init 2 */
+  HAL_TIM_MspPostInit(&htim2);
+
+}
+
+/**
+  * @brief USART1 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_USART1_UART_Init(void)
+{
+
+  /* USER CODE BEGIN USART1_Init 0 */
+
+  /* USER CODE END USART1_Init 0 */
+
+  /* USER CODE BEGIN USART1_Init 1 */
+
+  /* USER CODE END USART1_Init 1 */
+  huart1.Instance = USART1;
+  huart1.Init.BaudRate = 115200;
+  huart1.Init.WordLength = UART_WORDLENGTH_8B;
+  huart1.Init.StopBits = UART_STOPBITS_1;
+  huart1.Init.Parity = UART_PARITY_NONE;
+  huart1.Init.Mode = UART_MODE_TX_RX;
+  huart1.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+  huart1.Init.OverSampling = UART_OVERSAMPLING_16;
+  if (HAL_UART_Init(&huart1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN USART1_Init 2 */
+
+  /* USER CODE END USART1_Init 2 */
+
+}
+
+/**
+  * Enable DMA controller clock
+  */
+static void MX_DMA_Init(void)
+{
+
+  /* DMA controller clock enable */
+  __HAL_RCC_DMA2_CLK_ENABLE();
+
+  /* DMA interrupt init */
+  /* DMA2_Stream0_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(DMA2_Stream0_IRQn, 5, 0);
+  HAL_NVIC_EnableIRQ(DMA2_Stream0_IRQn);
+
+}
+
+/**
+  * @brief GPIO Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_GPIO_Init(void)
+{
+  GPIO_InitTypeDef GPIO_InitStruct = {0};
+/* USER CODE BEGIN MX_GPIO_Init_1 */
+/* USER CODE END MX_GPIO_Init_1 */
+
+  /* GPIO Ports Clock Enable */
+  __HAL_RCC_GPIOC_CLK_ENABLE();
+  __HAL_RCC_GPIOA_CLK_ENABLE();
+  __HAL_RCC_GPIOB_CLK_ENABLE();
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0|GPIO_PIN_1, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin : PC13 */
+  GPIO_InitStruct.Pin = GPIO_PIN_13;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : PB0 PB1 */
+  GPIO_InitStruct.Pin = GPIO_PIN_0|GPIO_PIN_1;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : PB12 PB13 PB14 PB15
+                           PB5 */
+  GPIO_InitStruct.Pin = GPIO_PIN_12|GPIO_PIN_13|GPIO_PIN_14|GPIO_PIN_15
+                          |GPIO_PIN_5;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : PA8 PA11 PA12 */
+  GPIO_InitStruct.Pin = GPIO_PIN_8|GPIO_PIN_11|GPIO_PIN_12;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+/* USER CODE BEGIN MX_GPIO_Init_2 */
+/* USER CODE END MX_GPIO_Init_2 */
+}
+
+/* USER CODE BEGIN 4 */
+/* USER CODE END 4 */
+
+/* USER CODE BEGIN Header_StartDefaultTask */
+/**
+  * @brief  Function implementing the defaultTask thread.
+  * @param  argument: Not used
+  * @retval None
+  */
+/* USER CODE END Header_StartDefaultTask */
+void StartDefaultTask(void *argument)
+{
+  for(;;)
+  {
+    // Optional: one-shot boot log
+    static int once = 0;
+    if (!once) { I2C_SendTextLN("RTOS up"); once = 1; }
+    osDelay(200);
+  }
+}
+
+void Start_I2C_TX(void *argument)
+{
+  (void)argument;
+  I2C_TxMsg_t msg;
+
+  for (;;)
+  {
+    /* Prefer high-priority; short block, then try low */
+    osStatus_t s = osMessageQueueGet(qI2C_HI, &msg, NULL, 50);
+    if (s != osOK) {
+      s = osMessageQueueGet(qI2C_LO, &msg, NULL, 50);
+      if (s != osOK) continue;
+    }
+
+    uint8_t tries = 0;
+    for (;;)
+    {
+      HAL_StatusTypeDef st = HAL_I2C_Master_Transmit(&hi2c1, msg.addr8,
+                              (uint8_t*)msg.buf, msg.len, msg.timeout_ms);
+      if (st == HAL_OK) break;
+      if (++tries > msg.retries) { HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13); break; }
+      osDelay(2);
+    }
+  }
+}
+
+void StartADCReadTask(void *argument)
+{
+  for(;;)
+  {
+    uint16_t ch3 = g_adc_raw[0];
+    uint16_t ch4 = g_adc_raw[1];
+    uint16_t ch5 = g_adc_raw[2];
+
+    float inc = map_pot_to_angle(ch3);
+    float hei = map_pot_to_angle(ch4);
+    float dis = map_pot_to_angle(ch5);
+
+    /* If you want pots to drive angles continuously, uncomment:
+    osMutexAcquire(Angles_MutexHandle, osWaitForever);
+    angle_f_INC = inc; angle_f_HEI = hei; angle_f_DIS = dis;
+    osMutexRelease(Angles_MutexHandle);
+    */
+
+    osDelay(10);
+  }
+}
+
+void StartSendAliveTask(void *argument)
+{
+  uint16_t alive_ctr = 0 ;
+  uint8_t tx[sizeof(message_t)];    // 4 bytes
+
+  for(;;)
+  {
+    /* Compose message */
+    message_t m;
+    m.timestamp = (uint16_t)(HAL_GetTick() & 0xFFFFu);  // wrap every ~65s
+    m.counter   = alive_ctr++;
+
+    /* Pack message into bytes (little-endian) */
+    tx[0] = (uint8_t)(m.timestamp & 0xFFu);
+    tx[1] = (uint8_t)((m.timestamp >> 8) & 0xFFu);
+    tx[2] = (uint8_t)(m.counter & 0xFFu);
+    tx[3] = (uint8_t)((m.counter >> 8) & 0xFFu);
+
+    /* Enqueue best-effort on LOW queue */
+    (void)I2C_PostLowBestEffort(tx, (uint16_t)sizeof(tx), I2C_SLAVE_ADDR, I2C_MSG_HEARTBEAT);
+
+    if (g_mode == AUTO_MODE) {
+      I2C_SendTextLN("Now Auto-Mode");
+    } else {
+      I2C_SendTextLN("Now Manual-Mode");
+    }
+
+    osDelay(2000);
+  }
+}
+
+void StartSpiReadTask(void *argument)
+{
+  uint8_t rx[3];
+  for(;;)
+  {
+    osMutexAcquire(SPI_MutexHandle, osWaitForever);
+    HAL_GPIO_WritePin(SPI_CS_GPIO_Port, SPI_CS_Pin, GPIO_PIN_RESET);
+
+    HAL_StatusTypeDef st = HAL_SPI_Receive(&hspi1, rx, 3, 10);
+
+    HAL_GPIO_WritePin(SPI_CS_GPIO_Port, SPI_CS_Pin, GPIO_PIN_SET);
+    osMutexRelease(SPI_MutexHandle);
+
+    if (st == HAL_OK)
+    {
+      AutoCmd_t cmd;
+      cmd.inc_deg = BYTE_TO_DEG(rx[0]);  /* incline */
+      cmd.hei_deg = BYTE_TO_DEG(rx[1]);  /* height  */
+      cmd.dis_deg = BYTE_TO_DEG(rx[2]);  /* distance*/
+
+      if (cmd.inc_deg < 0.f) cmd.inc_deg = 0.f; if (cmd.inc_deg > 180.f) cmd.inc_deg = 180.f;
+      if (cmd.hei_deg < 0.f) cmd.hei_deg = 0.f; if (cmd.hei_deg > 180.f) cmd.hei_deg = 180.f;
+      if (cmd.dis_deg < 0.f) cmd.dis_deg = 0.f; if (cmd.dis_deg > 180.f) cmd.dis_deg = 180.f;
+
+      (void)osMessageQueuePut(qAutoCmd, &cmd, 0, 0);
+    }
+
+    osDelay(10); /* 100 Hz polling */
+  }
+}
+
+void StartManualModeTask(void *argument)
+{
+  char msg[48];
+  static uint8_t announced = 0;
+
+  for (;;)
+  {
+    /* Wait until MANUAL is active, but DO NOT clear the flag */
+    uint32_t flags = osEventFlagsGet(evModeFlags);
+    if ((flags & EVT_ACTIVE_MANUAL) == 0) {
+      announced = 0; /* next entry will announce again */
+      osEventFlagsWait(evModeFlags, EVT_ACTIVE_MANUAL,
+                       osFlagsWaitAny | osFlagsNoClear, osWaitForever);
+    }
+
+    /* Announce once per entry into MANUAL (non-blocking if token busy) */
+    if (!announced) {
+      if (osSemaphoreAcquire(BinarySemHandle, 0) == osOK) {
+        I2C_SendTextLN("Switched to Manual mode");
+        osSemaphoreRelease(BinarySemHandle);
+      }
+      announced = 1;
+    }
+
+    /* -------- INCLINE (TIM2 CH1) : PB5 inc / PA8 dec -------- */
+    if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_5) == GPIO_PIN_RESET) /* increase */
+    {
+      osDelay(20); /* debounce */
+      osMutexAcquire(Angles_MutexHandle, osWaitForever);
+      angle_f_INC += 5.0f;
+      Servo_SetAngle(&htim2, TIM_CHANNEL_1, angle_f_INC);
+      osMutexRelease(Angles_MutexHandle);
+
+      if (osSemaphoreAcquire(BinarySemHandle, 0) == osOK) {
+        snprintf(msg, sizeof(msg), "incline increased to %d", (int)angle_f_INC);
+        I2C_SendTextLN(msg);
+        osSemaphoreRelease(BinarySemHandle);
+      }
+
+      while (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_5) == GPIO_PIN_RESET) {
+        osDelay(20);
+        osMutexAcquire(Angles_MutexHandle, osWaitForever);
+        angle_f_INC += 5.0f;
+        Servo_SetAngle(&htim2, TIM_CHANNEL_1, angle_f_INC);
+        osMutexRelease(Angles_MutexHandle);
+      }
+    }
+    else if (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_8) == GPIO_PIN_RESET) /* decrease */
+    {
+      osDelay(20);
+      osMutexAcquire(Angles_MutexHandle, osWaitForever);
+      angle_f_INC -= 5.0f;
+      Servo_SetAngle(&htim2, TIM_CHANNEL_1, angle_f_INC);
+      osMutexRelease(Angles_MutexHandle);
+
+      if (osSemaphoreAcquire(BinarySemHandle, 0) == osOK) {
+        snprintf(msg, sizeof(msg), "incline decreased to %d", (int)angle_f_INC);
+        I2C_SendTextLN(msg);
+        osSemaphoreRelease(BinarySemHandle);
+      }
+
+      while (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_8) == GPIO_PIN_RESET) {
+        osDelay(20);
+        osMutexAcquire(Angles_MutexHandle, osWaitForever);
+        angle_f_INC -= 5.0f;
+        Servo_SetAngle(&htim2, TIM_CHANNEL_1, angle_f_INC);
+        osMutexRelease(Angles_MutexHandle);
+      }
+    }
+    /* -------- HEIGHT (TIM2 CH2) : PB13 inc / PB12 dec -------- */
+    else if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_13) == GPIO_PIN_RESET) /* increase */
+    {
+      osDelay(20);
+      osMutexAcquire(Angles_MutexHandle, osWaitForever);
+      angle_f_HEI += 5.0f;
+      Servo_SetHeight(&htim2, TIM_CHANNEL_2, angle_f_HEI);
+      osMutexRelease(Angles_MutexHandle);
+
+      if (osSemaphoreAcquire(BinarySemHandle, 0) == osOK) {
+        snprintf(msg, sizeof(msg), "height increased to %d", (int)angle_f_HEI);
+        I2C_SendTextLN(msg);
+        osSemaphoreRelease(BinarySemHandle);
+      }
+
+      while (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_13) == GPIO_PIN_RESET) {
+        osDelay(20);
+        osMutexAcquire(Angles_MutexHandle, osWaitForever);
+        angle_f_HEI += 5.0f;
+        Servo_SetHeight(&htim2, TIM_CHANNEL_2, angle_f_HEI);
+        osMutexRelease(Angles_MutexHandle);
+      }
+    }
+    else if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_12) == GPIO_PIN_RESET) /* decrease */
+    {
+      osDelay(20);
+      osMutexAcquire(Angles_MutexHandle, osWaitForever);
+      angle_f_HEI -= 5.0f;
+      Servo_SetHeight(&htim2, TIM_CHANNEL_2, angle_f_HEI);
+      osMutexRelease(Angles_MutexHandle);
+
+      if (osSemaphoreAcquire(BinarySemHandle, 0) == osOK) {
+        snprintf(msg, sizeof(msg), "height decreased to %d", (int)angle_f_HEI);
+        I2C_SendTextLN(msg);
+        osSemaphoreRelease(BinarySemHandle);
+      }
+
+      while (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_12) == GPIO_PIN_RESET) {
+        osDelay(20);
+        osMutexAcquire(Angles_MutexHandle, osWaitForever);
+        angle_f_HEI -= 5.0f;
+        Servo_SetHeight(&htim2, TIM_CHANNEL_2, angle_f_HEI);
+        osMutexRelease(Angles_MutexHandle);
+      }
+    }
+    /* -------- DISTANCE (TIM2 CH3) : PB15 inc / PB14 dec -------- */
+    else if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_15) == GPIO_PIN_RESET) /* increase */
+    {
+      osDelay(20);
+      osMutexAcquire(Angles_MutexHandle, osWaitForever);
+      angle_f_DIS += 5.0f;
+      Servo_SetDistance(&htim2, TIM_CHANNEL_3, angle_f_DIS);
+      osMutexRelease(Angles_MutexHandle);
+
+      if (osSemaphoreAcquire(BinarySemHandle, 0) == osOK) {
+        snprintf(msg, sizeof(msg), "Slide increased to %d", (int)angle_f_DIS);
+        I2C_SendTextLN(msg);
+        osSemaphoreRelease(BinarySemHandle);
+      }
+
+      while (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_15) == GPIO_PIN_RESET) {
+        osDelay(20);
+        osMutexAcquire(Angles_MutexHandle, osWaitForever);
+        angle_f_DIS += 5.0f;
+        Servo_SetDistance(&htim2, TIM_CHANNEL_3, angle_f_DIS);
+        osMutexRelease(Angles_MutexHandle);
+      }
+    }
+    else if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_14) == GPIO_PIN_RESET) /* decrease */
+    {
+      osDelay(20);
+      osMutexAcquire(Angles_MutexHandle, osWaitForever);
+      angle_f_DIS -= 5.0f;
+      Servo_SetDistance(&htim2, TIM_CHANNEL_3, angle_f_DIS);
+      osMutexRelease(Angles_MutexHandle);
+
+      if (osSemaphoreAcquire(BinarySemHandle, 0) == osOK) {
+        snprintf(msg, sizeof(msg), "Slide decreased to %d", (int)angle_f_DIS);
+        I2C_SendTextLN(msg);
+        osSemaphoreRelease(BinarySemHandle);
+      }
+
+      while (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_14) == GPIO_PIN_RESET) {
+        osDelay(20);
+        osMutexAcquire(Angles_MutexHandle, osWaitForever);
+        angle_f_DIS -= 5.0f;
+        Servo_SetDistance(&htim2, TIM_CHANNEL_3, angle_f_DIS);
+        osMutexRelease(Angles_MutexHandle);
+      }
+    }
+
+    osDelay(5); /* yield */
+  }
+}
+
+void StartAutoModeTask(void *argument)
+{
+  AutoCmd_t cmd = {90,90,90};
+  for(;;)
+  {
+    /* Wait until AUTO is active */
+    osEventFlagsWait(evModeFlags, EVT_ACTIVE_AUTO, osFlagsWaitAny, osWaitForever);
+
+    if( g_mode == AUTO_MODE){
+      osDelay(20);
+      I2C_SendTextLN("Switched to Auto mode");
+    }
+
+    /* Use latest command if available */
+    (void)osMessageQueueGet(qAutoCmd, &cmd, NULL, 0);
+    AutoMode_Run(cmd.inc_deg, cmd.hei_deg, cmd.dis_deg);
+
+    osDelay(5);
+  }
+}
+
+void StartSwitchModeTask(void *argument)
+{
+  for(;;)
+  {
+    /* Example: PA12 pressed = toggle request (active low) */
+    if (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_12) == GPIO_PIN_RESET) {
+      osDelay(100);
+      osEventFlagsSet(evModeFlags, EVT_MODE_TOGGLE);
+
+      osDelay(5); /* debounce */
+      if (g_mode == AUTO_MODE){
+        HAL_GPIO_WritePin(GPIOB, GPIO_PIN_1, GPIO_PIN_SET);
+        HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_RESET);
+      }
+      else if(g_mode == MANUAL_MODE) {
+        HAL_GPIO_WritePin(GPIOB, GPIO_PIN_1, GPIO_PIN_RESET);
+        HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_SET);
+      }
+    }
+    osDelay(5);
+  }
+}
+
+void Start_Mode_Manager_Task(void *argument)
+{
+  for(;;)
+  {
+    /* Wait for any mode request; don't auto-clear so we can inspect bits */
+    uint32_t got = osEventFlagsWait(
+        evModeFlags,
+        EVT_MODE_TOGGLE | EVT_REQ_AUTO | EVT_REQ_MANUAL,
+        osFlagsWaitAny | osFlagsNoClear,
+        osWaitForever);
+
+    /* Consume edge events */
+    osEventFlagsClear(evModeFlags, EVT_MODE_TOGGLE | EVT_REQ_AUTO | EVT_REQ_MANUAL);
+
+    uint8_t next = g_mode;
+    if (got & EVT_MODE_TOGGLE)  next = (g_mode == MANUAL_MODE) ? AUTO_MODE : MANUAL_MODE;
+    if (got & EVT_REQ_AUTO)     next = AUTO_MODE;
+    if (got & EVT_REQ_MANUAL)   next = MANUAL_MODE;
+
+    if (next != g_mode) {
+      g_mode = next;
+      if (g_mode == AUTO_MODE) {
+        osEventFlagsClear(evModeFlags, EVT_ACTIVE_MANUAL);
+        osEventFlagsSet  (evModeFlags, EVT_ACTIVE_AUTO);
+      } else {
+        osEventFlagsClear(evModeFlags, EVT_ACTIVE_AUTO);
+        osEventFlagsSet  (evModeFlags, EVT_ACTIVE_MANUAL);
+      }
+    }
+  }
+}
+
+void StartUART_Send_word(void *argument)
+{
+  uint8_t msg[] = "A\r"; /* 2 bytes */
+
+  for(;;)
+  {
+    osMutexAcquire(UART_MutexHandle, osWaitForever);
+    (void)HAL_UART_Transmit(&huart1, msg, (uint16_t)(sizeof(msg)-1), 10);
+    osMutexRelease(UART_MutexHandle);
+    osDelay(1000);
+  }
+}
+
+void StartSPI_SEND(void *argument)
+{
+  uint8_t Tx[3]= "ABC";
+  for(;;)
+  {
+    osMutexAcquire(SPI_MutexHandle, osWaitForever);
+    //HAL_GPIO_WritePin(SPI_CS_GPIO_Port, SPI_CS_Pin, GPIO_PIN_RESET);
+
+    (void)HAL_SPI_Transmit(&hspi1, Tx, 3, 100);
+
+   // HAL_GPIO_WritePin(SPI_CS_GPIO_Port, SPI_CS_Pin, GPIO_PIN_SET);
+    osMutexRelease(SPI_MutexHandle);
+
+    osDelay(1);
+  }
+}
+
+/**
+  * @brief  Period elapsed callback in non blocking mode
+  */
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+{
+  if (htim->Instance == TIM9) {
+    HAL_IncTick();
+  }
+}
+
+/**
+  * @brief  This function is executed in case of error occurrence.
+  * @retval None
+  */
+void Error_Handler(void)
+{
+  __disable_irq();
+  while (1) { }
+}
+
+#ifdef  USE_FULL_ASSERT
+void assert_failed(uint8_t *file, uint32_t line)
+{
+  (void)file; (void)line;
+}
+#endif /* USE_FULL_ASSERT */

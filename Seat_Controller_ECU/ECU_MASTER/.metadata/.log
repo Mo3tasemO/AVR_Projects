@@ -1,0 +1,36 @@
+!SESSION 2025-09-21 21:10:17.616 -----------------------------------------------
+eclipse.buildId=Version 1.16.1
+java.version=17.0.11
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2025-09-21 21:10:45.664
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2025-09-21 21:10:45.676
+!MESSAGE Log4j2 initialized with config file D:\coding tools\Seat Controller\seat_controller_ecu\ECU_MASTER\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2025-09-21 21:11:01.288
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 1 0 2025-09-21 21:12:31.809
+!MESSAGE Indexed 'STM_RTOS_test' (40 sources, 116 headers) in 6.79 sec: 10,923 declarations; 74,038 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.0024%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2025-09-21 21:16:27.806
+!MESSAGE Indexed 'STM32_MASTER' (0 sources, 0 headers) in 0.069 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+!SESSION 2025-09-23 19:44:55.990 -----------------------------------------------
+eclipse.buildId=Version 1.16.1
+java.version=17.0.11
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2025-09-23 19:45:07.893
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2025-09-23 19:45:07.897
+!MESSAGE Log4j2 initialized with config file D:\coding tools\Seat Controller\seat_controller_ecu\ECU_MASTER\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2025-09-23 19:45:29.483
+!MESSAGE Started RMI Server, listening on port 41337

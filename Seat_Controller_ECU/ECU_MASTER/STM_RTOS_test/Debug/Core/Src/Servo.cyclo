@@ -1,0 +1,8 @@
+../Core/Src/Servo.c:9:6:Servo_SetAngle	6
+../Core/Src/Servo.c:22:6:Servo_SetHeight	6
+../Core/Src/Servo.c:34:6:Servo_SetDistance	6
+../Core/Src/Servo.c:50:7:Height_AngleDeg_To_Cm	3
+../Core/Src/Servo.c:59:7:Slide_AngleDeg_To_Cm	3
+../Core/Src/Servo.c:70:10:clamp_u16	3
+../Core/Src/Servo.c:76:7:map_linear	4
+../Core/Src/Servo.c:87:7:Height_Cm_To_AngleDeg	3
