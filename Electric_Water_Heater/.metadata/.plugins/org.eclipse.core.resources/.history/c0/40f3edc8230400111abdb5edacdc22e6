@@ -1,0 +1,53 @@
+/*
+ * Application.c
+ *
+ *  Created on: Feb 6, 2026
+ *      Author: Moata
+ */
+
+#include "Application.h"
+void application_init(void);
+
+
+pin_config_t led1 = {
+		.port = PORTC_INDEX,
+		.pin = GPIO_PIN0,
+		.direction = GPIO_DIRECTION_OUTPUT,
+		.logic = GPIO_HIGH
+};
+
+
+int main(){
+	Std_ReturnType ret = E_OK;
+
+	application_init();
+
+
+
+
+	while(1){
+		ret = GPIO_PIN_TOGGLE_LOGIC(&led1);
+//		_delay_ms(1000);
+//		ret = GPIO_PIN_TOGGLE_LOGIC(&led1);
+
+	}
+
+
+
+
+
+
+
+	return 0;
+}
+
+
+void application_init(void){
+	Std_ReturnType ret = E_OK;
+	ECU_LAYER_INIT();
+	ret = GPIO_PIN_INIT(&led1);
+
+
+}
+
+
