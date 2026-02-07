@@ -1,0 +1,13 @@
+/*
+ * HAL_GPIO_CFG.h
+ *
+ *  Created on: Feb 6, 2026
+ *      Author: Moata
+ */
+
+#ifndef MCAL_LAYER_GPIO_HAL_GPIO_CFG_H_
+#define MCAL_LAYER_GPIO_HAL_GPIO_CFG_H_
+
+
+
+#endif /* MCAL_LAYER_GPIO_HAL_GPIO_CFG_H_ */

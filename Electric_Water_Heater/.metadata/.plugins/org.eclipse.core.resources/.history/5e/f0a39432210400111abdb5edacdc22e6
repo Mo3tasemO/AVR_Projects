@@ -1,0 +1,45 @@
+/*
+ * MCAL_STD_LIB.h
+ *
+ *  Created on: Feb 6, 2026
+ *      Author: Moata
+ */
+
+#ifndef MCAL_STD_LIB_H_
+#define MCAL_STD_LIB_H_
+
+
+/* Section : Includes */
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <util/delay.h>
+
+/* Section: Macro Declarations */
+
+#define DDRA (*(uint8 *)(0x3A))
+#define PORTA (*(uint8 *)(0x3B))
+#define PINA  (*(uint8 *)(0x39))
+
+#define DDRB  (*(uint8 *)(0x37))
+#define PORTB (*(uint8 *)(0x38))
+#define PINB  (*(uint8 *)(0x36))
+
+#define DDRC  (*(uint8 *)(0x34))
+#define PORTC (*(uint8 *)(0x35))
+#define PINC  (*(uint8 *)(0x33))
+
+#define DDRD  (*(uint8 *)(0x31))
+#define PORTD (*(uint8 *)(0x32))
+#define PIND  (*(uint8 *)(0x30))
+
+
+/* Section: Macro Functions Declarations */
+
+/* Section: Data Type Declarations */
+
+/* Section: Function Declarations */
+
+
+#endif /* MCAL_STD_LIB_H_ */
+

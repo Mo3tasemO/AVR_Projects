@@ -1,0 +1,453 @@
+Archive member included because of file (symbol)
+
+d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+                              d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm16.o (exit)
+d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+                              ./MCAL_LAYER/GPIO/HAL_GPIO.o (__do_copy_data)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+text             0x00000000         0x00020000         xr
+data             0x00800060         0x0000ffa0         rw !x
+eeprom           0x00810000         0x00010000         rw !x
+fuse             0x00820000         0x00000400         rw !x
+lock             0x00830000         0x00000400         rw !x
+signature        0x00840000         0x00000400         rw !x
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm16.o
+LOAD ./MCAL_LAYER/GPIO/HAL_GPIO.o
+LOAD ./ECU_LAYER/TEMP_SENSOR/ECU_TEMP_SENSOR.o
+LOAD ./ECU_LAYER/RELAY/ECU_RELAY.o
+LOAD ./ECU_LAYER/PUSH_BUTTONS/ECU_PUSH_BUTTONS.o
+LOAD ./ECU_LAYER/FAN_CONTROL/ECU_FAN_CONTROL.o
+LOAD ./ECU_LAYER/COOLER_PELTIER/ECU_COOLER_PELTIER.o
+LOAD ./ECU_LAYER/CERAMIC_HEATER/ECU_CERAMIC_HEATER.o
+LOAD ./ECU_LAYER/7_SEGMENT/ECU_7_SEGMENT.o
+LOAD ./ECU_LAYER/24C08_EXT_EEPROM/ECU_24C08_EXT_EEPROM.o
+LOAD ./ECU_LAYER/ECU_INIT.o
+LOAD ./Application.o
+LOAD d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
+LOAD d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a
+LOAD d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
+
+.hash
+ *(.hash)
+
+.dynsym
+ *(.dynsym)
+
+.dynstr
+ *(.dynstr)
+
+.gnu.version
+ *(.gnu.version)
+
+.gnu.version_d
+ *(.gnu.version_d)
+
+.gnu.version_r
+ *(.gnu.version_r)
+
+.rel.init
+ *(.rel.init)
+
+.rela.init
+ *(.rela.init)
+
+.rel.text
+ *(.rel.text)
+ *(.rel.text.*)
+ *(.rel.gnu.linkonce.t*)
+
+.rela.text
+ *(.rela.text)
+ *(.rela.text.*)
+ *(.rela.gnu.linkonce.t*)
+
+.rel.fini
+ *(.rel.fini)
+
+.rela.fini
+ *(.rela.fini)
+
+.rel.rodata
+ *(.rel.rodata)
+ *(.rel.rodata.*)
+ *(.rel.gnu.linkonce.r*)
+
+.rela.rodata
+ *(.rela.rodata)
+ *(.rela.rodata.*)
+ *(.rela.gnu.linkonce.r*)
+
+.rel.data
+ *(.rel.data)
+ *(.rel.data.*)
+ *(.rel.gnu.linkonce.d*)
+
+.rela.data
+ *(.rela.data)
+ *(.rela.data.*)
+ *(.rela.gnu.linkonce.d*)
+
+.rel.ctors
+ *(.rel.ctors)
+
+.rela.ctors
+ *(.rela.ctors)
+
+.rel.dtors
+ *(.rel.dtors)
+
+.rela.dtors
+ *(.rela.dtors)
+
+.rel.got
+ *(.rel.got)
+
+.rela.got
+ *(.rela.got)
+
+.rel.bss
+ *(.rel.bss)
+
+.rela.bss
+ *(.rela.bss)
+
+.rel.plt
+ *(.rel.plt)
+
+.rela.plt
+ *(.rela.plt)
+
+.text           0x00000000      0x724
+ *(.vectors)
+ .vectors       0x00000000       0x54 d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm16.o
+                0x00000000                __vectors
+                0x00000000                __vector_default
+ *(.vectors)
+ *(.progmem.gcc*)
+ *(.progmem*)
+                0x00000054                . = ALIGN (0x2)
+                0x00000054                __trampolines_start = .
+ *(.trampolines)
+ .trampolines   0x00000054        0x0 linker stubs
+ *(.trampolines*)
+                0x00000054                __trampolines_end = .
+ *(.jumptables)
+ *(.jumptables*)
+ *(.lowtext)
+ *(.lowtext*)
+                0x00000054                __ctors_start = .
+ *(.ctors)
+                0x00000054                __ctors_end = .
+                0x00000054                __dtors_start = .
+ *(.dtors)
+                0x00000054                __dtors_end = .
+ SORT(*)(.ctors)
+ SORT(*)(.dtors)
+ *(.init0)
+ .init0         0x00000054        0x0 d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm16.o
+                0x00000054                __init
+ *(.init0)
+ *(.init1)
+ *(.init1)
+ *(.init2)
+ .init2         0x00000054        0xc d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm16.o
+ *(.init2)
+ *(.init3)
+ *(.init3)
+ *(.init4)
+ .init4         0x00000060       0x16 d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+                0x00000060                __do_copy_data
+ *(.init4)
+ *(.init5)
+ *(.init5)
+ *(.init6)
+ *(.init6)
+ *(.init7)
+ *(.init7)
+ *(.init8)
+ *(.init8)
+ *(.init9)
+ .init9         0x00000076        0x8 d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm16.o
+ *(.init9)
+ *(.text)
+ .text          0x0000007e        0x4 d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm16.o
+                0x0000007e                __vector_1
+                0x0000007e                __vector_12
+                0x0000007e                __bad_interrupt
+                0x0000007e                __vector_6
+                0x0000007e                __vector_3
+                0x0000007e                __vector_11
+                0x0000007e                __vector_13
+                0x0000007e                __vector_17
+                0x0000007e                __vector_19
+                0x0000007e                __vector_7
+                0x0000007e                __vector_5
+                0x0000007e                __vector_4
+                0x0000007e                __vector_9
+                0x0000007e                __vector_2
+                0x0000007e                __vector_15
+                0x0000007e                __vector_8
+                0x0000007e                __vector_14
+                0x0000007e                __vector_10
+                0x0000007e                __vector_16
+                0x0000007e                __vector_18
+                0x0000007e                __vector_20
+ .text          0x00000082        0x0 ./MCAL_LAYER/GPIO/HAL_GPIO.o
+ .text          0x00000082        0x0 ./ECU_LAYER/TEMP_SENSOR/ECU_TEMP_SENSOR.o
+ .text          0x00000082        0x0 ./ECU_LAYER/RELAY/ECU_RELAY.o
+ .text          0x00000082        0x0 ./ECU_LAYER/PUSH_BUTTONS/ECU_PUSH_BUTTONS.o
+ .text          0x00000082        0x0 ./ECU_LAYER/FAN_CONTROL/ECU_FAN_CONTROL.o
+ .text          0x00000082        0x0 ./ECU_LAYER/COOLER_PELTIER/ECU_COOLER_PELTIER.o
+ .text          0x00000082        0x0 ./ECU_LAYER/CERAMIC_HEATER/ECU_CERAMIC_HEATER.o
+ .text          0x00000082        0x0 ./ECU_LAYER/7_SEGMENT/ECU_7_SEGMENT.o
+ .text          0x00000082        0x0 ./ECU_LAYER/24C08_EXT_EEPROM/ECU_24C08_EXT_EEPROM.o
+ .text          0x00000082        0x0 ./ECU_LAYER/ECU_INIT.o
+ .text          0x00000082        0x0 ./Application.o
+ .text          0x00000082        0x0 d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .text          0x00000082        0x0 d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+                0x00000082                . = ALIGN (0x2)
+ *(.text.*)
+ .text.GPIO_PIN_DIRECTION_INIT
+                0x00000082      0x140 ./MCAL_LAYER/GPIO/HAL_GPIO.o
+                0x00000082                GPIO_PIN_DIRECTION_INIT
+ .text.GPIO_PIN_GET_DIRECTION_STATUS
+                0x000001c2       0xa2 ./MCAL_LAYER/GPIO/HAL_GPIO.o
+                0x000001c2                GPIO_PIN_GET_DIRECTION_STATUS
+ .text.GPIO_PIN_WRITE_LOGIC
+                0x00000264      0x136 ./MCAL_LAYER/GPIO/HAL_GPIO.o
+                0x00000264                GPIO_PIN_WRITE_LOGIC
+ .text.GPIO_PIN_READ_LOGIC
+                0x0000039a       0xa2 ./MCAL_LAYER/GPIO/HAL_GPIO.o
+                0x0000039a                GPIO_PIN_READ_LOGIC
+ .text.GPIO_PIN_TOGGLE_LOGIC
+                0x0000043c       0xa6 ./MCAL_LAYER/GPIO/HAL_GPIO.o
+                0x0000043c                GPIO_PIN_TOGGLE_LOGIC
+ .text.GPIO_PIN_INIT
+                0x000004e2       0x6a ./MCAL_LAYER/GPIO/HAL_GPIO.o
+                0x000004e2                GPIO_PIN_INIT
+ .text.GPIO_PORT_DIRECTION_INIT
+                0x0000054c       0x46 ./MCAL_LAYER/GPIO/HAL_GPIO.o
+                0x0000054c                GPIO_PORT_DIRECTION_INIT
+ .text.GPIO_PORT_GET_DIRECTION_STATUS
+                0x00000592       0x56 ./MCAL_LAYER/GPIO/HAL_GPIO.o
+                0x00000592                GPIO_PORT_GET_DIRECTION_STATUS
+ .text.GPIO_PORT_WRITE_LOGIC
+                0x000005e8       0x46 ./MCAL_LAYER/GPIO/HAL_GPIO.o
+                0x000005e8                GPIO_PORT_WRITE_LOGIC
+ .text.GPIO_PORT_READ_LOGIC
+                0x0000062e       0x56 ./MCAL_LAYER/GPIO/HAL_GPIO.o
+                0x0000062e                GPIO_PORT_READ_LOGIC
+ .text.GPIO_PORT_TOGGLE_LOGIC
+                0x00000684       0x56 ./MCAL_LAYER/GPIO/HAL_GPIO.o
+                0x00000684                GPIO_PORT_TOGGLE_LOGIC
+ .text.ECU_LAYER_INIT
+                0x000006da        0xe ./ECU_LAYER/ECU_INIT.o
+                0x000006da                ECU_LAYER_INIT
+ .text.main     0x000006e8       0x14 ./Application.o
+                0x000006e8                main
+ .text.application_init
+                0x000006fc       0x24 ./Application.o
+                0x000006fc                application_init
+ .text.libgcc   0x00000720        0x0 d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .text.libgcc   0x00000720        0x0 d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+                0x00000720                . = ALIGN (0x2)
+ *(.fini9)
+ .fini9         0x00000720        0x0 d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+                0x00000720                exit
+                0x00000720                _exit
+ *(.fini9)
+ *(.fini8)
+ *(.fini8)
+ *(.fini7)
+ *(.fini7)
+ *(.fini6)
+ *(.fini6)
+ *(.fini5)
+ *(.fini5)
+ *(.fini4)
+ *(.fini4)
+ *(.fini3)
+ *(.fini3)
+ *(.fini2)
+ *(.fini2)
+ *(.fini1)
+ *(.fini1)
+ *(.fini0)
+ .fini0         0x00000720        0x4 d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ *(.fini0)
+                0x00000724                _etext = .
+
+.data           0x00800060       0x1a load address 0x00000724
+                0x00800060                PROVIDE (__data_start, .)
+ *(.data)
+ .data          0x00800060        0x0 d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm16.o
+ .data          0x00800060        0x0 ./MCAL_LAYER/GPIO/HAL_GPIO.o
+ .data          0x00800060        0x0 ./ECU_LAYER/TEMP_SENSOR/ECU_TEMP_SENSOR.o
+ .data          0x00800060        0x0 ./ECU_LAYER/RELAY/ECU_RELAY.o
+ .data          0x00800060        0x0 ./ECU_LAYER/PUSH_BUTTONS/ECU_PUSH_BUTTONS.o
+ .data          0x00800060        0x0 ./ECU_LAYER/FAN_CONTROL/ECU_FAN_CONTROL.o
+ .data          0x00800060        0x0 ./ECU_LAYER/COOLER_PELTIER/ECU_COOLER_PELTIER.o
+ .data          0x00800060        0x0 ./ECU_LAYER/CERAMIC_HEATER/ECU_CERAMIC_HEATER.o
+ .data          0x00800060        0x0 ./ECU_LAYER/7_SEGMENT/ECU_7_SEGMENT.o
+ .data          0x00800060        0x0 ./ECU_LAYER/24C08_EXT_EEPROM/ECU_24C08_EXT_EEPROM.o
+ .data          0x00800060        0x0 ./ECU_LAYER/ECU_INIT.o
+ .data          0x00800060        0x0 ./Application.o
+ .data          0x00800060        0x0 d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .data          0x00800060        0x0 d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ *(.data*)
+ .data.DDR_registers
+                0x00800060        0x8 ./MCAL_LAYER/GPIO/HAL_GPIO.o
+                0x00800060                DDR_registers
+ .data.PORT_registers
+                0x00800068        0x8 ./MCAL_LAYER/GPIO/HAL_GPIO.o
+                0x00800068                PORT_registers
+ .data.PIN_registers
+                0x00800070        0x8 ./MCAL_LAYER/GPIO/HAL_GPIO.o
+                0x00800070                PIN_registers
+ .data.led1     0x00800078        0x1 ./Application.o
+                0x00800078                led1
+ *(.rodata)
+ *(.rodata*)
+ *(.gnu.linkonce.d*)
+                0x0080007a                . = ALIGN (0x2)
+ *fill*         0x00800079        0x1 00
+                0x0080007a                _edata = .
+                0x0080007a                PROVIDE (__data_end, .)
+
+.bss            0x0080007a        0x0
+                0x0080007a                PROVIDE (__bss_start, .)
+ *(.bss)
+ .bss           0x0080007a        0x0 d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm16.o
+ .bss           0x0080007a        0x0 ./MCAL_LAYER/GPIO/HAL_GPIO.o
+ .bss           0x0080007a        0x0 ./ECU_LAYER/TEMP_SENSOR/ECU_TEMP_SENSOR.o
+ .bss           0x0080007a        0x0 ./ECU_LAYER/RELAY/ECU_RELAY.o
+ .bss           0x0080007a        0x0 ./ECU_LAYER/PUSH_BUTTONS/ECU_PUSH_BUTTONS.o
+ .bss           0x0080007a        0x0 ./ECU_LAYER/FAN_CONTROL/ECU_FAN_CONTROL.o
+ .bss           0x0080007a        0x0 ./ECU_LAYER/COOLER_PELTIER/ECU_COOLER_PELTIER.o
+ .bss           0x0080007a        0x0 ./ECU_LAYER/CERAMIC_HEATER/ECU_CERAMIC_HEATER.o
+ .bss           0x0080007a        0x0 ./ECU_LAYER/7_SEGMENT/ECU_7_SEGMENT.o
+ .bss           0x0080007a        0x0 ./ECU_LAYER/24C08_EXT_EEPROM/ECU_24C08_EXT_EEPROM.o
+ .bss           0x0080007a        0x0 ./ECU_LAYER/ECU_INIT.o
+ .bss           0x0080007a        0x0 ./Application.o
+ .bss           0x0080007a        0x0 d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .bss           0x0080007a        0x0 d:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ *(.bss*)
+ *(COMMON)
+                0x0080007a                PROVIDE (__bss_end, .)
+                0x00000724                __data_load_start = LOADADDR (.data)
+                0x0000073e                __data_load_end = (__data_load_start + SIZEOF (.data))
+
+.noinit         0x0080007a        0x0
+                0x0080007a                PROVIDE (__noinit_start, .)
+ *(.noinit*)
+                0x0080007a                PROVIDE (__noinit_end, .)
+                0x0080007a                _end = .
+                0x0080007a                PROVIDE (__heap_start, .)
+
+.eeprom         0x00810000        0x0
+ *(.eeprom*)
+                0x00810000                __eeprom_end = .
+
+.fuse
+ *(.fuse)
+ *(.lfuse)
+ *(.hfuse)
+ *(.efuse)
+
+.lock
+ *(.lock*)
+
+.signature
+ *(.signature*)
+
+.stab           0x00000000     0x16a4
+ *(.stab)
+ .stab          0x00000000      0xb58 ./MCAL_LAYER/GPIO/HAL_GPIO.o
+ .stab          0x00000b58       0xd8 ./ECU_LAYER/TEMP_SENSOR/ECU_TEMP_SENSOR.o
+                                 0xe4 (size before relaxing)
+ .stab          0x00000c30       0xd8 ./ECU_LAYER/RELAY/ECU_RELAY.o
+                                 0xe4 (size before relaxing)
+ .stab          0x00000d08       0xd8 ./ECU_LAYER/PUSH_BUTTONS/ECU_PUSH_BUTTONS.o
+                                 0xe4 (size before relaxing)
+ .stab          0x00000de0       0xd8 ./ECU_LAYER/FAN_CONTROL/ECU_FAN_CONTROL.o
+                                 0xe4 (size before relaxing)
+ .stab          0x00000eb8       0xd8 ./ECU_LAYER/COOLER_PELTIER/ECU_COOLER_PELTIER.o
+                                 0xe4 (size before relaxing)
+ .stab          0x00000f90       0xd8 ./ECU_LAYER/CERAMIC_HEATER/ECU_CERAMIC_HEATER.o
+                                 0xe4 (size before relaxing)
+ .stab          0x00001068       0xd8 ./ECU_LAYER/7_SEGMENT/ECU_7_SEGMENT.o
+                                 0xe4 (size before relaxing)
+ .stab          0x00001140       0xd8 ./ECU_LAYER/24C08_EXT_EEPROM/ECU_24C08_EXT_EEPROM.o
+                                 0xe4 (size before relaxing)
+ .stab          0x00001218      0x258 ./ECU_LAYER/ECU_INIT.o
+                                0x480 (size before relaxing)
+ .stab          0x00001470      0x234 ./Application.o
+                                0x540 (size before relaxing)
+
+.stabstr        0x00000000     0x1017
+ *(.stabstr)
+ .stabstr       0x00000000     0x1017 ./MCAL_LAYER/GPIO/HAL_GPIO.o
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.comment
+ *(.comment)
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges
+ *(.debug_aranges)
+
+.debug_pubnames
+ *(.debug_pubnames)
+
+.debug_info
+ *(.debug_info)
+ *(.gnu.linkonce.wi.*)
+
+.debug_abbrev
+ *(.debug_abbrev)
+
+.debug_line
+ *(.debug_line)
+
+.debug_frame
+ *(.debug_frame)
+
+.debug_str
+ *(.debug_str)
+
+.debug_loc
+ *(.debug_loc)
+
+.debug_macinfo
+ *(.debug_macinfo)
+OUTPUT(Electric_Water_Heater.elf elf32-avr)
+LOAD linker stubs

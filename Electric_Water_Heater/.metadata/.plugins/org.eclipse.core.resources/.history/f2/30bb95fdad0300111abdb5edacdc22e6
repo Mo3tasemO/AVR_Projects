@@ -1,0 +1,20 @@
+/*
+ * ECU_INIT.c
+ *
+ *  Created on: Feb 6, 2026
+ *      Author: Moata
+ */
+
+#include "ECU_INIT.h"
+
+
+
+
+void ECU_LAYER_INIT(void){
+
+
+
+}
+
+
+
