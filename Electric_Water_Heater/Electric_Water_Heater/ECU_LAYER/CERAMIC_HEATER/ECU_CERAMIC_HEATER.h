@@ -1,0 +1,13 @@
+/*
+ * CERAMIC_HEATER.h
+ *
+ *  Created on: Feb 6, 2026
+ *      Author: Moata
+ */
+
+#ifndef ECU_LAYER_CERAMIC_HEATER_ECU_CERAMIC_HEATER_H_
+#define ECU_LAYER_CERAMIC_HEATER_ECU_CERAMIC_HEATER_H_
+
+
+
+#endif /* ECU_LAYER_CERAMIC_HEATER_ECU_CERAMIC_HEATER_H_ */

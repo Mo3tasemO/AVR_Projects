@@ -1,0 +1,13 @@
+/*
+ * 24C08_EXT_EEPROM.h
+ *
+ *  Created on: Feb 6, 2026
+ *      Author: Moata
+ */
+
+#ifndef ECU_LAYER_24C08_EXT_EEPROM_ECU_24C08_EXT_EEPROM_H_
+#define ECU_LAYER_24C08_EXT_EEPROM_ECU_24C08_EXT_EEPROM_H_
+
+
+
+#endif /* ECU_LAYER_24C08_EXT_EEPROM_ECU_24C08_EXT_EEPROM_H_ */
