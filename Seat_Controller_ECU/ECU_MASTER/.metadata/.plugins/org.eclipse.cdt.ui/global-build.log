@@ -1,0 +1,7 @@
+19:45:34 **** Incremental Build of configuration Debug for project STM32_MASTER ****
+make -j16 all 
+arm-none-eabi-size  STM32_MASTER.elf 
+   text	   data	    bss	    dec	    hex	filename
+  49176	    112	  21472	  70760	  11468	STM32_MASTER.elf
+Finished building: default.size.stdout
+ 

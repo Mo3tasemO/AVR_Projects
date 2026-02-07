@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;STM_RTOS_test&apos; to &apos;STM32_MASTER&apos;" description="Rename resource &apos;STM_RTOS_test&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="/STM_RTOS_test" name="STM32_MASTER" stamp="1758478586440" updateReferences="true"/>
+</session>
