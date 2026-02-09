@@ -1445,3 +1445,2170 @@ Data:         26 bytes (2.5% Full)
 
 Finished building: sizedummy
  
+21:41:46 **** Incremental Build of configuration Debug for project Electric_Water_Heater ****
+make all 
+Building file: ../MCAL_LAYER/I2C/HAL_I2C.c
+Invoking: AVR Compiler
+avr-gcc -U__AVR_ATmega16__ -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"MCAL_LAYER/I2C/HAL_I2C.d" -MT"MCAL_LAYER/I2C/HAL_I2C.o" -c -o "MCAL_LAYER/I2C/HAL_I2C.o" "../MCAL_LAYER/I2C/HAL_I2C.c"
+Finished building: ../MCAL_LAYER/I2C/HAL_I2C.c
+ 
+Building target: Electric_Water_Heater.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Electric_Water_Heater.map -mmcu=atmega16 -o "Electric_Water_Heater.elf"  ./MCAL_LAYER/TIMER/HAL_TIMER.o  ./MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.o  ./MCAL_LAYER/I2C/HAL_I2C.o  ./MCAL_LAYER/GPIO/HAL_GPIO.o  ./MCAL_LAYER/ADC/HAL_ADC.o  ./ECU_LAYER/TEMP_SENSOR/ECU_TEMP_SENSOR.o  ./ECU_LAYER/RELAY/ECU_RELAY.o  ./ECU_LAYER/PUSH_BUTTONS/ECU_PUSH_BUTTONS.o  ./ECU_LAYER/FAN_CONTROL/ECU_FAN_CONTROL.o  ./ECU_LAYER/COOLER_PELTIER/ECU_COOLER_PELTIER.o  ./ECU_LAYER/CERAMIC_HEATER/ECU_CERAMIC_HEATER.o  ./ECU_LAYER/7_SEGMENT/ECU_7_SEGMENT.o  ./ECU_LAYER/24C08_EXT_EEPROM/ECU_24C08_EXT_EEPROM.o  ./ECU_LAYER/ECU_INIT.o  ./Application.o   
+Finished building target: Electric_Water_Heater.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Electric_Water_Heater.elf  >"Electric_Water_Heater.lss"
+Finished building: Electric_Water_Heater.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex Electric_Water_Heater.elf  "Electric_Water_Heater.hex"
+Finished building: Electric_Water_Heater.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 Electric_Water_Heater.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    1848 bytes (11.3% Full)
+(.text + .data + .bootloader)
+
+Data:         26 bytes (2.5% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+22:12:42 **** Incremental Build of configuration Debug for project Electric_Water_Heater ****
+make all 
+Building file: ../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c
+Invoking: AVR Compiler
+avr-gcc -U__AVR_ATmega16__ -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.d" -MT"MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.o" -c -o "MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.o" "../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c"
+In file included from ../MCAL_LAYER/INTERRUPT/../GPIO/../MCAL_STD_LIB.h:16,
+                 from ../MCAL_LAYER/INTERRUPT/../GPIO/../MCAL_STD_TYPES.h:13,
+                 from ../MCAL_LAYER/INTERRUPT/../GPIO/HAL_GPIO.h:15,
+                 from ../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.h:14,
+                 from ../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:7:
+d:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+Finished building: ../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c
+ 
+Building target: Electric_Water_Heater.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Electric_Water_Heater.map -mmcu=atmega16 -o "Electric_Water_Heater.elf"  ./MCAL_LAYER/TIMER/HAL_TIMER.o  ./MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.o  ./MCAL_LAYER/I2C/HAL_I2C.o  ./MCAL_LAYER/GPIO/HAL_GPIO.o  ./MCAL_LAYER/ADC/HAL_ADC.o  ./ECU_LAYER/TEMP_SENSOR/ECU_TEMP_SENSOR.o  ./ECU_LAYER/RELAY/ECU_RELAY.o  ./ECU_LAYER/PUSH_BUTTONS/ECU_PUSH_BUTTONS.o  ./ECU_LAYER/FAN_CONTROL/ECU_FAN_CONTROL.o  ./ECU_LAYER/COOLER_PELTIER/ECU_COOLER_PELTIER.o  ./ECU_LAYER/CERAMIC_HEATER/ECU_CERAMIC_HEATER.o  ./ECU_LAYER/7_SEGMENT/ECU_7_SEGMENT.o  ./ECU_LAYER/24C08_EXT_EEPROM/ECU_24C08_EXT_EEPROM.o  ./ECU_LAYER/ECU_INIT.o  ./Application.o   
+Finished building target: Electric_Water_Heater.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Electric_Water_Heater.elf  >"Electric_Water_Heater.lss"
+Finished building: Electric_Water_Heater.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex Electric_Water_Heater.elf  "Electric_Water_Heater.hex"
+Finished building: Electric_Water_Heater.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 Electric_Water_Heater.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    1848 bytes (11.3% Full)
+(.text + .data + .bootloader)
+
+Data:         26 bytes (2.5% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+22:19:58 **** Incremental Build of configuration Debug for project Electric_Water_Heater ****
+make all 
+Building file: ../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c
+Invoking: AVR Compiler
+avr-gcc -U__AVR_ATmega16__ -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.d" -MT"MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.o" -c -o "MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.o" "../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c"
+In file included from ../MCAL_LAYER/INTERRUPT/../GPIO/../MCAL_STD_LIB.h:16,
+                 from ../MCAL_LAYER/INTERRUPT/../GPIO/../MCAL_STD_TYPES.h:13,
+                 from ../MCAL_LAYER/INTERRUPT/../GPIO/HAL_GPIO.h:15,
+                 from ../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.h:14,
+                 from ../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:7:
+d:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c: In function 'INT0_INIT':
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:16: warning: control reaches end of non-void function
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c: In function 'INT1_INIT':
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:23: warning: control reaches end of non-void function
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c: In function 'INT2_INIT':
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:30: warning: control reaches end of non-void function
+Finished building: ../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c
+ 
+Building target: Electric_Water_Heater.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Electric_Water_Heater.map -mmcu=atmega16 -o "Electric_Water_Heater.elf"  ./MCAL_LAYER/TIMER/HAL_TIMER.o  ./MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.o  ./MCAL_LAYER/I2C/HAL_I2C.o  ./MCAL_LAYER/GPIO/HAL_GPIO.o  ./MCAL_LAYER/ADC/HAL_ADC.o  ./ECU_LAYER/TEMP_SENSOR/ECU_TEMP_SENSOR.o  ./ECU_LAYER/RELAY/ECU_RELAY.o  ./ECU_LAYER/PUSH_BUTTONS/ECU_PUSH_BUTTONS.o  ./ECU_LAYER/FAN_CONTROL/ECU_FAN_CONTROL.o  ./ECU_LAYER/COOLER_PELTIER/ECU_COOLER_PELTIER.o  ./ECU_LAYER/CERAMIC_HEATER/ECU_CERAMIC_HEATER.o  ./ECU_LAYER/7_SEGMENT/ECU_7_SEGMENT.o  ./ECU_LAYER/24C08_EXT_EEPROM/ECU_24C08_EXT_EEPROM.o  ./ECU_LAYER/ECU_INIT.o  ./Application.o   
+Finished building target: Electric_Water_Heater.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Electric_Water_Heater.elf  >"Electric_Water_Heater.lss"
+Finished building: Electric_Water_Heater.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex Electric_Water_Heater.elf  "Electric_Water_Heater.hex"
+Finished building: Electric_Water_Heater.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 Electric_Water_Heater.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    1914 bytes (11.7% Full)
+(.text + .data + .bootloader)
+
+Data:         26 bytes (2.5% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+23:51:54 **** Incremental Build of configuration Debug for project Electric_Water_Heater ****
+make all 
+Building file: ../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c
+Invoking: AVR Compiler
+avr-gcc -U__AVR_ATmega16__ -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.d" -MT"MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.o" -c -o "MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.o" "../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c"
+In file included from ../MCAL_LAYER/INTERRUPT/../GPIO/../MCAL_STD_LIB.h:16,
+                 from ../MCAL_LAYER/INTERRUPT/../GPIO/../MCAL_STD_TYPES.h:13,
+                 from ../MCAL_LAYER/INTERRUPT/../GPIO/HAL_GPIO.h:15,
+                 from ../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.h:14,
+                 from ../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:7:
+d:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c: In function 'INT0_INIT':
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:17: error: switch quantity not an integer
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:19: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:19: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:20: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:20: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:21: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:21: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:22: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:25: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:25: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:26: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:26: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:27: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:27: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:28: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:31: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:31: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:32: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:32: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:33: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:33: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:34: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:37: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:37: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:38: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:38: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:39: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:39: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:40: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c: In function 'INT1_INIT':
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:53: error: switch quantity not an integer
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:55: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:55: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:56: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:56: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:57: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:57: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:58: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:61: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:61: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:62: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:62: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:63: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:63: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:64: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:67: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:67: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:68: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:68: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:69: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:69: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:70: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:73: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:73: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:74: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:74: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:75: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:75: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:76: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c: In function 'INT2_INIT':
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:91: error: switch quantity not an integer
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:93: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:93: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:94: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:94: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:95: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:95: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:96: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:99: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:99: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:100: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:100: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:101: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:101: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:102: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:102: error: lvalue required as left operand of assignment
+make: *** [MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+23:53:25 **** Incremental Build of configuration Debug for project Electric_Water_Heater ****
+make all 
+Building file: ../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c
+Invoking: AVR Compiler
+avr-gcc -U__AVR_ATmega16__ -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.d" -MT"MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.o" -c -o "MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.o" "../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c"
+In file included from ../MCAL_LAYER/INTERRUPT/../GPIO/../MCAL_STD_LIB.h:16,
+                 from ../MCAL_LAYER/INTERRUPT/../GPIO/../MCAL_STD_TYPES.h:13,
+                 from ../MCAL_LAYER/INTERRUPT/../GPIO/HAL_GPIO.h:15,
+                 from ../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.h:14,
+                 from ../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:7:
+d:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c: In function 'INT0_INIT':
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:19: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:19: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:20: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:20: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:21: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:21: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:22: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:25: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:25: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:26: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:26: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:27: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:27: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:28: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:31: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:31: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:32: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:32: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:33: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:33: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:34: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:37: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:37: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:38: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:38: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:39: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:39: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:40: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c: In function 'INT1_INIT':
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:55: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:55: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:56: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:56: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:57: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:57: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:58: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:61: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:61: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:62: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:62: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:63: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:63: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:64: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:67: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:67: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:68: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:68: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:69: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:69: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:70: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:73: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:73: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:74: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:74: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:75: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:75: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:76: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c: In function 'INT2_INIT':
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:93: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:93: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:94: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:94: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:95: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:95: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:96: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:99: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:99: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:100: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:100: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:101: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:101: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:102: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:102: error: lvalue required as left operand of assignment
+make: *** [MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+23:59:09 **** Incremental Build of configuration Debug for project Electric_Water_Heater ****
+make all 
+Building file: ../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c
+Invoking: AVR Compiler
+avr-gcc -U__AVR_ATmega16__ -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.d" -MT"MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.o" -c -o "MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.o" "../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c"
+In file included from ../MCAL_LAYER/INTERRUPT/../GPIO/../MCAL_STD_LIB.h:16,
+                 from ../MCAL_LAYER/INTERRUPT/../GPIO/../MCAL_STD_TYPES.h:13,
+                 from ../MCAL_LAYER/INTERRUPT/../GPIO/HAL_GPIO.h:15,
+                 from ../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.h:14,
+                 from ../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:7:
+d:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c: In function 'INT0_INIT':
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:17: error: switch quantity not an integer
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:19: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:19: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:20: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:20: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:21: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:21: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:22: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:25: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:25: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:26: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:26: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:27: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:27: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:28: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:31: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:31: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:32: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:32: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:33: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:33: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:34: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:37: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:37: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:38: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:38: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:39: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:39: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:40: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c: In function 'INT1_INIT':
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:54: error: switch quantity not an integer
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:56: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:56: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:57: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:57: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:58: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:58: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:59: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:62: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:62: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:63: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:63: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:64: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:64: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:65: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:68: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:68: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:69: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:69: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:70: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:70: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:71: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:74: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:74: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:75: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:75: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:76: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:76: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:77: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c: In function 'INT2_INIT':
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:92: error: switch quantity not an integer
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:94: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:94: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:95: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:95: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:96: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:96: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:97: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:100: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:100: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:101: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:101: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:102: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:102: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:103: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:103: error: lvalue required as left operand of assignment
+make: *** [MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+00:01:49 **** Incremental Build of configuration Debug for project Electric_Water_Heater ****
+make all 
+Building file: ../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c
+Invoking: AVR Compiler
+avr-gcc -U__AVR_ATmega16__ -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.d" -MT"MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.o" -c -o "MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.o" "../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c"
+In file included from ../MCAL_LAYER/INTERRUPT/../GPIO/../MCAL_STD_LIB.h:16,
+                 from ../MCAL_LAYER/INTERRUPT/../GPIO/../MCAL_STD_TYPES.h:13,
+                 from ../MCAL_LAYER/INTERRUPT/../GPIO/HAL_GPIO.h:15,
+                 from ../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.h:14,
+                 from ../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:7:
+d:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c: In function 'INT0_INIT':
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:16: error: incompatible type for argument 1 of 'GPIO_PIN_INIT'
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:19: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:19: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:20: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:20: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:21: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:21: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:22: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:25: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:25: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:26: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:26: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:27: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:27: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:28: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:31: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:31: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:32: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:32: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:33: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:33: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:34: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:37: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:37: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:38: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:38: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:39: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:39: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:40: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c: In function 'INT1_INIT':
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:53: error: incompatible type for argument 1 of 'GPIO_PIN_INIT'
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:56: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:56: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:57: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:57: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:58: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:58: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:59: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:62: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:62: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:63: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:63: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:64: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:64: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:65: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:68: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:68: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:69: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:69: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:70: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:70: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:71: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:74: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:74: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:75: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:75: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:76: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:76: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:77: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c: In function 'INT2_INIT':
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:91: error: incompatible type for argument 1 of 'GPIO_PIN_INIT'
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:94: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:94: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:95: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:95: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:96: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:96: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:97: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:100: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:100: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:101: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:101: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:102: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:102: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:103: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:103: error: lvalue required as left operand of assignment
+make: *** [MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+00:02:32 **** Incremental Build of configuration Debug for project Electric_Water_Heater ****
+make all 
+Building file: ../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c
+Invoking: AVR Compiler
+avr-gcc -U__AVR_ATmega16__ -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.d" -MT"MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.o" -c -o "MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.o" "../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c"
+In file included from ../MCAL_LAYER/INTERRUPT/../GPIO/../MCAL_STD_LIB.h:16,
+                 from ../MCAL_LAYER/INTERRUPT/../GPIO/../MCAL_STD_TYPES.h:13,
+                 from ../MCAL_LAYER/INTERRUPT/../GPIO/HAL_GPIO.h:15,
+                 from ../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.h:14,
+                 from ../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:7:
+d:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c: In function 'INT0_INIT':
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:19: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:19: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:20: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:20: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:21: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:21: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:22: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:25: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:25: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:26: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:26: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:27: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:27: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:28: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:31: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:31: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:32: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:32: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:33: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:33: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:34: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:37: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:37: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:38: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:38: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:39: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:39: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:40: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c: In function 'INT1_INIT':
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:53: error: incompatible type for argument 1 of 'GPIO_PIN_INIT'
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:56: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:56: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:57: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:57: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:58: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:58: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:59: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:62: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:62: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:63: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:63: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:64: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:64: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:65: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:68: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:68: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:69: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:69: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:70: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:70: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:71: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:74: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:74: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:75: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:75: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:76: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:76: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:77: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c: In function 'INT2_INIT':
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:91: error: incompatible type for argument 1 of 'GPIO_PIN_INIT'
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:94: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:94: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:95: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:95: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:96: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:96: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:97: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:100: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:100: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:101: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:101: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:102: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:102: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:103: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:103: error: lvalue required as left operand of assignment
+make: *** [MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+00:09:20 **** Incremental Build of configuration Debug for project Electric_Water_Heater ****
+make all 
+Building file: ../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c
+Invoking: AVR Compiler
+avr-gcc -U__AVR_ATmega16__ -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.d" -MT"MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.o" -c -o "MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.o" "../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c"
+In file included from ../MCAL_LAYER/INTERRUPT/../GPIO/../MCAL_STD_LIB.h:16,
+                 from ../MCAL_LAYER/INTERRUPT/../GPIO/../MCAL_STD_TYPES.h:13,
+                 from ../MCAL_LAYER/INTERRUPT/../GPIO/HAL_GPIO.h:15,
+                 from ../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.h:14,
+                 from ../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:7:
+d:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:14: warning: type defaults to 'int' in declaration of 'interrupt_0_config_t'
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:14: error: expected ';', ',' or ')' before '*' token
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:51: warning: type defaults to 'int' in declaration of 'interrupt_1_config_t'
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:51: error: expected ';', ',' or ')' before '*' token
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:88: warning: type defaults to 'int' in declaration of 'interrupt_2_config_t'
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:88: error: expected ';', ',' or ')' before '*' token
+make: *** [MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+00:10:39 **** Incremental Build of configuration Debug for project Electric_Water_Heater ****
+make all 
+Building file: ../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c
+Invoking: AVR Compiler
+avr-gcc -U__AVR_ATmega16__ -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.d" -MT"MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.o" -c -o "MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.o" "../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c"
+In file included from ../MCAL_LAYER/INTERRUPT/../GPIO/../MCAL_STD_LIB.h:16,
+                 from ../MCAL_LAYER/INTERRUPT/../GPIO/../MCAL_STD_TYPES.h:13,
+                 from ../MCAL_LAYER/INTERRUPT/../GPIO/HAL_GPIO.h:15,
+                 from ../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.h:14,
+                 from ../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:7:
+d:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:14: warning: type defaults to 'int' in declaration of 'interrupt_0_config_t'
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:14: error: expected ';', ',' or ')' before '*' token
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:51: warning: type defaults to 'int' in declaration of 'interrupt_1_config_t'
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:51: error: expected ';', ',' or ')' before '*' token
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:88: warning: type defaults to 'int' in declaration of 'interrupt_2_config_t'
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:88: error: expected ';', ',' or ')' before '*' token
+make: *** [MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+00:13:24 **** Incremental Build of configuration Debug for project Electric_Water_Heater ****
+make all 
+Building file: ../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c
+Invoking: AVR Compiler
+avr-gcc -U__AVR_ATmega16__ -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.d" -MT"MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.o" -c -o "MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.o" "../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c"
+In file included from ../MCAL_LAYER/INTERRUPT/../GPIO/../MCAL_STD_LIB.h:16,
+                 from ../MCAL_LAYER/INTERRUPT/../GPIO/../MCAL_STD_TYPES.h:13,
+                 from ../MCAL_LAYER/INTERRUPT/../GPIO/HAL_GPIO.h:15,
+                 from ../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.h:14,
+                 from ../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:7:
+d:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:14: warning: type defaults to 'int' in declaration of 'interrupt_0_config_t'
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:14: error: expected ';', ',' or ')' before '*' token
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:51: warning: type defaults to 'int' in declaration of 'interrupt_1_config_t'
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:51: error: expected ';', ',' or ')' before '*' token
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:88: warning: type defaults to 'int' in declaration of 'interrupt_2_config_t'
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:88: error: expected ';', ',' or ')' before '*' token
+make: *** [MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+00:17:08 **** Incremental Build of configuration Debug for project Electric_Water_Heater ****
+make all 
+Building file: ../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c
+Invoking: AVR Compiler
+avr-gcc -U__AVR_ATmega16__ -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.d" -MT"MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.o" -c -o "MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.o" "../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c"
+In file included from ../MCAL_LAYER/INTERRUPT/../GPIO/../MCAL_STD_LIB.h:16,
+                 from ../MCAL_LAYER/INTERRUPT/../GPIO/../MCAL_STD_TYPES.h:13,
+                 from ../MCAL_LAYER/INTERRUPT/../GPIO/HAL_GPIO.h:15,
+                 from ../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.h:14,
+                 from ../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:7:
+d:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:14: warning: type defaults to 'int' in declaration of 'interrupt_0_config_t'
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:14: error: expected ';', ',' or ')' before '*' token
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:56: warning: type defaults to 'int' in declaration of 'interrupt_1_config_t'
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:56: error: expected ';', ',' or ')' before '*' token
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:98: warning: type defaults to 'int' in declaration of 'interrupt_2_config_t'
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:98: error: expected ';', ',' or ')' before '*' token
+make: *** [MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+00:19:41 **** Incremental Build of configuration Debug for project Electric_Water_Heater ****
+make all 
+Building file: ../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c
+Invoking: AVR Compiler
+avr-gcc -U__AVR_ATmega16__ -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.d" -MT"MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.o" -c -o "MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.o" "../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c"
+In file included from ../MCAL_LAYER/INTERRUPT/../GPIO/../MCAL_STD_LIB.h:16,
+                 from ../MCAL_LAYER/INTERRUPT/../GPIO/../MCAL_STD_TYPES.h:13,
+                 from ../MCAL_LAYER/INTERRUPT/../GPIO/HAL_GPIO.h:15,
+                 from ../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.h:14,
+                 from ../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:7:
+d:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:14: warning: type defaults to 'int' in declaration of 'interrupt_0_config_t'
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:14: error: expected ';', ',' or ')' before '*' token
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:56: warning: type defaults to 'int' in declaration of 'interrupt_1_config_t'
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:56: error: expected ';', ',' or ')' before '*' token
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:98: warning: type defaults to 'int' in declaration of 'interrupt_2_config_t'
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:98: error: expected ';', ',' or ')' before '*' token
+make: *** [MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+00:21:43 **** Incremental Build of configuration Debug for project Electric_Water_Heater ****
+make all 
+Building file: ../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c
+Invoking: AVR Compiler
+avr-gcc -U__AVR_ATmega16__ -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.d" -MT"MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.o" -c -o "MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.o" "../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c"
+In file included from ../MCAL_LAYER/INTERRUPT/../GPIO/../MCAL_STD_LIB.h:16,
+                 from ../MCAL_LAYER/INTERRUPT/../GPIO/../MCAL_STD_TYPES.h:13,
+                 from ../MCAL_LAYER/INTERRUPT/../GPIO/HAL_GPIO.h:15,
+                 from ../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.h:14,
+                 from ../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:7:
+d:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c: In function 'INT0_INIT':
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:20: error: incompatible type for argument 1 of 'GPIO_PIN_INIT'
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:23: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:23: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:24: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:24: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:25: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:25: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:26: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:29: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:29: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:30: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:30: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:31: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:31: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:32: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:35: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:35: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:36: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:36: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:37: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:37: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:38: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:41: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:41: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:42: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:42: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:43: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:43: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:44: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c: In function 'INT1_INIT':
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:65: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:65: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:66: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:66: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:67: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:67: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:68: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:71: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:71: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:72: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:72: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:73: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:73: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:74: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:77: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:77: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:78: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:78: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:79: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:79: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:80: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:83: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:83: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:84: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:84: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:85: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:85: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:86: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c: In function 'INT2_INIT':
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:107: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:107: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:108: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:108: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:109: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:109: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:110: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:113: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:113: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:114: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:114: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:115: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:115: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:116: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:116: error: lvalue required as left operand of assignment
+make: *** [MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+00:22:04 **** Incremental Build of configuration Debug for project Electric_Water_Heater ****
+make all 
+Building file: ../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c
+Invoking: AVR Compiler
+avr-gcc -U__AVR_ATmega16__ -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.d" -MT"MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.o" -c -o "MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.o" "../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c"
+In file included from ../MCAL_LAYER/INTERRUPT/../GPIO/../MCAL_STD_LIB.h:16,
+                 from ../MCAL_LAYER/INTERRUPT/../GPIO/../MCAL_STD_TYPES.h:13,
+                 from ../MCAL_LAYER/INTERRUPT/../GPIO/HAL_GPIO.h:15,
+                 from ../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.h:14,
+                 from ../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:7:
+d:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c: In function 'INT0_INIT':
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:23: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:23: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:24: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:24: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:25: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:25: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:26: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:29: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:29: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:30: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:30: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:31: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:31: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:32: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:35: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:35: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:36: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:36: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:37: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:37: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:38: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:41: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:41: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:42: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:42: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:43: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:43: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:44: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c: In function 'INT1_INIT':
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:65: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:65: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:66: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:66: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:67: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:67: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:68: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:71: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:71: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:72: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:72: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:73: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:73: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:74: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:77: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:77: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:78: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:78: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:79: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:79: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:80: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:83: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:83: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:84: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:84: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:85: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:85: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:86: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c: In function 'INT2_INIT':
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:107: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:107: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:108: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:108: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:109: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:109: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:110: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:113: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:113: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:114: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:114: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:115: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:115: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:116: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:116: error: lvalue required as left operand of assignment
+make: *** [MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+00:23:34 **** Incremental Build of configuration Debug for project Electric_Water_Heater ****
+make all 
+Building file: ../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c
+Invoking: AVR Compiler
+avr-gcc -U__AVR_ATmega16__ -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.d" -MT"MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.o" -c -o "MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.o" "../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c"
+In file included from ../MCAL_LAYER/INTERRUPT/../GPIO/../MCAL_STD_LIB.h:16,
+                 from ../MCAL_LAYER/INTERRUPT/../GPIO/../MCAL_STD_TYPES.h:13,
+                 from ../MCAL_LAYER/INTERRUPT/../GPIO/HAL_GPIO.h:15,
+                 from ../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.h:14,
+                 from ../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:7:
+d:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c: In function 'INT0_INIT':
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:23: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:23: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:24: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:24: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:25: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:25: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:26: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:29: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:29: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:30: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:30: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:31: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:31: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:32: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:35: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:35: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:36: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:36: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:37: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:37: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:38: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:41: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:41: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:42: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:42: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:43: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:43: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:44: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c: In function 'INT1_INIT':
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:65: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:65: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:66: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:66: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:67: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:67: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:68: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:71: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:71: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:72: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:72: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:73: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:73: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:74: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:77: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:77: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:78: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:78: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:79: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:79: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:80: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:83: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:83: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:84: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:84: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:85: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:85: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:86: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c: In function 'INT2_INIT':
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:107: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:107: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:108: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:108: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:109: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:109: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:110: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:113: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:113: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:114: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:114: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:115: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:115: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:116: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:116: error: lvalue required as left operand of assignment
+make: *** [MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+00:30:35 **** Incremental Build of configuration Debug for project Electric_Water_Heater ****
+make all 
+Building file: ../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c
+Invoking: AVR Compiler
+avr-gcc -U__AVR_ATmega16__ -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.d" -MT"MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.o" -c -o "MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.o" "../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c"
+In file included from ../MCAL_LAYER/INTERRUPT/../GPIO/../MCAL_STD_LIB.h:16,
+                 from ../MCAL_LAYER/INTERRUPT/../GPIO/../MCAL_STD_TYPES.h:13,
+                 from ../MCAL_LAYER/INTERRUPT/../GPIO/HAL_GPIO.h:15,
+                 from ../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.h:14,
+                 from ../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:7:
+d:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c: In function 'INT0_INIT':
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:23: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:23: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:24: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:24: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:25: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:25: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:26: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:29: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:29: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:30: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:30: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:31: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:31: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:32: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:35: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:35: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:36: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:36: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:37: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:37: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:38: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:41: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:41: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:42: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:42: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:43: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:43: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:44: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c: In function 'INT1_INIT':
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:65: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:65: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:66: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:66: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:67: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:67: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:68: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:71: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:71: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:72: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:72: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:73: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:73: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:74: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:77: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:77: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:78: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:78: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:79: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:79: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:80: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:83: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:83: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:84: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:84: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:85: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:85: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:86: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c: In function 'INT2_INIT':
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:107: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:107: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:108: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:108: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:109: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:109: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:110: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:113: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:113: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:114: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:114: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:115: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:115: error: lvalue required as left operand of assignment
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:116: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:116: error: lvalue required as left operand of assignment
+make: *** [MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+00:43:01 **** Incremental Build of configuration Debug for project Electric_Water_Heater ****
+make all 
+Building file: ../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c
+Invoking: AVR Compiler
+avr-gcc -U__AVR_ATmega16__ -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.d" -MT"MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.o" -c -o "MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.o" "../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c"
+In file included from ../MCAL_LAYER/INTERRUPT/../GPIO/../MCAL_STD_LIB.h:16,
+                 from ../MCAL_LAYER/INTERRUPT/../GPIO/../MCAL_STD_TYPES.h:13,
+                 from ../MCAL_LAYER/INTERRUPT/../GPIO/HAL_GPIO.h:15,
+                 from ../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.h:14,
+                 from ../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:7:
+d:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:12: error: expected identifier or '(' before 'volatile'
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:12: error: expected ')' before '(' token
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:12: error: expected ')' before '|=' token
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c: In function 'INT0_INIT':
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:27: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:28: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:32: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:33: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:37: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:38: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:42: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:43: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c: In function 'INT1_INIT':
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:65: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:66: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:70: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:71: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:75: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:76: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:80: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:81: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c: In function 'INT2_INIT':
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:103: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:104: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:108: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:109: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:110: warning: left shift count >= width of type
+make: *** [MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+00:43:47 **** Incremental Build of configuration Debug for project Electric_Water_Heater ****
+make all 
+Building file: ../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c
+Invoking: AVR Compiler
+avr-gcc -U__AVR_ATmega16__ -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.d" -MT"MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.o" -c -o "MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.o" "../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c"
+In file included from ../MCAL_LAYER/INTERRUPT/../GPIO/../MCAL_STD_LIB.h:16,
+                 from ../MCAL_LAYER/INTERRUPT/../GPIO/../MCAL_STD_TYPES.h:13,
+                 from ../MCAL_LAYER/INTERRUPT/../GPIO/HAL_GPIO.h:15,
+                 from ../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.h:14,
+                 from ../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:7:
+d:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:12: warning: data definition has no type or storage class
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:12: warning: type defaults to 'int' in declaration of 'sei'
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c: In function 'INT0_INIT':
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:27: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:28: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:32: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:33: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:37: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:38: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:42: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:43: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c: In function 'INT1_INIT':
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:65: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:66: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:70: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:71: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:75: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:76: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:80: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:81: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c: In function 'INT2_INIT':
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:103: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:104: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:108: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:109: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:110: warning: left shift count >= width of type
+Finished building: ../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c
+ 
+Building target: Electric_Water_Heater.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Electric_Water_Heater.map -mmcu=atmega16 -o "Electric_Water_Heater.elf"  ./MCAL_LAYER/TIMER/HAL_TIMER.o  ./MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.o  ./MCAL_LAYER/I2C/HAL_I2C.o  ./MCAL_LAYER/GPIO/HAL_GPIO.o  ./MCAL_LAYER/ADC/HAL_ADC.o  ./ECU_LAYER/TEMP_SENSOR/ECU_TEMP_SENSOR.o  ./ECU_LAYER/RELAY/ECU_RELAY.o  ./ECU_LAYER/PUSH_BUTTONS/ECU_PUSH_BUTTONS.o  ./ECU_LAYER/FAN_CONTROL/ECU_FAN_CONTROL.o  ./ECU_LAYER/COOLER_PELTIER/ECU_COOLER_PELTIER.o  ./ECU_LAYER/CERAMIC_HEATER/ECU_CERAMIC_HEATER.o  ./ECU_LAYER/7_SEGMENT/ECU_7_SEGMENT.o  ./ECU_LAYER/24C08_EXT_EEPROM/ECU_24C08_EXT_EEPROM.o  ./ECU_LAYER/ECU_INIT.o  ./Application.o   
+Finished building target: Electric_Water_Heater.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Electric_Water_Heater.elf  >"Electric_Water_Heater.lss"
+Finished building: Electric_Water_Heater.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex Electric_Water_Heater.elf  "Electric_Water_Heater.hex"
+Finished building: Electric_Water_Heater.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 Electric_Water_Heater.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    2600 bytes (15.9% Full)
+(.text + .data + .bootloader)
+
+Data:         26 bytes (2.5% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+00:45:13 **** Incremental Build of configuration Debug for project Electric_Water_Heater ****
+make all 
+Building file: ../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c
+Invoking: AVR Compiler
+avr-gcc -U__AVR_ATmega16__ -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.d" -MT"MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.o" -c -o "MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.o" "../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c"
+In file included from ../MCAL_LAYER/INTERRUPT/../GPIO/../MCAL_STD_LIB.h:16,
+                 from ../MCAL_LAYER/INTERRUPT/../GPIO/../MCAL_STD_TYPES.h:13,
+                 from ../MCAL_LAYER/INTERRUPT/../GPIO/HAL_GPIO.h:15,
+                 from ../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.h:14,
+                 from ../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:7:
+d:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c: In function 'INT0_INIT':
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:18: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:26: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:27: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:31: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:32: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:36: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:37: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:41: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:42: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c: In function 'INT1_INIT':
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:57: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:65: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:66: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:70: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:71: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:75: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:76: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:80: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:81: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c: In function 'INT2_INIT':
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:96: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:104: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:105: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:109: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:110: warning: left shift count >= width of type
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:111: warning: left shift count >= width of type
+Finished building: ../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c
+ 
+Building target: Electric_Water_Heater.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Electric_Water_Heater.map -mmcu=atmega16 -o "Electric_Water_Heater.elf"  ./MCAL_LAYER/TIMER/HAL_TIMER.o  ./MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.o  ./MCAL_LAYER/I2C/HAL_I2C.o  ./MCAL_LAYER/GPIO/HAL_GPIO.o  ./MCAL_LAYER/ADC/HAL_ADC.o  ./ECU_LAYER/TEMP_SENSOR/ECU_TEMP_SENSOR.o  ./ECU_LAYER/RELAY/ECU_RELAY.o  ./ECU_LAYER/PUSH_BUTTONS/ECU_PUSH_BUTTONS.o  ./ECU_LAYER/FAN_CONTROL/ECU_FAN_CONTROL.o  ./ECU_LAYER/COOLER_PELTIER/ECU_COOLER_PELTIER.o  ./ECU_LAYER/CERAMIC_HEATER/ECU_CERAMIC_HEATER.o  ./ECU_LAYER/7_SEGMENT/ECU_7_SEGMENT.o  ./ECU_LAYER/24C08_EXT_EEPROM/ECU_24C08_EXT_EEPROM.o  ./ECU_LAYER/ECU_INIT.o  ./Application.o   
+Finished building target: Electric_Water_Heater.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Electric_Water_Heater.elf  >"Electric_Water_Heater.lss"
+Finished building: Electric_Water_Heater.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex Electric_Water_Heater.elf  "Electric_Water_Heater.hex"
+Finished building: Electric_Water_Heater.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 Electric_Water_Heater.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    2636 bytes (16.1% Full)
+(.text + .data + .bootloader)
+
+Data:         26 bytes (2.5% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+00:46:15 **** Incremental Build of configuration Debug for project Electric_Water_Heater ****
+make all 
+Building file: ../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c
+Invoking: AVR Compiler
+avr-gcc -U__AVR_ATmega16__ -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.d" -MT"MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.o" -c -o "MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.o" "../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c"
+In file included from ../MCAL_LAYER/INTERRUPT/../GPIO/../MCAL_STD_LIB.h:16,
+                 from ../MCAL_LAYER/INTERRUPT/../GPIO/../MCAL_STD_TYPES.h:13,
+                 from ../MCAL_LAYER/INTERRUPT/../GPIO/HAL_GPIO.h:15,
+                 from ../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.h:14,
+                 from ../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:7:
+d:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c: In function 'INT2_INIT':
+../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:111: warning: left shift count >= width of type
+Finished building: ../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c
+ 
+Building target: Electric_Water_Heater.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Electric_Water_Heater.map -mmcu=atmega16 -o "Electric_Water_Heater.elf"  ./MCAL_LAYER/TIMER/HAL_TIMER.o  ./MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.o  ./MCAL_LAYER/I2C/HAL_I2C.o  ./MCAL_LAYER/GPIO/HAL_GPIO.o  ./MCAL_LAYER/ADC/HAL_ADC.o  ./ECU_LAYER/TEMP_SENSOR/ECU_TEMP_SENSOR.o  ./ECU_LAYER/RELAY/ECU_RELAY.o  ./ECU_LAYER/PUSH_BUTTONS/ECU_PUSH_BUTTONS.o  ./ECU_LAYER/FAN_CONTROL/ECU_FAN_CONTROL.o  ./ECU_LAYER/COOLER_PELTIER/ECU_COOLER_PELTIER.o  ./ECU_LAYER/CERAMIC_HEATER/ECU_CERAMIC_HEATER.o  ./ECU_LAYER/7_SEGMENT/ECU_7_SEGMENT.o  ./ECU_LAYER/24C08_EXT_EEPROM/ECU_24C08_EXT_EEPROM.o  ./ECU_LAYER/ECU_INIT.o  ./Application.o   
+Finished building target: Electric_Water_Heater.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Electric_Water_Heater.elf  >"Electric_Water_Heater.lss"
+Finished building: Electric_Water_Heater.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex Electric_Water_Heater.elf  "Electric_Water_Heater.hex"
+Finished building: Electric_Water_Heater.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 Electric_Water_Heater.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    2686 bytes (16.4% Full)
+(.text + .data + .bootloader)
+
+Data:         26 bytes (2.5% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+01:01:35 **** Incremental Build of configuration Debug for project Electric_Water_Heater ****
+make all 
+Building file: ../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c
+Invoking: AVR Compiler
+avr-gcc -U__AVR_ATmega16__ -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.d" -MT"MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.o" -c -o "MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.o" "../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c"
+In file included from ../MCAL_LAYER/INTERRUPT/../GPIO/../MCAL_STD_LIB.h:16,
+                 from ../MCAL_LAYER/INTERRUPT/../GPIO/../MCAL_STD_TYPES.h:13,
+                 from ../MCAL_LAYER/INTERRUPT/../GPIO/HAL_GPIO.h:15,
+                 from ../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.h:14,
+                 from ../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:7:
+d:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+Finished building: ../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c
+ 
+Building target: Electric_Water_Heater.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Electric_Water_Heater.map -mmcu=atmega16 -o "Electric_Water_Heater.elf"  ./MCAL_LAYER/TIMER/HAL_TIMER.o  ./MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.o  ./MCAL_LAYER/I2C/HAL_I2C.o  ./MCAL_LAYER/GPIO/HAL_GPIO.o  ./MCAL_LAYER/ADC/HAL_ADC.o  ./ECU_LAYER/TEMP_SENSOR/ECU_TEMP_SENSOR.o  ./ECU_LAYER/RELAY/ECU_RELAY.o  ./ECU_LAYER/PUSH_BUTTONS/ECU_PUSH_BUTTONS.o  ./ECU_LAYER/FAN_CONTROL/ECU_FAN_CONTROL.o  ./ECU_LAYER/COOLER_PELTIER/ECU_COOLER_PELTIER.o  ./ECU_LAYER/CERAMIC_HEATER/ECU_CERAMIC_HEATER.o  ./ECU_LAYER/7_SEGMENT/ECU_7_SEGMENT.o  ./ECU_LAYER/24C08_EXT_EEPROM/ECU_24C08_EXT_EEPROM.o  ./ECU_LAYER/ECU_INIT.o  ./Application.o   
+Finished building target: Electric_Water_Heater.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Electric_Water_Heater.elf  >"Electric_Water_Heater.lss"
+Finished building: Electric_Water_Heater.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex Electric_Water_Heater.elf  "Electric_Water_Heater.hex"
+Finished building: Electric_Water_Heater.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 Electric_Water_Heater.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    2814 bytes (17.2% Full)
+(.text + .data + .bootloader)
+
+Data:         26 bytes (2.5% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+01:01:37 **** Incremental Build of configuration Debug for project Electric_Water_Heater ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 Electric_Water_Heater.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    2814 bytes (17.2% Full)
+(.text + .data + .bootloader)
+
+Data:         26 bytes (2.5% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+01:03:49 **** Incremental Build of configuration Debug for project Electric_Water_Heater ****
+make all 
+Building file: ../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c
+Invoking: AVR Compiler
+avr-gcc -U__AVR_ATmega16__ -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.d" -MT"MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.o" -c -o "MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.o" "../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c"
+In file included from ../MCAL_LAYER/INTERRUPT/../GPIO/../MCAL_STD_LIB.h:16,
+                 from ../MCAL_LAYER/INTERRUPT/../GPIO/../MCAL_STD_TYPES.h:13,
+                 from ../MCAL_LAYER/INTERRUPT/../GPIO/HAL_GPIO.h:15,
+                 from ../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.h:14,
+                 from ../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:7:
+d:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+Finished building: ../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c
+ 
+Building target: Electric_Water_Heater.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Electric_Water_Heater.map -mmcu=atmega16 -o "Electric_Water_Heater.elf"  ./MCAL_LAYER/TIMER/HAL_TIMER.o  ./MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.o  ./MCAL_LAYER/I2C/HAL_I2C.o  ./MCAL_LAYER/GPIO/HAL_GPIO.o  ./MCAL_LAYER/ADC/HAL_ADC.o  ./ECU_LAYER/TEMP_SENSOR/ECU_TEMP_SENSOR.o  ./ECU_LAYER/RELAY/ECU_RELAY.o  ./ECU_LAYER/PUSH_BUTTONS/ECU_PUSH_BUTTONS.o  ./ECU_LAYER/FAN_CONTROL/ECU_FAN_CONTROL.o  ./ECU_LAYER/COOLER_PELTIER/ECU_COOLER_PELTIER.o  ./ECU_LAYER/CERAMIC_HEATER/ECU_CERAMIC_HEATER.o  ./ECU_LAYER/7_SEGMENT/ECU_7_SEGMENT.o  ./ECU_LAYER/24C08_EXT_EEPROM/ECU_24C08_EXT_EEPROM.o  ./ECU_LAYER/ECU_INIT.o  ./Application.o   
+Finished building target: Electric_Water_Heater.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Electric_Water_Heater.elf  >"Electric_Water_Heater.lss"
+Finished building: Electric_Water_Heater.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex Electric_Water_Heater.elf  "Electric_Water_Heater.hex"
+Finished building: Electric_Water_Heater.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 Electric_Water_Heater.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    2814 bytes (17.2% Full)
+(.text + .data + .bootloader)
+
+Data:         26 bytes (2.5% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+01:05:31 **** Incremental Build of configuration Debug for project Electric_Water_Heater ****
+make all 
+Building file: ../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c
+Invoking: AVR Compiler
+avr-gcc -U__AVR_ATmega16__ -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.d" -MT"MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.o" -c -o "MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.o" "../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c"
+In file included from ../MCAL_LAYER/INTERRUPT/../GPIO/../MCAL_STD_LIB.h:16,
+                 from ../MCAL_LAYER/INTERRUPT/../GPIO/../MCAL_STD_TYPES.h:13,
+                 from ../MCAL_LAYER/INTERRUPT/../GPIO/HAL_GPIO.h:15,
+                 from ../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.h:14,
+                 from ../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:7:
+d:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+Finished building: ../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c
+ 
+Building target: Electric_Water_Heater.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Electric_Water_Heater.map -mmcu=atmega16 -o "Electric_Water_Heater.elf"  ./MCAL_LAYER/TIMER/HAL_TIMER.o  ./MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.o  ./MCAL_LAYER/I2C/HAL_I2C.o  ./MCAL_LAYER/GPIO/HAL_GPIO.o  ./MCAL_LAYER/ADC/HAL_ADC.o  ./ECU_LAYER/TEMP_SENSOR/ECU_TEMP_SENSOR.o  ./ECU_LAYER/RELAY/ECU_RELAY.o  ./ECU_LAYER/PUSH_BUTTONS/ECU_PUSH_BUTTONS.o  ./ECU_LAYER/FAN_CONTROL/ECU_FAN_CONTROL.o  ./ECU_LAYER/COOLER_PELTIER/ECU_COOLER_PELTIER.o  ./ECU_LAYER/CERAMIC_HEATER/ECU_CERAMIC_HEATER.o  ./ECU_LAYER/7_SEGMENT/ECU_7_SEGMENT.o  ./ECU_LAYER/24C08_EXT_EEPROM/ECU_24C08_EXT_EEPROM.o  ./ECU_LAYER/ECU_INIT.o  ./Application.o   
+Finished building target: Electric_Water_Heater.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Electric_Water_Heater.elf  >"Electric_Water_Heater.lss"
+Finished building: Electric_Water_Heater.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex Electric_Water_Heater.elf  "Electric_Water_Heater.hex"
+Finished building: Electric_Water_Heater.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 Electric_Water_Heater.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    2814 bytes (17.2% Full)
+(.text + .data + .bootloader)
+
+Data:         26 bytes (2.5% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+01:05:33 **** Incremental Build of configuration Debug for project Electric_Water_Heater ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 Electric_Water_Heater.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    2814 bytes (17.2% Full)
+(.text + .data + .bootloader)
+
+Data:         26 bytes (2.5% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+01:08:45 **** Incremental Build of configuration Debug for project Electric_Water_Heater ****
+make all 
+Building file: ../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c
+Invoking: AVR Compiler
+avr-gcc -U__AVR_ATmega16__ -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.d" -MT"MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.o" -c -o "MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.o" "../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c"
+In file included from ../MCAL_LAYER/INTERRUPT/../GPIO/../MCAL_STD_LIB.h:16,
+                 from ../MCAL_LAYER/INTERRUPT/../GPIO/../MCAL_STD_TYPES.h:13,
+                 from ../MCAL_LAYER/INTERRUPT/../GPIO/HAL_GPIO.h:15,
+                 from ../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.h:14,
+                 from ../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:7:
+d:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+Finished building: ../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c
+ 
+Building file: ../Application.c
+Invoking: AVR Compiler
+avr-gcc -U__AVR_ATmega16__ -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"Application.d" -MT"Application.o" -c -o "Application.o" "../Application.c"
+In file included from ../MCAL_LAYER/GPIO/../MCAL_STD_LIB.h:16,
+                 from ../MCAL_LAYER/GPIO/../MCAL_STD_TYPES.h:13,
+                 from ../MCAL_LAYER/GPIO/HAL_GPIO.h:15,
+                 from ../Application.h:14,
+                 from ../Application.c:8:
+d:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+Finished building: ../Application.c
+ 
+Building target: Electric_Water_Heater.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Electric_Water_Heater.map -mmcu=atmega16 -o "Electric_Water_Heater.elf"  ./MCAL_LAYER/TIMER/HAL_TIMER.o  ./MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.o  ./MCAL_LAYER/I2C/HAL_I2C.o  ./MCAL_LAYER/GPIO/HAL_GPIO.o  ./MCAL_LAYER/ADC/HAL_ADC.o  ./ECU_LAYER/TEMP_SENSOR/ECU_TEMP_SENSOR.o  ./ECU_LAYER/RELAY/ECU_RELAY.o  ./ECU_LAYER/PUSH_BUTTONS/ECU_PUSH_BUTTONS.o  ./ECU_LAYER/FAN_CONTROL/ECU_FAN_CONTROL.o  ./ECU_LAYER/COOLER_PELTIER/ECU_COOLER_PELTIER.o  ./ECU_LAYER/CERAMIC_HEATER/ECU_CERAMIC_HEATER.o  ./ECU_LAYER/7_SEGMENT/ECU_7_SEGMENT.o  ./ECU_LAYER/24C08_EXT_EEPROM/ECU_24C08_EXT_EEPROM.o  ./ECU_LAYER/ECU_INIT.o  ./Application.o   
+Finished building target: Electric_Water_Heater.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Electric_Water_Heater.elf  >"Electric_Water_Heater.lss"
+Finished building: Electric_Water_Heater.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex Electric_Water_Heater.elf  "Electric_Water_Heater.hex"
+Finished building: Electric_Water_Heater.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 Electric_Water_Heater.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    2814 bytes (17.2% Full)
+(.text + .data + .bootloader)
+
+Data:         26 bytes (2.5% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+01:08:47 **** Incremental Build of configuration Debug for project Electric_Water_Heater ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 Electric_Water_Heater.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    2814 bytes (17.2% Full)
+(.text + .data + .bootloader)
+
+Data:         26 bytes (2.5% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+01:12:40 **** Incremental Build of configuration Debug for project Electric_Water_Heater ****
+make all 
+Building file: ../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c
+Invoking: AVR Compiler
+avr-gcc -U__AVR_ATmega16__ -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.d" -MT"MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.o" -c -o "MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.o" "../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c"
+In file included from ../MCAL_LAYER/INTERRUPT/../GPIO/../MCAL_STD_LIB.h:16,
+                 from ../MCAL_LAYER/INTERRUPT/../GPIO/../MCAL_STD_TYPES.h:13,
+                 from ../MCAL_LAYER/INTERRUPT/../GPIO/HAL_GPIO.h:15,
+                 from ../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.h:14,
+                 from ../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:7:
+d:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+Finished building: ../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c
+ 
+Building target: Electric_Water_Heater.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Electric_Water_Heater.map -mmcu=atmega16 -o "Electric_Water_Heater.elf"  ./MCAL_LAYER/TIMER/HAL_TIMER.o  ./MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.o  ./MCAL_LAYER/I2C/HAL_I2C.o  ./MCAL_LAYER/GPIO/HAL_GPIO.o  ./MCAL_LAYER/ADC/HAL_ADC.o  ./ECU_LAYER/TEMP_SENSOR/ECU_TEMP_SENSOR.o  ./ECU_LAYER/RELAY/ECU_RELAY.o  ./ECU_LAYER/PUSH_BUTTONS/ECU_PUSH_BUTTONS.o  ./ECU_LAYER/FAN_CONTROL/ECU_FAN_CONTROL.o  ./ECU_LAYER/COOLER_PELTIER/ECU_COOLER_PELTIER.o  ./ECU_LAYER/CERAMIC_HEATER/ECU_CERAMIC_HEATER.o  ./ECU_LAYER/7_SEGMENT/ECU_7_SEGMENT.o  ./ECU_LAYER/24C08_EXT_EEPROM/ECU_24C08_EXT_EEPROM.o  ./ECU_LAYER/ECU_INIT.o  ./Application.o   
+Finished building target: Electric_Water_Heater.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Electric_Water_Heater.elf  >"Electric_Water_Heater.lss"
+Finished building: Electric_Water_Heater.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex Electric_Water_Heater.elf  "Electric_Water_Heater.hex"
+Finished building: Electric_Water_Heater.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 Electric_Water_Heater.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    2610 bytes (15.9% Full)
+(.text + .data + .bootloader)
+
+Data:         26 bytes (2.5% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+01:12:42 **** Incremental Build of configuration Debug for project Electric_Water_Heater ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 Electric_Water_Heater.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    2610 bytes (15.9% Full)
+(.text + .data + .bootloader)
+
+Data:         26 bytes (2.5% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+01:13:23 **** Incremental Build of configuration Debug for project Electric_Water_Heater ****
+make all 
+Building file: ../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c
+Invoking: AVR Compiler
+avr-gcc -U__AVR_ATmega16__ -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.d" -MT"MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.o" -c -o "MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.o" "../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c"
+In file included from ../MCAL_LAYER/INTERRUPT/../GPIO/../MCAL_STD_LIB.h:16,
+                 from ../MCAL_LAYER/INTERRUPT/../GPIO/../MCAL_STD_TYPES.h:13,
+                 from ../MCAL_LAYER/INTERRUPT/../GPIO/HAL_GPIO.h:15,
+                 from ../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.h:14,
+                 from ../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:7:
+d:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+Finished building: ../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c
+ 
+Building target: Electric_Water_Heater.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Electric_Water_Heater.map -mmcu=atmega16 -o "Electric_Water_Heater.elf"  ./MCAL_LAYER/TIMER/HAL_TIMER.o  ./MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.o  ./MCAL_LAYER/I2C/HAL_I2C.o  ./MCAL_LAYER/GPIO/HAL_GPIO.o  ./MCAL_LAYER/ADC/HAL_ADC.o  ./ECU_LAYER/TEMP_SENSOR/ECU_TEMP_SENSOR.o  ./ECU_LAYER/RELAY/ECU_RELAY.o  ./ECU_LAYER/PUSH_BUTTONS/ECU_PUSH_BUTTONS.o  ./ECU_LAYER/FAN_CONTROL/ECU_FAN_CONTROL.o  ./ECU_LAYER/COOLER_PELTIER/ECU_COOLER_PELTIER.o  ./ECU_LAYER/CERAMIC_HEATER/ECU_CERAMIC_HEATER.o  ./ECU_LAYER/7_SEGMENT/ECU_7_SEGMENT.o  ./ECU_LAYER/24C08_EXT_EEPROM/ECU_24C08_EXT_EEPROM.o  ./ECU_LAYER/ECU_INIT.o  ./Application.o   
+Finished building target: Electric_Water_Heater.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Electric_Water_Heater.elf  >"Electric_Water_Heater.lss"
+Finished building: Electric_Water_Heater.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex Electric_Water_Heater.elf  "Electric_Water_Heater.hex"
+Finished building: Electric_Water_Heater.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 Electric_Water_Heater.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    2610 bytes (15.9% Full)
+(.text + .data + .bootloader)
+
+Data:         26 bytes (2.5% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+01:13:25 **** Incremental Build of configuration Debug for project Electric_Water_Heater ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 Electric_Water_Heater.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    2610 bytes (15.9% Full)
+(.text + .data + .bootloader)
+
+Data:         26 bytes (2.5% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+01:15:32 **** Incremental Build of configuration Debug for project Electric_Water_Heater ****
+make all 
+Building file: ../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c
+Invoking: AVR Compiler
+avr-gcc -U__AVR_ATmega16__ -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.d" -MT"MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.o" -c -o "MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.o" "../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c"
+In file included from ../MCAL_LAYER/INTERRUPT/../GPIO/../MCAL_STD_LIB.h:16,
+                 from ../MCAL_LAYER/INTERRUPT/../GPIO/../MCAL_STD_TYPES.h:13,
+                 from ../MCAL_LAYER/INTERRUPT/../GPIO/HAL_GPIO.h:15,
+                 from ../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.h:14,
+                 from ../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c:7:
+d:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+Finished building: ../MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.c
+ 
+Building file: ../Application.c
+Invoking: AVR Compiler
+avr-gcc -U__AVR_ATmega16__ -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"Application.d" -MT"Application.o" -c -o "Application.o" "../Application.c"
+In file included from ../MCAL_LAYER/GPIO/../MCAL_STD_LIB.h:16,
+                 from ../MCAL_LAYER/GPIO/../MCAL_STD_TYPES.h:13,
+                 from ../MCAL_LAYER/GPIO/HAL_GPIO.h:15,
+                 from ../Application.h:14,
+                 from ../Application.c:8:
+d:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../Application.c: In function 'application_init':
+../Application.c:47: error: too few arguments to function 'INT1_INIT'
+../Application.c:49: error: expected ';' before '}' token
+make: *** [Application.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+01:33:12 **** Incremental Build of configuration Debug for project Electric_Water_Heater ****
+make all 
+Building file: ../ECU_LAYER/ECU_INIT.c
+Invoking: AVR Compiler
+avr-gcc -U__AVR_ATmega16__ -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"ECU_LAYER/ECU_INIT.d" -MT"ECU_LAYER/ECU_INIT.o" -c -o "ECU_LAYER/ECU_INIT.o" "../ECU_LAYER/ECU_INIT.c"
+In file included from ../ECU_LAYER/../MCAL_LAYER/GPIO/../MCAL_STD_LIB.h:16,
+                 from ../ECU_LAYER/../MCAL_LAYER/GPIO/../MCAL_STD_TYPES.h:13,
+                 from ../ECU_LAYER/../MCAL_LAYER/GPIO/HAL_GPIO.h:15,
+                 from ../ECU_LAYER/ECU_INIT.c:9:
+d:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+Finished building: ../ECU_LAYER/ECU_INIT.c
+ 
+Building file: ../Application.c
+Invoking: AVR Compiler
+avr-gcc -U__AVR_ATmega16__ -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"Application.d" -MT"Application.o" -c -o "Application.o" "../Application.c"
+In file included from ../MCAL_LAYER/GPIO/../MCAL_STD_LIB.h:16,
+                 from ../MCAL_LAYER/GPIO/../MCAL_STD_TYPES.h:13,
+                 from ../MCAL_LAYER/GPIO/HAL_GPIO.h:15,
+                 from ../Application.h:14,
+                 from ../Application.c:8:
+d:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../Application.c: In function 'application_init':
+../Application.c:46: error: too few arguments to function 'INT1_INIT'
+../Application.c:48: error: expected ';' before '}' token
+../Application.c:43: warning: unused variable 'ret'
+make: *** [Application.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+01:33:22 **** Incremental Build of configuration Debug for project Electric_Water_Heater ****
+make all 
+Building file: ../Application.c
+Invoking: AVR Compiler
+avr-gcc -U__AVR_ATmega16__ -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"Application.d" -MT"Application.o" -c -o "Application.o" "../Application.c"
+In file included from ../MCAL_LAYER/GPIO/../MCAL_STD_LIB.h:16,
+                 from ../MCAL_LAYER/GPIO/../MCAL_STD_TYPES.h:13,
+                 from ../MCAL_LAYER/GPIO/HAL_GPIO.h:15,
+                 from ../Application.h:14,
+                 from ../Application.c:8:
+d:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../Application.c: In function 'application_init':
+../Application.c:46: error: too few arguments to function 'INT1_INIT'
+../Application.c:48: error: expected ';' before '}' token
+../Application.c:43: warning: unused variable 'ret'
+make: *** [Application.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+01:33:29 **** Incremental Build of configuration Debug for project Electric_Water_Heater ****
+make all 
+Building file: ../Application.c
+Invoking: AVR Compiler
+avr-gcc -U__AVR_ATmega16__ -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"Application.d" -MT"Application.o" -c -o "Application.o" "../Application.c"
+In file included from ../MCAL_LAYER/GPIO/../MCAL_STD_LIB.h:16,
+                 from ../MCAL_LAYER/GPIO/../MCAL_STD_TYPES.h:13,
+                 from ../MCAL_LAYER/GPIO/HAL_GPIO.h:15,
+                 from ../Application.h:14,
+                 from ../Application.c:8:
+d:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../Application.c: In function 'application_init':
+../Application.c:46: error: too few arguments to function 'INT1_INIT'
+../Application.c:43: warning: unused variable 'ret'
+make: *** [Application.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+01:33:47 **** Incremental Build of configuration Debug for project Electric_Water_Heater ****
+make all 
+Building file: ../Application.c
+Invoking: AVR Compiler
+avr-gcc -U__AVR_ATmega16__ -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"Application.d" -MT"Application.o" -c -o "Application.o" "../Application.c"
+In file included from ../MCAL_LAYER/GPIO/../MCAL_STD_LIB.h:16,
+                 from ../MCAL_LAYER/GPIO/../MCAL_STD_TYPES.h:13,
+                 from ../MCAL_LAYER/GPIO/HAL_GPIO.h:15,
+                 from ../Application.h:14,
+                 from ../Application.c:8:
+d:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../Application.c: In function 'application_init':
+../Application.c:43: warning: unused variable 'ret'
+Finished building: ../Application.c
+ 
+Building target: Electric_Water_Heater.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Electric_Water_Heater.map -mmcu=atmega16 -o "Electric_Water_Heater.elf"  ./MCAL_LAYER/TIMER/HAL_TIMER.o  ./MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.o  ./MCAL_LAYER/I2C/HAL_I2C.o  ./MCAL_LAYER/GPIO/HAL_GPIO.o  ./MCAL_LAYER/ADC/HAL_ADC.o  ./ECU_LAYER/TEMP_SENSOR/ECU_TEMP_SENSOR.o  ./ECU_LAYER/RELAY/ECU_RELAY.o  ./ECU_LAYER/PUSH_BUTTONS/ECU_PUSH_BUTTONS.o  ./ECU_LAYER/FAN_CONTROL/ECU_FAN_CONTROL.o  ./ECU_LAYER/COOLER_PELTIER/ECU_COOLER_PELTIER.o  ./ECU_LAYER/CERAMIC_HEATER/ECU_CERAMIC_HEATER.o  ./ECU_LAYER/7_SEGMENT/ECU_7_SEGMENT.o  ./ECU_LAYER/24C08_EXT_EEPROM/ECU_24C08_EXT_EEPROM.o  ./ECU_LAYER/ECU_INIT.o  ./Application.o   
+Finished building target: Electric_Water_Heater.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Electric_Water_Heater.elf  >"Electric_Water_Heater.lss"
+Finished building: Electric_Water_Heater.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex Electric_Water_Heater.elf  "Electric_Water_Heater.hex"
+Finished building: Electric_Water_Heater.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 Electric_Water_Heater.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    2610 bytes (15.9% Full)
+(.text + .data + .bootloader)
+
+Data:         26 bytes (2.5% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+01:34:03 **** Incremental Build of configuration Debug for project Electric_Water_Heater ****
+make all 
+Building file: ../Application.c
+Invoking: AVR Compiler
+avr-gcc -U__AVR_ATmega16__ -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"Application.d" -MT"Application.o" -c -o "Application.o" "../Application.c"
+In file included from ../MCAL_LAYER/GPIO/../MCAL_STD_LIB.h:16,
+                 from ../MCAL_LAYER/GPIO/../MCAL_STD_TYPES.h:13,
+                 from ../MCAL_LAYER/GPIO/HAL_GPIO.h:15,
+                 from ../Application.h:14,
+                 from ../Application.c:8:
+d:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+Finished building: ../Application.c
+ 
+Building target: Electric_Water_Heater.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Electric_Water_Heater.map -mmcu=atmega16 -o "Electric_Water_Heater.elf"  ./MCAL_LAYER/TIMER/HAL_TIMER.o  ./MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.o  ./MCAL_LAYER/I2C/HAL_I2C.o  ./MCAL_LAYER/GPIO/HAL_GPIO.o  ./MCAL_LAYER/ADC/HAL_ADC.o  ./ECU_LAYER/TEMP_SENSOR/ECU_TEMP_SENSOR.o  ./ECU_LAYER/RELAY/ECU_RELAY.o  ./ECU_LAYER/PUSH_BUTTONS/ECU_PUSH_BUTTONS.o  ./ECU_LAYER/FAN_CONTROL/ECU_FAN_CONTROL.o  ./ECU_LAYER/COOLER_PELTIER/ECU_COOLER_PELTIER.o  ./ECU_LAYER/CERAMIC_HEATER/ECU_CERAMIC_HEATER.o  ./ECU_LAYER/7_SEGMENT/ECU_7_SEGMENT.o  ./ECU_LAYER/24C08_EXT_EEPROM/ECU_24C08_EXT_EEPROM.o  ./ECU_LAYER/ECU_INIT.o  ./Application.o   
+Finished building target: Electric_Water_Heater.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Electric_Water_Heater.elf  >"Electric_Water_Heater.lss"
+Finished building: Electric_Water_Heater.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex Electric_Water_Heater.elf  "Electric_Water_Heater.hex"
+Finished building: Electric_Water_Heater.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 Electric_Water_Heater.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    2612 bytes (15.9% Full)
+(.text + .data + .bootloader)
+
+Data:         26 bytes (2.5% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+01:34:04 **** Incremental Build of configuration Debug for project Electric_Water_Heater ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 Electric_Water_Heater.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    2612 bytes (15.9% Full)
+(.text + .data + .bootloader)
+
+Data:         26 bytes (2.5% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+01:34:42 **** Incremental Build of configuration Debug for project Electric_Water_Heater ****
+make all 
+Building file: ../Application.c
+Invoking: AVR Compiler
+avr-gcc -U__AVR_ATmega16__ -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"Application.d" -MT"Application.o" -c -o "Application.o" "../Application.c"
+In file included from ../MCAL_LAYER/GPIO/../MCAL_STD_LIB.h:16,
+                 from ../MCAL_LAYER/GPIO/../MCAL_STD_TYPES.h:13,
+                 from ../MCAL_LAYER/GPIO/HAL_GPIO.h:15,
+                 from ../Application.h:14,
+                 from ../Application.c:8:
+d:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+Finished building: ../Application.c
+ 
+Building target: Electric_Water_Heater.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Electric_Water_Heater.map -mmcu=atmega16 -o "Electric_Water_Heater.elf"  ./MCAL_LAYER/TIMER/HAL_TIMER.o  ./MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.o  ./MCAL_LAYER/I2C/HAL_I2C.o  ./MCAL_LAYER/GPIO/HAL_GPIO.o  ./MCAL_LAYER/ADC/HAL_ADC.o  ./ECU_LAYER/TEMP_SENSOR/ECU_TEMP_SENSOR.o  ./ECU_LAYER/RELAY/ECU_RELAY.o  ./ECU_LAYER/PUSH_BUTTONS/ECU_PUSH_BUTTONS.o  ./ECU_LAYER/FAN_CONTROL/ECU_FAN_CONTROL.o  ./ECU_LAYER/COOLER_PELTIER/ECU_COOLER_PELTIER.o  ./ECU_LAYER/CERAMIC_HEATER/ECU_CERAMIC_HEATER.o  ./ECU_LAYER/7_SEGMENT/ECU_7_SEGMENT.o  ./ECU_LAYER/24C08_EXT_EEPROM/ECU_24C08_EXT_EEPROM.o  ./ECU_LAYER/ECU_INIT.o  ./Application.o   
+Finished building target: Electric_Water_Heater.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Electric_Water_Heater.elf  >"Electric_Water_Heater.lss"
+Finished building: Electric_Water_Heater.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex Electric_Water_Heater.elf  "Electric_Water_Heater.hex"
+Finished building: Electric_Water_Heater.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 Electric_Water_Heater.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    2612 bytes (15.9% Full)
+(.text + .data + .bootloader)
+
+Data:         26 bytes (2.5% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+01:34:43 **** Incremental Build of configuration Debug for project Electric_Water_Heater ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 Electric_Water_Heater.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    2612 bytes (15.9% Full)
+(.text + .data + .bootloader)
+
+Data:         26 bytes (2.5% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+01:43:12 **** Incremental Build of configuration Debug for project Electric_Water_Heater ****
+make all 
+Building file: ../Application.c
+Invoking: AVR Compiler
+avr-gcc -U__AVR_ATmega16__ -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"Application.d" -MT"Application.o" -c -o "Application.o" "../Application.c"
+In file included from ../MCAL_LAYER/GPIO/../MCAL_STD_LIB.h:16,
+                 from ../MCAL_LAYER/GPIO/../MCAL_STD_TYPES.h:13,
+                 from ../MCAL_LAYER/GPIO/HAL_GPIO.h:15,
+                 from ../Application.h:14,
+                 from ../Application.c:8:
+d:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+Finished building: ../Application.c
+ 
+Building target: Electric_Water_Heater.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Electric_Water_Heater.map -mmcu=atmega16 -o "Electric_Water_Heater.elf"  ./MCAL_LAYER/TIMER/HAL_TIMER.o  ./MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.o  ./MCAL_LAYER/I2C/HAL_I2C.o  ./MCAL_LAYER/GPIO/HAL_GPIO.o  ./MCAL_LAYER/ADC/HAL_ADC.o  ./ECU_LAYER/TEMP_SENSOR/ECU_TEMP_SENSOR.o  ./ECU_LAYER/RELAY/ECU_RELAY.o  ./ECU_LAYER/PUSH_BUTTONS/ECU_PUSH_BUTTONS.o  ./ECU_LAYER/FAN_CONTROL/ECU_FAN_CONTROL.o  ./ECU_LAYER/COOLER_PELTIER/ECU_COOLER_PELTIER.o  ./ECU_LAYER/CERAMIC_HEATER/ECU_CERAMIC_HEATER.o  ./ECU_LAYER/7_SEGMENT/ECU_7_SEGMENT.o  ./ECU_LAYER/24C08_EXT_EEPROM/ECU_24C08_EXT_EEPROM.o  ./ECU_LAYER/ECU_INIT.o  ./Application.o   
+Finished building target: Electric_Water_Heater.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Electric_Water_Heater.elf  >"Electric_Water_Heater.lss"
+Finished building: Electric_Water_Heater.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex Electric_Water_Heater.elf  "Electric_Water_Heater.hex"
+Finished building: Electric_Water_Heater.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 Electric_Water_Heater.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    5818 bytes (35.5% Full)
+(.text + .data + .bootloader)
+
+Data:         34 bytes (3.3% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+01:43:14 **** Incremental Build of configuration Debug for project Electric_Water_Heater ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 Electric_Water_Heater.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    5818 bytes (35.5% Full)
+(.text + .data + .bootloader)
+
+Data:         34 bytes (3.3% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+01:44:03 **** Incremental Build of configuration Debug for project Electric_Water_Heater ****
+make all 
+Building file: ../Application.c
+Invoking: AVR Compiler
+avr-gcc -U__AVR_ATmega16__ -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"Application.d" -MT"Application.o" -c -o "Application.o" "../Application.c"
+In file included from ../MCAL_LAYER/GPIO/../MCAL_STD_LIB.h:16,
+                 from ../MCAL_LAYER/GPIO/../MCAL_STD_TYPES.h:13,
+                 from ../MCAL_LAYER/GPIO/HAL_GPIO.h:15,
+                 from ../Application.h:14,
+                 from ../Application.c:8:
+d:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+Finished building: ../Application.c
+ 
+Building target: Electric_Water_Heater.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Electric_Water_Heater.map -mmcu=atmega16 -o "Electric_Water_Heater.elf"  ./MCAL_LAYER/TIMER/HAL_TIMER.o  ./MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.o  ./MCAL_LAYER/I2C/HAL_I2C.o  ./MCAL_LAYER/GPIO/HAL_GPIO.o  ./MCAL_LAYER/ADC/HAL_ADC.o  ./ECU_LAYER/TEMP_SENSOR/ECU_TEMP_SENSOR.o  ./ECU_LAYER/RELAY/ECU_RELAY.o  ./ECU_LAYER/PUSH_BUTTONS/ECU_PUSH_BUTTONS.o  ./ECU_LAYER/FAN_CONTROL/ECU_FAN_CONTROL.o  ./ECU_LAYER/COOLER_PELTIER/ECU_COOLER_PELTIER.o  ./ECU_LAYER/CERAMIC_HEATER/ECU_CERAMIC_HEATER.o  ./ECU_LAYER/7_SEGMENT/ECU_7_SEGMENT.o  ./ECU_LAYER/24C08_EXT_EEPROM/ECU_24C08_EXT_EEPROM.o  ./ECU_LAYER/ECU_INIT.o  ./Application.o   
+Finished building target: Electric_Water_Heater.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Electric_Water_Heater.elf  >"Electric_Water_Heater.lss"
+Finished building: Electric_Water_Heater.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex Electric_Water_Heater.elf  "Electric_Water_Heater.hex"
+Finished building: Electric_Water_Heater.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 Electric_Water_Heater.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    5818 bytes (35.5% Full)
+(.text + .data + .bootloader)
+
+Data:         34 bytes (3.3% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+01:44:05 **** Incremental Build of configuration Debug for project Electric_Water_Heater ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 Electric_Water_Heater.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    5818 bytes (35.5% Full)
+(.text + .data + .bootloader)
+
+Data:         34 bytes (3.3% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+01:44:27 **** Incremental Build of configuration Debug for project Electric_Water_Heater ****
+make all 
+Building file: ../Application.c
+Invoking: AVR Compiler
+avr-gcc -U__AVR_ATmega16__ -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"Application.d" -MT"Application.o" -c -o "Application.o" "../Application.c"
+In file included from ../MCAL_LAYER/GPIO/../MCAL_STD_LIB.h:16,
+                 from ../MCAL_LAYER/GPIO/../MCAL_STD_TYPES.h:13,
+                 from ../MCAL_LAYER/GPIO/HAL_GPIO.h:15,
+                 from ../Application.h:14,
+                 from ../Application.c:8:
+d:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+Finished building: ../Application.c
+ 
+Building target: Electric_Water_Heater.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Electric_Water_Heater.map -mmcu=atmega16 -o "Electric_Water_Heater.elf"  ./MCAL_LAYER/TIMER/HAL_TIMER.o  ./MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.o  ./MCAL_LAYER/I2C/HAL_I2C.o  ./MCAL_LAYER/GPIO/HAL_GPIO.o  ./MCAL_LAYER/ADC/HAL_ADC.o  ./ECU_LAYER/TEMP_SENSOR/ECU_TEMP_SENSOR.o  ./ECU_LAYER/RELAY/ECU_RELAY.o  ./ECU_LAYER/PUSH_BUTTONS/ECU_PUSH_BUTTONS.o  ./ECU_LAYER/FAN_CONTROL/ECU_FAN_CONTROL.o  ./ECU_LAYER/COOLER_PELTIER/ECU_COOLER_PELTIER.o  ./ECU_LAYER/CERAMIC_HEATER/ECU_CERAMIC_HEATER.o  ./ECU_LAYER/7_SEGMENT/ECU_7_SEGMENT.o  ./ECU_LAYER/24C08_EXT_EEPROM/ECU_24C08_EXT_EEPROM.o  ./ECU_LAYER/ECU_INIT.o  ./Application.o   
+Finished building target: Electric_Water_Heater.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Electric_Water_Heater.elf  >"Electric_Water_Heater.lss"
+Finished building: Electric_Water_Heater.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex Electric_Water_Heater.elf  "Electric_Water_Heater.hex"
+Finished building: Electric_Water_Heater.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 Electric_Water_Heater.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    5818 bytes (35.5% Full)
+(.text + .data + .bootloader)
+
+Data:         34 bytes (3.3% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+01:44:29 **** Incremental Build of configuration Debug for project Electric_Water_Heater ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 Electric_Water_Heater.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    5818 bytes (35.5% Full)
+(.text + .data + .bootloader)
+
+Data:         34 bytes (3.3% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+01:44:52 **** Incremental Build of configuration Debug for project Electric_Water_Heater ****
+make all 
+Building file: ../Application.c
+Invoking: AVR Compiler
+avr-gcc -U__AVR_ATmega16__ -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"Application.d" -MT"Application.o" -c -o "Application.o" "../Application.c"
+In file included from ../MCAL_LAYER/GPIO/../MCAL_STD_LIB.h:16,
+                 from ../MCAL_LAYER/GPIO/../MCAL_STD_TYPES.h:13,
+                 from ../MCAL_LAYER/GPIO/HAL_GPIO.h:15,
+                 from ../Application.h:14,
+                 from ../Application.c:8:
+d:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+Finished building: ../Application.c
+ 
+Building target: Electric_Water_Heater.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Electric_Water_Heater.map -mmcu=atmega16 -o "Electric_Water_Heater.elf"  ./MCAL_LAYER/TIMER/HAL_TIMER.o  ./MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.o  ./MCAL_LAYER/I2C/HAL_I2C.o  ./MCAL_LAYER/GPIO/HAL_GPIO.o  ./MCAL_LAYER/ADC/HAL_ADC.o  ./ECU_LAYER/TEMP_SENSOR/ECU_TEMP_SENSOR.o  ./ECU_LAYER/RELAY/ECU_RELAY.o  ./ECU_LAYER/PUSH_BUTTONS/ECU_PUSH_BUTTONS.o  ./ECU_LAYER/FAN_CONTROL/ECU_FAN_CONTROL.o  ./ECU_LAYER/COOLER_PELTIER/ECU_COOLER_PELTIER.o  ./ECU_LAYER/CERAMIC_HEATER/ECU_CERAMIC_HEATER.o  ./ECU_LAYER/7_SEGMENT/ECU_7_SEGMENT.o  ./ECU_LAYER/24C08_EXT_EEPROM/ECU_24C08_EXT_EEPROM.o  ./ECU_LAYER/ECU_INIT.o  ./Application.o   
+Finished building target: Electric_Water_Heater.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Electric_Water_Heater.elf  >"Electric_Water_Heater.lss"
+Finished building: Electric_Water_Heater.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex Electric_Water_Heater.elf  "Electric_Water_Heater.hex"
+Finished building: Electric_Water_Heater.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 Electric_Water_Heater.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    5818 bytes (35.5% Full)
+(.text + .data + .bootloader)
+
+Data:         34 bytes (3.3% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+01:44:54 **** Incremental Build of configuration Debug for project Electric_Water_Heater ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 Electric_Water_Heater.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    5818 bytes (35.5% Full)
+(.text + .data + .bootloader)
+
+Data:         34 bytes (3.3% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+01:45:16 **** Incremental Build of configuration Debug for project Electric_Water_Heater ****
+make all 
+Building file: ../Application.c
+Invoking: AVR Compiler
+avr-gcc -U__AVR_ATmega16__ -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"Application.d" -MT"Application.o" -c -o "Application.o" "../Application.c"
+In file included from ../MCAL_LAYER/GPIO/../MCAL_STD_LIB.h:16,
+                 from ../MCAL_LAYER/GPIO/../MCAL_STD_TYPES.h:13,
+                 from ../MCAL_LAYER/GPIO/HAL_GPIO.h:15,
+                 from ../Application.h:14,
+                 from ../Application.c:8:
+d:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+Finished building: ../Application.c
+ 
+Building target: Electric_Water_Heater.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Electric_Water_Heater.map -mmcu=atmega16 -o "Electric_Water_Heater.elf"  ./MCAL_LAYER/TIMER/HAL_TIMER.o  ./MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.o  ./MCAL_LAYER/I2C/HAL_I2C.o  ./MCAL_LAYER/GPIO/HAL_GPIO.o  ./MCAL_LAYER/ADC/HAL_ADC.o  ./ECU_LAYER/TEMP_SENSOR/ECU_TEMP_SENSOR.o  ./ECU_LAYER/RELAY/ECU_RELAY.o  ./ECU_LAYER/PUSH_BUTTONS/ECU_PUSH_BUTTONS.o  ./ECU_LAYER/FAN_CONTROL/ECU_FAN_CONTROL.o  ./ECU_LAYER/COOLER_PELTIER/ECU_COOLER_PELTIER.o  ./ECU_LAYER/CERAMIC_HEATER/ECU_CERAMIC_HEATER.o  ./ECU_LAYER/7_SEGMENT/ECU_7_SEGMENT.o  ./ECU_LAYER/24C08_EXT_EEPROM/ECU_24C08_EXT_EEPROM.o  ./ECU_LAYER/ECU_INIT.o  ./Application.o   
+Finished building target: Electric_Water_Heater.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Electric_Water_Heater.elf  >"Electric_Water_Heater.lss"
+Finished building: Electric_Water_Heater.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex Electric_Water_Heater.elf  "Electric_Water_Heater.hex"
+Finished building: Electric_Water_Heater.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 Electric_Water_Heater.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    5818 bytes (35.5% Full)
+(.text + .data + .bootloader)
+
+Data:         34 bytes (3.3% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+01:45:18 **** Incremental Build of configuration Debug for project Electric_Water_Heater ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 Electric_Water_Heater.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    5818 bytes (35.5% Full)
+(.text + .data + .bootloader)
+
+Data:         34 bytes (3.3% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+01:45:37 **** Incremental Build of configuration Debug for project Electric_Water_Heater ****
+make all 
+Building file: ../Application.c
+Invoking: AVR Compiler
+avr-gcc -U__AVR_ATmega16__ -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"Application.d" -MT"Application.o" -c -o "Application.o" "../Application.c"
+In file included from ../MCAL_LAYER/GPIO/../MCAL_STD_LIB.h:16,
+                 from ../MCAL_LAYER/GPIO/../MCAL_STD_TYPES.h:13,
+                 from ../MCAL_LAYER/GPIO/HAL_GPIO.h:15,
+                 from ../Application.h:14,
+                 from ../Application.c:8:
+d:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+Finished building: ../Application.c
+ 
+Building target: Electric_Water_Heater.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Electric_Water_Heater.map -mmcu=atmega16 -o "Electric_Water_Heater.elf"  ./MCAL_LAYER/TIMER/HAL_TIMER.o  ./MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.o  ./MCAL_LAYER/I2C/HAL_I2C.o  ./MCAL_LAYER/GPIO/HAL_GPIO.o  ./MCAL_LAYER/ADC/HAL_ADC.o  ./ECU_LAYER/TEMP_SENSOR/ECU_TEMP_SENSOR.o  ./ECU_LAYER/RELAY/ECU_RELAY.o  ./ECU_LAYER/PUSH_BUTTONS/ECU_PUSH_BUTTONS.o  ./ECU_LAYER/FAN_CONTROL/ECU_FAN_CONTROL.o  ./ECU_LAYER/COOLER_PELTIER/ECU_COOLER_PELTIER.o  ./ECU_LAYER/CERAMIC_HEATER/ECU_CERAMIC_HEATER.o  ./ECU_LAYER/7_SEGMENT/ECU_7_SEGMENT.o  ./ECU_LAYER/24C08_EXT_EEPROM/ECU_24C08_EXT_EEPROM.o  ./ECU_LAYER/ECU_INIT.o  ./Application.o   
+Finished building target: Electric_Water_Heater.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Electric_Water_Heater.elf  >"Electric_Water_Heater.lss"
+Finished building: Electric_Water_Heater.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex Electric_Water_Heater.elf  "Electric_Water_Heater.hex"
+Finished building: Electric_Water_Heater.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 Electric_Water_Heater.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    5818 bytes (35.5% Full)
+(.text + .data + .bootloader)
+
+Data:         34 bytes (3.3% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+01:45:39 **** Incremental Build of configuration Debug for project Electric_Water_Heater ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 Electric_Water_Heater.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    5818 bytes (35.5% Full)
+(.text + .data + .bootloader)
+
+Data:         34 bytes (3.3% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 

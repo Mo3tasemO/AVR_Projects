@@ -1,4 +1,4 @@
-14:54:12 **** Incremental Build of configuration Debug for project Electric_Water_Heater ****
+01:45:39 **** Incremental Build of configuration Debug for project Electric_Water_Heater ****
 make all 
 Invoking: Print Size
 avr-size --format=avr --mcu=atmega16 Electric_Water_Heater.elf
@@ -6,15 +6,15 @@ AVR Memory Usage
 ----------------
 Device: atmega16
 
-Program:    1848 bytes (11.3% Full)
+Program:    5818 bytes (35.5% Full)
 (.text + .data + .bootloader)
 
-Data:         26 bytes (2.5% Full)
+Data:         34 bytes (3.3% Full)
 (.data + .bss + .noinit)
 
 
 Finished building: sizedummy
  
 
-14:54:12 Build Finished. 0 errors, 0 warnings. (took 523ms)
+01:45:39 Build Finished. 0 errors, 0 warnings. (took 518ms)
 
