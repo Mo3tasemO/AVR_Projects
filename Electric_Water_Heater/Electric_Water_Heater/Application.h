@@ -12,6 +12,7 @@
 
 #include "ECU_LAYER/ECU_INIT.h"
 #include "MCAL_LAYER/GPIO/HAL_GPIO.h"
+#include "MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.h"
 
 /* Section: Macro Declarations */
 
