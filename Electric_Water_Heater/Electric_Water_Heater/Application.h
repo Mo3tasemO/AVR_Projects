@@ -13,6 +13,7 @@
 #include "ECU_LAYER/ECU_INIT.h"
 #include "MCAL_LAYER/GPIO/HAL_GPIO.h"
 #include "MCAL_LAYER/INTERRUPT/HAL_INTERRUPT.h"
+#include "MCAL_LAYER/I2C/HAL_I2C.h"
 
 /* Section: Macro Declarations */
 

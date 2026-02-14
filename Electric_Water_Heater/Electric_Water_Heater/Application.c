@@ -8,41 +8,24 @@
 #include "Application.h"
 void application_init(void);
 
-pin_config_t led1 = {
-		.port = PORTC_INDEX,
-		.pin = GPIO_PIN7,
-		.direction = GPIO_DIRECTION_OUTPUT,
-		.logic = GPIO_LOW
-};
 
-interrupt_pin_config_t int1_pin = {
-		.interrupt_pin.port = PORTD_INDEX,
-		.interrupt_pin.pin = GPIO_PIN3,
-		.interrupt_pin.direction = GPIO_DIRECTION_INPUT,
-		.interrupt_pin.logic = GPIO_LOW,
-};
 
 int main(){
-//	Std_ReturnType ret = E_OK;
+	Std_ReturnType ret = E_OK;
 
 	application_init();
-
-
-
+	for(int i = 0; i < 2; i++){
+		ret = EXT_EEPROM_READ_BYTE(0x10 + i, &Data_Seven_Seg[i], 2);
+		Data_Seven_Seg[i] -= '0';
+		_delay_ms(100);
+	}
 
 	while(1){
 
+		ret = SEVEN_SEGMENT_2_DIGIT_WRITE(&seg1, Data_Seven_Seg);
+
+
 	}
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -52,17 +35,21 @@ int main(){
 
 void application_init(void){
 	Std_ReturnType ret = E_OK;
-	SET_BIT(SREG, I_BIT);	//SET I_BIT -> 1, Global Interrupt
-	GPIO_PIN_INIT(&led1);
+//	SET_BIT(SREG, I_BIT);	//SET I_BIT -> 1, Global Interrupt
 	ECU_LAYER_INIT();
-	ret = INT1_INIT(&int1_pin, FALLING_EDGE_INTERRUPT);
+
+
+	ret = SEVEN_SEGMENT_INIT(&seg1);
+	ret = EXT_EEPROM_INIT(100000);
+	ret = EXT_EEPROM_WRITE_BYTE(0x10, "35");
+	_delay_ms(100);
 
 }
 
-void __vector_2 (void)__attribute__((signal)) ;	// Vector2(address) -> ISR of interrupt 1 in vector table
-void __vector_2 (void)
-{
-	GPIO_PIN_WRITE_LOGIC(&led1, GPIO_HIGH);
-	_delay_ms(2000);
-	GPIO_PIN_WRITE_LOGIC(&led1, GPIO_LOW);
-}
+//void __vector_2 (void)__attribute__((signal)) ;	// Vector2(address) -> ISR of interrupt 1 in vector table
+//void __vector_2 (void)
+//{
+//	GPIO_PIN_WRITE_LOGIC(&led1, GPIO_HIGH);
+//	_delay_ms(2000);
+//	GPIO_PIN_WRITE_LOGIC(&led1, GPIO_LOW);
+//}

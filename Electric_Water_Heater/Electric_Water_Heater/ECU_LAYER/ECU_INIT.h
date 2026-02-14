@@ -18,7 +18,6 @@
 #include "PUSH_BUTTONS/ECU_PUSH_BUTTONS.h"
 #include "RELAY/ECU_RELAY.h"
 #include "TEMP_SENSOR/ECU_TEMP_SENSOR.h"
-
 /* Section: Macro Declarations */
 
 /* Section: Macro Functions Declarations */
